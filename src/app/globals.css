@@ -1,26 +1,100 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-anchor: none;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+@layer base {
+  @font-face {
+    font-family: "circular-web";
+    src: url("/fonts/circularweb-book.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "general";
+    src: url("/fonts/general.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "robert-medium";
+    src: url("/fonts/robert-medium.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "robert-regular";
+    src: url("/fonts/robert-regular.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "zentry";
+    src: url("/fonts/zentry-regular.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "lora";
+    src: url("/fonts/lora.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "lora-italic";
+    src: url("/fonts/lora-italic.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "cinzel";
+    src: url("/fonts/cinzel.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "cinzelDecorative-regular";
+    src: url("/fonts/CinzelDecorative-Regular.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "cinzelDecorative-bold";
+    src: url("/fonts/CinzelDecorative-Bold.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "cinzelDecorative-black";
+    src: url("/fonts/CinzelDecorative-Black.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "playfair";
+    src: url("/fonts/PlayfairDisplay-VariableFont_wght.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "playfair-italic";
+    src: url("/fonts/PlayfairDisplay-Italic-VariableFont_wght.woff2")
+      format("woff2");
+  }
 }
