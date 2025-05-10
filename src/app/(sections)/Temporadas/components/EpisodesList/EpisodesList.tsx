@@ -69,12 +69,12 @@ const EpisodesList = ({
       width: "100vw",
       height: "100vh",
       borderRadius: "0",
-      transition: {duration: 0.6, ease: [0.76, 0, 0.24, 1]}
+      transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
     },
     inactive: {
-      width: "40vw",
-      height: "auto",
-      transition: {duration: 0.6, ease: [0.76, 0, 0.24, 1], delay: 0.6}
+      width: isMobile ? "340px" : "740px",
+      height: isMobile ? "340px" : "740px",
+      transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1], delay: 0.6 },
     },
   };
 
@@ -88,7 +88,7 @@ const EpisodesList = ({
     },
     exit: {
       y: 0,
-      transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1]},
+      transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
     },
   };
 
@@ -140,12 +140,8 @@ const EpisodesList = ({
           className={styles.episodes}
           onClick={() => handleEpisodeClick(episode.id, index)}
           variants={variants}
-          initial="false"
+          initial="inactive"
           animate={activeEpisode === episode.id ? "active" : "inactive"}
-          style={{
-            minWidth: isMobile ? "340px" : "740px",
-            minHeight: isMobile ? "340px" : "740px",
-          }}
         >
           <Image
             src={episode.image}
