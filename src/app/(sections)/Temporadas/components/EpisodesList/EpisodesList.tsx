@@ -154,7 +154,6 @@ const EpisodesList = ({
             height={1632}
             className={styles.image}
             placeholder="blur"
-            blurDataURL={episode.image}
           />
 
           <div className={styles.episode}>
