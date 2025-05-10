@@ -116,7 +116,7 @@ const EpisodesList = ({
       const behavior = activeEpisode === firstClicked ? "smooth" : "instant";
       imagesContainerRef.current[idx]?.scrollIntoView({
         behavior,
-        block: "center",
+        block: "start",
       });
     };
 
