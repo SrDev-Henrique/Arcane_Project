@@ -5,7 +5,6 @@ import styles from "./EpisodesList.module.scss";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import debounce from "lodash.debounce";
-import useDimension from "@/utils/useDimension";
 
 interface EpisodesItems {
   id: number;
@@ -36,9 +35,6 @@ const EpisodesList = ({
   const container = containerRef.current;
 
   const [firstClicked, setFirstClicked] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  const { width } = useDimension();
 
   const addToImagesRefs = (el: HTMLDivElement | null, index: number) => {
     if (!el) return;
@@ -66,15 +62,14 @@ const EpisodesList = ({
 
   const variants = {
     active: {
-      width: "100vw",
-      height: "100vh",
+      scale: 1,
       borderRadius: "0",
-      transition: {duration: 0.6, ease: [0.76, 0, 0.24, 1]}
+      transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
     },
     inactive: {
-      width: "40vw",
-      height: "auto",
-      transition: {duration: 0.6, ease: [0.76, 0, 0.24, 1], delay: 0.6}
+      scale: 0.745,
+      borderRadius: "0.5rem",
+      transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1], delay: 0.6 },
     },
   };
 
@@ -93,29 +88,13 @@ const EpisodesList = ({
   };
 
   useEffect(() => {
-    const checkMobile = () => {
-      if (typeof window !== "undefined") {
-        setIsMobile(window.innerWidth <= 768);
-      }
-    };
-
-    checkMobile();
-
-    window.addEventListener("resize", checkMobile);
-
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
-  }, [width]);
-
-  useEffect(() => {
     const idx = episodes.findIndex((ep) => ep.id === activeEpisode);
 
     const scrollIntoView = () => {
       const behavior = activeEpisode === firstClicked ? "smooth" : "instant";
       imagesContainerRef.current[idx]?.scrollIntoView({
         behavior,
-        block: "start",
+        block: "center",
       });
     };
 
@@ -140,12 +119,8 @@ const EpisodesList = ({
           className={styles.episodes}
           onClick={() => handleEpisodeClick(episode.id, index)}
           variants={variants}
-          initial="false"
+          initial="inactive"
           animate={activeEpisode === episode.id ? "active" : "inactive"}
-          style={{
-            minWidth: isMobile ? "340px" : "740px",
-            minHeight: isMobile ? "340px" : "740px",
-          }}
         >
           <Image
             src={episode.image}
@@ -154,6 +129,7 @@ const EpisodesList = ({
             height={1632}
             className={styles.image}
             placeholder="blur"
+            blurDataURL={episode.image}
           />
 
           <div className={styles.episode}>
