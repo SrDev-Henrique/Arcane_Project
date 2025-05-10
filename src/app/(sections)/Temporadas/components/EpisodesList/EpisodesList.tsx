@@ -74,6 +74,7 @@ const EpisodesList = ({
     inactive: {
       width: isMobile ? "340px" : "740px",
       height: isMobile ? "340px" : "740px",
+      borderRadius: "0.5rem",
       transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1], delay: 0.6 },
     },
   };
@@ -115,7 +116,7 @@ const EpisodesList = ({
       const behavior = activeEpisode === firstClicked ? "smooth" : "instant";
       imagesContainerRef.current[idx]?.scrollIntoView({
         behavior,
-        block: "start",
+        block: "center",
       });
     };
 
