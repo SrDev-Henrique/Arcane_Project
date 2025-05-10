@@ -1,0 +1,7 @@
+@use "src/styles/variables.scss" as *;
+
+.container {
+    height: 100dvh;
+    width: 100%;
+    background-color: $sage-green;
+}
