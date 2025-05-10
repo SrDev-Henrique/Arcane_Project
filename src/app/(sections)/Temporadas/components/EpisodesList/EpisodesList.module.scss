@@ -24,32 +24,33 @@
     gap: 8rem;
   }
 
-  .closeButton {
-    width: fit-content;
-    height: fit-content;
+}
 
-    cursor: pointer;
+.closeButton {
+  width: fit-content;
+  height: fit-content;
 
-    position: fixed;
-    top: 30;
-    right: 50;
-    z-index: 100;
+  cursor: pointer;
 
-    padding: 0.5rem;
-    background-color: $accent-pink;
-    border-radius: 0.5rem;
+  position: fixed;
+  top: 30;
+  right: 50;
+  z-index: 100;
 
-    p {
-      font-family: $font-lora;
-      font-size: 0.75rem;
-      font-weight: 700;
-      line-height: 1rem;
+  padding: 0.5rem;
+  background-color: $accent-pink;
+  border-radius: 0.5rem;
 
-      color: $black-dark;
-      text-transform: uppercase;
-    }
-    
+  p {
+    font-family: $font-lora;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1rem;
+
+    color: $black-dark;
+    text-transform: uppercase;
   }
+  
 }
 
 .episodes {
