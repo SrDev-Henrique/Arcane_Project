@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+// import Image from "next/image";
 import styles from "./EpisodesList.module.scss";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
@@ -144,7 +144,7 @@ const EpisodesList = ({
           initial="inactive"
           animate={activeEpisode === episode.id ? "active" : "inactive"}
         >
-          <Image
+          {/* <Image
             src={episode.image}
             alt={`episódio-${episode.episode}`}
             width={3840}
@@ -152,7 +152,7 @@ const EpisodesList = ({
             className={styles.image}
             placeholder="blur"
             blurDataURL={episode.image}
-          />
+          /> */}
 
           <div className={styles.episode}>
             <div className={styles.content}>
