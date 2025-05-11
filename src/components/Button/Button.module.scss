@@ -1,0 +1,93 @@
+@use "src/styles/variables.scss" as *;
+
+@mixin flexCenter () {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin button ($background: $blue-50, $width: 128px,) {
+    @include flexCenter;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    width: $width;
+    outline: none;
+    border: 1px solid transparent;
+
+    padding-block: 0.75rem;
+    padding-inline: 1.75rem;
+    border-radius: 2rem;
+
+    text-transform: uppercase;
+
+    background: $background;
+
+    &:hover {
+        .firstText {
+            will-change: transform, opacity;
+            transform: translateY(-1rem);
+            opacity: 0;
+        }
+
+        .secondText {
+            will-change: transform, opacity;
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+
+@mixin textContainer ($position: relative) {
+    @include flexCenter;
+    position: $position;
+    gap: 0.25rem;
+
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+@mixin textWrapper () {
+    position: relative;
+    overflow: hidden;
+
+    font-family: $font-lora;
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+.baseButton {
+    @include button;
+
+    .firstText {
+        @include textContainer;
+
+        .textWrapper {
+            @include textWrapper;
+        }
+    }
+
+    .secondText {
+        @include textContainer(absolute);
+        opacity: 0;
+        transform: translateY(1rem);
+
+        .textWrapper {
+            @include textWrapper;
+        }
+    }
+}
+
+.default {
+    @include button;
+
+    @media(min-width: 768px) {
+        width: 176px;
+    }
+}
+
+.temporadas {
+    @include button($accent-pink, fit-content);
+    font-weight: 600;
+}
+

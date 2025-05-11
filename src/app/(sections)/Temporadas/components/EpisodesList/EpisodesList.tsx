@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import debounce from "lodash.debounce";
 import useDimension from "@/utils/useDimension";
 import Lenis from "lenis";
+import Button from "@/components/Button/Button";
 
 interface EpisodesItems {
   id: number;
@@ -96,8 +97,7 @@ const EpisodesList = ({
   };
 
   useEffect(() => {
-    if (!containerRef.current || activeEpisode > 0)
-      return;
+    if (!containerRef.current || activeEpisode > 0) return;
 
     const localLenis = new Lenis({
       wrapper: containerRef.current,
@@ -126,7 +126,7 @@ const EpisodesList = ({
   useEffect(() => {
     const checkMobile = () => {
       if (typeof window !== "undefined") {
-        setIsMobile(window.innerWidth <= 768);
+        setIsMobile(window.innerWidth <= 768 || window.innerHeight <= 440);
       }
     };
 
@@ -199,8 +199,12 @@ const EpisodesList = ({
           </div>
         </motion.div>
       ))}
-      <div onClick={handleCloseButtonClick} className={styles.closeButton}>
-        <p>Fechar</p>
+      <div className={styles.closeButton}>
+        <Button
+          title="fechar"
+          onClick={handleCloseButtonClick}
+          variant="temporadas"
+        />
       </div>
     </div>
   );
