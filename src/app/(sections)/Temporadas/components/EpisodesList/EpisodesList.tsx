@@ -143,6 +143,11 @@ const EpisodesList = ({
           variants={variants}
           initial="inactive"
           animate={activeEpisode === episode.id ? "active" : "inactive"}
+          style={{
+            backgroundImage: `url(/images/Temporadas/Temporada_1/episódio-${episode.episode}.webp)`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         >
           {/* <Image
             src={episode.image}
