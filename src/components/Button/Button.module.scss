@@ -43,6 +43,7 @@
     @include flexCenter;
     position: $position;
     gap: 0.25rem;
+    color: $black-dark;
 
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
