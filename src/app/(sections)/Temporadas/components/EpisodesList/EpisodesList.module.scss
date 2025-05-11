@@ -17,7 +17,7 @@
   padding-bottom: 60dvh;
 
   &.active {
-    overflow: hidden;
+    overflow-y: hidden;
   }
 
   @media (min-width: 768px) {

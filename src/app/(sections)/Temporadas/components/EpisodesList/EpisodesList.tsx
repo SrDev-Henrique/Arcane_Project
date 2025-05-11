@@ -1,11 +1,11 @@
 "use client";
 
-// import Image from "next/image";
 import styles from "./EpisodesList.module.scss";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import debounce from "lodash.debounce";
 import useDimension from "@/utils/useDimension";
+import Lenis from "lenis";
 
 interface EpisodesItems {
   id: number;
@@ -34,6 +34,7 @@ const EpisodesList = ({
   const imagesContainerRef = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const container = containerRef.current;
+  const lenisRef = useRef<Lenis | null>(null);
 
   const [firstClicked, setFirstClicked] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -48,10 +49,11 @@ const EpisodesList = ({
   const handleEpisodeClick = (episodeId: number, index: number) => {
     if (isTransitioning || activeEpisode > 0) return;
     firstContainerClickedRef.current = imagesContainerRef.current[index];
-    setActiveEpisode(episodeId);
     setIsTransitioning(true);
     setFirstClicked(episodeId);
     container?.classList.add(styles.active);
+    lenisRef.current?.stop();
+    setActiveEpisode(episodeId);
 
     setTimeout(() => {
       setIsTransitioning(false);
@@ -92,6 +94,34 @@ const EpisodesList = ({
       transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
     },
   };
+
+  useEffect(() => {
+    if (!containerRef.current || activeEpisode > 0)
+      return;
+
+    const localLenis = new Lenis({
+      wrapper: containerRef.current,
+      content: containerRef.current,
+      duration: 1.5,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      touchMultiplier: 0,
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+    });
+    lenisRef.current = localLenis;
+
+    function animate(time: number) {
+      localLenis.raf(time);
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    return () => {
+      localLenis.destroy();
+      lenisRef.current = null;
+    };
+  }, [activeEpisode]);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -149,16 +179,6 @@ const EpisodesList = ({
             backgroundPosition: "center",
           }}
         >
-          {/* <Image
-            src={episode.image}
-            alt={`episódio-${episode.episode}`}
-            width={3840}
-            height={1632}
-            className={styles.image}
-            placeholder="blur"
-            blurDataURL={episode.image}
-          /> */}
-
           <div className={styles.episode}>
             <div className={styles.content}>
               <div className={styles.text}>

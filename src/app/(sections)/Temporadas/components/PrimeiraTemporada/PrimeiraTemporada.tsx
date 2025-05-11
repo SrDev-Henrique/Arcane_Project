@@ -3,12 +3,18 @@
 import { useRef, useState } from "react";
 import EpisodesList from "../EpisodesList/EpisodesList";
 import styles from "./PrimeiraTemporada.module.scss";
+import useLockBodyScroll from "@/utils/useLockBodyScroll";
 
 import { seasons } from "@/data/Temporadas";
 
 const PrimeiraTemporada = () => {
   const [activeEpisode, setActiveEpisode] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isSeasonActive, setIsSeasonActive] = useState(true)
+
+  console.log(setIsSeasonActive)
+
+  useLockBodyScroll(isSeasonActive);
 
   const firstContainerClickedRef = useRef<HTMLDivElement | null>(null);
 
