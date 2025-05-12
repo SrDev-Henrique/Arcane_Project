@@ -87,7 +87,7 @@ const EpisodesList = ({
       y: 0,
     },
     enter: {
-      y: -30,
+      y: -50,
       transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1], delay: 0.6 },
     },
     exit: {
@@ -126,7 +126,7 @@ const EpisodesList = ({
   useEffect(() => {
     const checkMobile = () => {
       if (typeof window !== "undefined") {
-        setIsMobile(window.innerWidth <= 768 || window.innerHeight <= 440);
+        setIsMobile(window.innerWidth <= 768 || window.innerHeight <= 500);
       }
     };
 

@@ -21,14 +21,16 @@ const PrimeiraTemporada = () => {
   const episodes = seasons.firstSeason;
   return (
     <div className={styles.container}>
-      <EpisodesList
-        activeEpisode={activeEpisode}
-        setActiveEpisode={setActiveEpisode}
-        isTransitioning={isTransitioning}
-        setIsTransitioning={setIsTransitioning}
-        firstContainerClickedRef={firstContainerClickedRef}
-        episodes={episodes}
-      />
+      <div className={styles.seasonContainer}>
+        <EpisodesList
+          activeEpisode={activeEpisode}
+          setActiveEpisode={setActiveEpisode}
+          isTransitioning={isTransitioning}
+          setIsTransitioning={setIsTransitioning}
+          firstContainerClickedRef={firstContainerClickedRef}
+          episodes={episodes}
+        />
+      </div>
     </div>
   );
 };

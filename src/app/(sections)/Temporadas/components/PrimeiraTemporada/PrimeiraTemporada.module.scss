@@ -5,3 +5,13 @@
     width: 100%;
     background-color: $sage-green;
 }
+
+.seasonContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $black-lighter;
+}
