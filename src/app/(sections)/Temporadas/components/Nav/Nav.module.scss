@@ -1,0 +1,100 @@
+@use "@/styles/variables" as *;
+
+@mixin flexCenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav {
+  @include flexCenter;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  margin-top: 1.75rem;
+  border-radius: 1.5rem;
+  background-color: $black-light;
+  user-select: none;
+  transform-origin: top;
+  z-index: 100;
+
+  @media (min-width: 768px) {
+    margin-top: 1.5rem;
+  }
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  width: 35px;
+  height: auto;
+  gap: 0.55rem;
+  text-transform: uppercase;
+  font-family: $font-lora;
+  font-size: 0.75rem;
+  background-color: #0a0a0a;
+  color: #c1c1ba;
+  padding: 0.5rem;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+
+  &.active:nth-child(1) {
+    background-color: #c1c1ba;
+    color: #0a0a0a;
+    gap: 0.25rem;
+    width: 105px;
+  }
+
+  &.active:nth-child(2) {
+    background-color: #c1c1ba;
+    color: #0a0a0a;
+    gap: 0.25rem;
+    width: 115px;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+    gap: 0.75rem;
+    width: 40px;
+
+    &.active:nth-child(1) {
+      width: 142px;
+    }
+
+    &.active:nth-child(2) {
+      width: 148px;
+    }
+  }
+}
+
+.navButtonIconContainer {
+  @include flexCenter;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 0.14rem;
+
+  @media (min-width: 768px) {
+    margin-left: 0.27rem;
+  }
+}
+
+.navButtonIcon {
+  font-size: 1rem;
+  line-height: 1.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+.navButtonText {
+  @include flexCenter;
+}

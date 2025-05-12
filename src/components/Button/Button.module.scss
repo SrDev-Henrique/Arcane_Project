@@ -6,22 +6,41 @@
     justify-content: center;
 }
 
-@mixin button ($background: $blue-50, $width: 128px,) {
+@mixin textContainer ($position: relative) {
     @include flexCenter;
+    position: $position;
+    gap: 0.25rem;
+
+    transition: transform 0.3s ease-out, opacity 0.2s ease-out;
+}
+
+@mixin textWrapper () {
+    position: relative;
+    overflow: hidden;
+
+    font-family: $font-lora;
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+@mixin button ($background: $blue-50, $width: 128px, $color: $black-dark) {
+    @include flexCenter;
+    
+    width: $width;
+    color: $color;
+    background: $background;
+
     position: relative;
     cursor: pointer;
     overflow: hidden;
-    width: $width;
-    outline: none;
     border: 1px solid transparent;
 
     padding-block: 0.75rem;
-    padding-inline: 1.75rem;
+    padding-inline: 0.75rem;
     border-radius: 2rem;
 
     text-transform: uppercase;
 
-    background: $background;
 
     &:hover {
         .firstText {
@@ -36,25 +55,6 @@
             opacity: 1;
         }
     }
-}
-
-
-@mixin textContainer ($position: relative) {
-    @include flexCenter;
-    position: $position;
-    gap: 0.25rem;
-    color: $black-dark;
-
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-}
-
-@mixin textWrapper () {
-    position: relative;
-    overflow: hidden;
-
-    font-family: $font-lora;
-    font-size: 0.75rem;
-    line-height: 1rem;
 }
 
 .baseButton {
@@ -87,8 +87,13 @@
     }
 }
 
-.temporadas {
+.fechar {
     @include button($accent-pink, fit-content);
     font-weight: 600;
+}
+
+.voltar {
+    @include button($black-light, fit-content, $arcane-white);
+    font-weight: bold;
 }
 

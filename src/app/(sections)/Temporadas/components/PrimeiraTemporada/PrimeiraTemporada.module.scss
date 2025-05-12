@@ -12,6 +12,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     background-color: $black-lighter;
+}
+
+.episodesContainer {
+    position: absolute;
+    inset: 0;
 }

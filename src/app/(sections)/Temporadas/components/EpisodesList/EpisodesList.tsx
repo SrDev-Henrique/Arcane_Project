@@ -1,12 +1,16 @@
 "use client";
 
 import styles from "./EpisodesList.module.scss";
+
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import debounce from "lodash.debounce";
+import { FaArrowLeft } from "react-icons/fa";
+
 import useDimension from "@/utils/useDimension";
-import Lenis from "lenis";
 import Button from "@/components/Button/Button";
+import debounce from "lodash.debounce";
+
+import { motion } from "framer-motion";
+import Lenis from "lenis";
 
 interface EpisodesItems {
   id: number;
@@ -16,6 +20,9 @@ interface EpisodesItems {
 }
 
 interface EpisodesListProps {
+  activeSeason: string;
+  temporada: string;
+  activeTab: string;
   episodes: EpisodesItems[];
   firstContainerClickedRef: React.RefObject<HTMLDivElement | null>;
   activeEpisode: number;
@@ -25,6 +32,9 @@ interface EpisodesListProps {
 }
 
 const EpisodesList = ({
+  activeSeason,
+  temporada,
+  activeTab,
   episodes,
   firstContainerClickedRef,
   activeEpisode,
@@ -62,12 +72,23 @@ const EpisodesList = ({
   };
 
   const handleCloseButtonClick = () => {
-    setIsTransitioning(false);
+    setIsTransitioning(true);
     setActiveEpisode(0);
     container?.classList.remove(styles.active);
+
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 1200);
   };
 
+  //todo: Framer Motion
+
   const variants = {
+    initial: {
+      width: isMobile ? "340px" : "740px",
+      height: isMobile ? "340px" : "740px",
+      borderRadius: "0.5rem",
+    },
     active: {
       width: "100vw",
       height: "100vh",
@@ -78,7 +99,11 @@ const EpisodesList = ({
       width: isMobile ? "340px" : "740px",
       height: isMobile ? "340px" : "740px",
       borderRadius: "0.5rem",
-      transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1], delay: 0.6 },
+      transition: {
+        duration: 0.6,
+        ease: [0.76, 0, 0.24, 1],
+        delay: isTransitioning ? 0.6 : 0,
+      },
     },
   };
 
@@ -95,6 +120,27 @@ const EpisodesList = ({
       transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
     },
   };
+
+  const listVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemRevealVariants = {
+    hidden: { y: "50%", scale: 0.5, opacity: 0 },
+    visible: {
+      y: "0%",
+      scale: 1,
+      opacity: 1,
+      transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
+    },
+  };
+
+  //todo: useEffect
 
   useEffect(() => {
     if (!containerRef.current || activeEpisode > 0) return;
@@ -164,46 +210,68 @@ const EpisodesList = ({
 
   return (
     <div ref={containerRef} className={styles.container}>
-      {episodes.map((episode, index) => (
+      {activeSeason === temporada && activeTab === "episódios" && (
         <motion.div
-          ref={(el) => addToImagesRefs(el, index)}
-          key={episode.id}
-          className={styles.episodes}
-          onClick={() => handleEpisodeClick(episode.id, index)}
-          variants={variants}
-          initial="inactive"
-          animate={activeEpisode === episode.id ? "active" : "inactive"}
-          style={{
-            backgroundImage: `url(/images/Temporadas/Temporada_1/episódio-${episode.episode}.webp)`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
+          variants={listVariants}
+          initial="hidden"
+          animate="visible"
+          className={styles.episodesContainer}
         >
-          <div className={styles.episode}>
-            <div className={styles.content}>
-              <div className={styles.text}>
-                <h2>Episódio {episode.episode}</h2>
-              </div>
-            </div>
-            <div className={styles.title}>
-              <div className={styles.text}>
-                <motion.h1
-                  variants={titlesVariants}
-                  initial="initial"
-                  animate={activeEpisode === episode.id ? "enter" : "exit"}
-                >
-                  {episode.title}
-                </motion.h1>
-              </div>
-            </div>
-          </div>
+          {episodes.map((episode, index) => (
+            <motion.div key={episode.id} variants={itemRevealVariants}>
+              <motion.div
+                ref={(el) => addToImagesRefs(el, index)}
+                key={episode.id}
+                className={`${styles.episodes} ${
+                  activeEpisode === episode.id ? styles.active : ""
+                }`}
+                onClick={() => handleEpisodeClick(episode.id, index)}
+                variants={variants}
+                initial="inactive"
+                animate={activeEpisode === episode.id ? "active" : "inactive"}
+                style={{
+                  backgroundImage: `url(/images/Temporadas/Temporada_1/episódio-${episode.episode}.webp)`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                <div className={styles.episode}>
+                  <div className={styles.content}>
+                    <div className={styles.text}>
+                      <h2>Episódio {episode.episode}</h2>
+                    </div>
+                  </div>
+                  <div className={styles.title}>
+                    <div className={styles.text}>
+                      <motion.h1
+                        variants={titlesVariants}
+                        initial="initial"
+                        animate={
+                          activeEpisode === episode.id ? "enter" : "exit"
+                        }
+                      >
+                        {episode.title}
+                      </motion.h1>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
         </motion.div>
-      ))}
+      )}
       <div className={styles.closeButton}>
         <Button
-          title="fechar"
+          style={{
+            opacity: activeEpisode > 0 ? 1 : 0,
+            willChange: activeEpisode > 0 ? "opacity" : "none",
+            pointerEvents: activeEpisode > 0 ? "auto" : "none",
+            transition: "opacity 0.3s ease-out",
+          }}
+          title="voltar"
           onClick={handleCloseButtonClick}
-          variant="temporadas"
+          variant="voltar"
+          leftIcon={<FaArrowLeft className={styles.arrowIcon} />}
         />
       </div>
     </div>

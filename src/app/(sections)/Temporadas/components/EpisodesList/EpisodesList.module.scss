@@ -9,20 +9,11 @@
 
   position: relative;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 4rem;
   padding-top: 7rem;
   padding-bottom: 60dvh;
 
   &.active {
     overflow-y: hidden;
-  }
-
-  @media (min-width: 768px) {
-    gap: 8rem;
   }
 }
 
@@ -32,15 +23,36 @@
   left: 50%;
   transform: translateX(-50%);
   width: min(100%, 1280px);
-  padding: 1rem;
-  z-index: 100;
+  margin-top: 1.75rem;;
+  padding-inline: 0.5rem;
+  pointer-events: none;
+  z-index: 2;
+
+  .arrowIcon {
+    font-size: 0.75rem;
+    font-weight: bol;
+  }
+
+  @media(min-width: 1280px) {
+    padding-inline: 0;
+  }
+}
+
+.episodesContainer {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 4rem;
+
+  @media (min-width: 768px) {
+    gap: 8rem;
+  }
 }
 
 .episodes {
-  will-change: width, height;
-
-  background-color: #000;
-
   position: relative;
 
   cursor: pointer;
@@ -48,6 +60,11 @@
   border-radius: 0.5rem;
 
   flex-shrink: 0;
+
+  &.active {
+    will-change: width, height;
+    pointer-events: none;
+  }
 }
 
 .image {
