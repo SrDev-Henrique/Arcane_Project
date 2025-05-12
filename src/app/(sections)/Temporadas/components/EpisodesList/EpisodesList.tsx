@@ -210,7 +210,13 @@ const EpisodesList = ({
               className={`${styles.episodes} ${
                 activeEpisode === episode.id ? styles.active : ""
               }`}
-              onClick={() => handleEpisodeClick(episode.id)}
+              onClick={() => {
+                handleEpisodeClick(episode.id)
+                imagesContainerRef.current[index]?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }}
               variants={variants}
               initial="inactive"
               animate={activeEpisode === episode.id ? "active" : "inactive"}
