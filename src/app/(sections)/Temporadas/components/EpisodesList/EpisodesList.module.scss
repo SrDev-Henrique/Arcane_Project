@@ -15,6 +15,11 @@
   &.active {
     overflow-y: hidden;
   }
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 .closeButton {
@@ -23,14 +28,17 @@
   left: 50%;
   transform: translateX(-50%);
   width: min(100%, 1280px);
-  margin-top: 1.75rem;;
+  margin-top: 1.96rem;
   padding-inline: 0.5rem;
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
 
   .arrowIcon {
     font-size: 0.75rem;
-    font-weight: bol;
+  }
+
+  @media(min-width: 768px) {
+    margin-top: 1.781rem;
   }
 
   @media(min-width: 1280px) {
@@ -98,7 +106,8 @@
       width: fit-content;
       height: fit-content;
 
-      background-color: $arcane-white;
+      color: $arcane-white;
+      background-color: $black-dark;
       border-radius: 0.75rem;
 
       padding: 0.5rem;
@@ -152,4 +161,17 @@
       }
     }
   }
+}
+
+.nextEpisode {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+
+  background-color: $black-dark;
+  color: $arcane-white;
+
+  z-index: 3;
+  
+  
 }

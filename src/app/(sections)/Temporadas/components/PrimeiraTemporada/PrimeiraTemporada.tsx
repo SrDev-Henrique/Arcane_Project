@@ -1,12 +1,16 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import EpisodesList from "../EpisodesList/EpisodesList";
 import styles from "./PrimeiraTemporada.module.scss";
 import useLockBodyScroll from "@/utils/useLockBodyScroll";
 
+import { motion } from "framer-motion";
+
 import { seasons } from "@/data/Temporadas";
 import Nav from "../Nav/Nav";
+import Button from "@/components/Button/Button";
+import { closeButtonVariants } from "../../animations/anime";
 
 const navItems = ["episódios", "highlights"];
 
@@ -23,13 +27,26 @@ const PrimeiraTemporada = () => {
 
   useLockBodyScroll(isSeasonActive);
 
-  const firstContainerClickedRef = useRef<HTMLDivElement | null>(null);
-
   const episodes = seasons.firstSeason;
 
   return (
     <div className={styles.container}>
       <div className={styles.seasonContainer}>
+        <motion.div
+          className={styles.closeButton}
+          variants={closeButtonVariants}
+          initial="hidden"
+          animate={activeSeason === temporada ? "visible" : "hidden"}
+        >
+          <Button
+            title="fechar"
+            onClick={() => {
+              setIsSeasonActive(false)
+              setActiveSeason("")
+            }}
+            variant="fechar"
+          />
+        </motion.div>
         <Nav
           navItems={navItems}
           activeTab={activeTab}
@@ -40,13 +57,10 @@ const PrimeiraTemporada = () => {
         />
         <div className={styles.episodesContainer}>
           <EpisodesList
-            activeSeason={activeSeason}
-            temporada={temporada}
             activeEpisode={activeEpisode}
             setActiveEpisode={setActiveEpisode}
             isTransitioning={isTransitioning}
             setIsTransitioning={setIsTransitioning}
-            firstContainerClickedRef={firstContainerClickedRef}
             activeTab={activeTab}
             episodes={episodes}
           />

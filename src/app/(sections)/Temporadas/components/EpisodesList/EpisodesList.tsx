@@ -12,6 +12,12 @@ import debounce from "lodash.debounce";
 import { motion } from "framer-motion";
 import Lenis from "lenis";
 
+import {
+  itemRevealVariants,
+  listVariants,
+  titlesVariants,
+} from "../../animations/anime";
+
 interface EpisodesItems {
   id: number;
   episode: string;
@@ -20,11 +26,8 @@ interface EpisodesItems {
 }
 
 interface EpisodesListProps {
-  activeSeason: string;
-  temporada: string;
   activeTab: string;
   episodes: EpisodesItems[];
-  firstContainerClickedRef: React.RefObject<HTMLDivElement | null>;
   activeEpisode: number;
   setActiveEpisode: (episode: number) => void;
   isTransitioning: boolean;
@@ -32,11 +35,8 @@ interface EpisodesListProps {
 }
 
 const EpisodesList = ({
-  activeSeason,
-  temporada,
   activeTab,
   episodes,
-  firstContainerClickedRef,
   activeEpisode,
   setActiveEpisode,
   isTransitioning,
@@ -44,7 +44,6 @@ const EpisodesList = ({
 }: EpisodesListProps) => {
   const imagesContainerRef = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const container = containerRef.current;
   const lenisRef = useRef<Lenis | null>(null);
 
   const [firstClicked, setFirstClicked] = useState(0);
@@ -57,12 +56,10 @@ const EpisodesList = ({
     imagesContainerRef.current[index] = el;
   };
 
-  const handleEpisodeClick = (episodeId: number, index: number) => {
+  const handleEpisodeClick = (episodeId: number) => {
     if (isTransitioning || activeEpisode > 0) return;
-    firstContainerClickedRef.current = imagesContainerRef.current[index];
     setIsTransitioning(true);
     setFirstClicked(episodeId);
-    container?.classList.add(styles.active);
     lenisRef.current?.stop();
     setActiveEpisode(episodeId);
 
@@ -74,7 +71,6 @@ const EpisodesList = ({
   const handleCloseButtonClick = () => {
     setIsTransitioning(true);
     setActiveEpisode(0);
-    container?.classList.remove(styles.active);
 
     setTimeout(() => {
       setIsTransitioning(false);
@@ -104,39 +100,6 @@ const EpisodesList = ({
         ease: [0.76, 0, 0.24, 1],
         delay: isTransitioning ? 0.6 : 0,
       },
-    },
-  };
-
-  const titlesVariants = {
-    initial: {
-      y: 0,
-    },
-    enter: {
-      y: -50,
-      transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1], delay: 0.6 },
-    },
-    exit: {
-      y: 0,
-      transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
-    },
-  };
-
-  const listVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemRevealVariants = {
-    hidden: { y: "50%", scale: 0.5, opacity: 0 },
-    visible: {
-      y: "0%",
-      scale: 1,
-      opacity: 1,
-      transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
     },
   };
 
@@ -208,58 +171,77 @@ const EpisodesList = ({
     };
   }, [activeEpisode, firstClicked, episodes]);
 
+  useEffect(() => {
+    const container = containerRef.current;
+
+    if (activeEpisode > 0) {
+      container?.classList.add(styles.active);
+    } else {
+      container?.classList.remove(styles.active);
+    }
+
+    return () => {
+      container?.classList.remove(styles.active);
+    };
+  }, [activeEpisode]);
+
   return (
-    <div ref={containerRef} className={styles.container}>
-      {activeSeason === temporada && activeTab === "episódios" && (
-        <motion.div
-          variants={listVariants}
-          initial="hidden"
-          animate="visible"
-          className={styles.episodesContainer}
-        >
-          {episodes.map((episode, index) => (
-            <motion.div key={episode.id} variants={itemRevealVariants}>
-              <motion.div
-                ref={(el) => addToImagesRefs(el, index)}
-                key={episode.id}
-                className={`${styles.episodes} ${
-                  activeEpisode === episode.id ? styles.active : ""
-                }`}
-                onClick={() => handleEpisodeClick(episode.id, index)}
-                variants={variants}
-                initial="inactive"
-                animate={activeEpisode === episode.id ? "active" : "inactive"}
-                style={{
-                  backgroundImage: `url(/images/Temporadas/Temporada_1/episódio-${episode.episode}.webp)`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <div className={styles.episode}>
-                  <div className={styles.content}>
-                    <div className={styles.text}>
-                      <h2>Episódio {episode.episode}</h2>
-                    </div>
-                  </div>
-                  <div className={styles.title}>
-                    <div className={styles.text}>
-                      <motion.h1
-                        variants={titlesVariants}
-                        initial="initial"
-                        animate={
-                          activeEpisode === episode.id ? "enter" : "exit"
-                        }
-                      >
-                        {episode.title}
-                      </motion.h1>
-                    </div>
+    <div
+      ref={containerRef}
+      className={`${styles.container} ${
+        activeTab !== "episódios" ? styles.hidden : ""
+      }`}
+    >
+      <motion.div
+        variants={listVariants}
+        initial="hidden"
+        animate={activeTab === "episódios" ? "visible" : "hidden"}
+        className={styles.episodesContainer}
+      >
+        {episodes.map((episode, index) => (
+          <motion.div
+            key={episode.id}
+            variants={itemRevealVariants}
+            initial="visible"
+            animate={activeTab !== "episódios" ? "hidden" : "visible"}
+          >
+            <motion.div
+              ref={(el) => addToImagesRefs(el, index)}
+              className={`${styles.episodes} ${
+                activeEpisode === episode.id ? styles.active : ""
+              }`}
+              onClick={() => handleEpisodeClick(episode.id)}
+              variants={variants}
+              initial="inactive"
+              animate={activeEpisode === episode.id ? "active" : "inactive"}
+              style={{
+                backgroundImage: `url(/images/Temporadas/Temporada_1/episódio-${episode.episode}.webp)`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div className={styles.episode}>
+                <div className={styles.content}>
+                  <div className={styles.text}>
+                    <h2>Episódio {episode.episode}</h2>
                   </div>
                 </div>
-              </motion.div>
+                <div className={styles.title}>
+                  <div className={styles.text}>
+                    <motion.h1
+                      variants={titlesVariants}
+                      initial="initial"
+                      animate={activeEpisode === episode.id ? "enter" : "exit"}
+                    >
+                      {episode.title}
+                    </motion.h1>
+                  </div>
+                </div>
+              </div>
             </motion.div>
-          ))}
-        </motion.div>
-      )}
+          </motion.div>
+        ))}
+      </motion.div>
       <div className={styles.closeButton}>
         <Button
           style={{

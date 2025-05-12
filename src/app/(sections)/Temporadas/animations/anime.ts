@@ -1,0 +1,81 @@
+export const titlesVariants = {
+  initial: {
+    y: 0,
+  },
+  enter: {
+    y: -50,
+    transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1], delay: 0.6 },
+  },
+  exit: {
+    y: 0,
+    transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
+  },
+};
+
+export const listVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+export const itemRevealVariants = {
+  hidden: {
+    y: "50%",
+    scale: 0.5,
+    opacity: 0,
+    transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
+  },
+  visible: {
+    y: "0%",
+    scale: 1,
+    opacity: 1,
+    transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
+  },
+};
+
+export const navVariants = {
+  hidden: {
+    scaleY: 0,
+    transformOrigin: "top",
+  },
+  visible: {
+    scaleY: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+};
+
+export const closeButtonVariants = {
+  hidden: {
+    scaleY: 0,
+    transformOrigin: "top",
+    translateX: "-50%",
+  },
+  visible: {
+    scaleY: 1,
+    translateX: "-50%",
+    transition: {
+      duration: 0.5,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+};
+
+export const buttonVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      ease: [0.76, 0, 0.24, 1],
+      delay: 0.3,
+    },
+  },
+};

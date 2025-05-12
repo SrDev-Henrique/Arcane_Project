@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 
 import { RiPlayList2Fill } from "react-icons/ri";
 import { MdOndemandVideo } from "react-icons/md";
+import { buttonVariants } from "../../animations/anime";
+import { navVariants } from "../../animations/anime";
 
 const Nav = ({
   navItems,
@@ -20,34 +22,6 @@ const Nav = ({
   activeSeason: string;
   temporada: string;
 }) => {
-  //todo Framer Motion
-
-  const navVariants = {
-    hidden: {
-      scaleY: 0,
-    },
-    visible: {
-      scaleY: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.76, 0, 0.24, 1],
-      },
-    },
-  };
-
-  const buttonVariants = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.3,
-        ease: [0.76, 0, 0.24, 1],
-        delay: 0.3,
-      },
-    },
-  };
 
   if (activeSeason === temporada)
     return (
@@ -67,8 +41,10 @@ const Nav = ({
               activeTab === tab ? styles.active : ""
             }`}
             onClick={() => {
-              setActiveTab(tab);
-              setActiveEpisode(0);
+              if (activeTab !== tab) {
+                setActiveTab(tab);
+                setActiveEpisode(0);
+              }
             }}
           >
             <div className={styles.navButtonIconContainer}>
