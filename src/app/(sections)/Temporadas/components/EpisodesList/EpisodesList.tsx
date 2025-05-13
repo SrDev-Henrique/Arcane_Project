@@ -56,12 +56,19 @@ const EpisodesList = ({
     imagesContainerRef.current[index] = el;
   };
 
-  const handleEpisodeClick = (episodeId: number) => {
+  const handleEpisodeClick = (episodeId: number, index: number) => {
     if (isTransitioning || activeEpisode > 0) return;
     setIsTransitioning(true);
     setFirstClicked(episodeId);
-    lenisRef.current?.stop();
     setActiveEpisode(episodeId);
+    const el = imagesContainerRef.current[index];
+    if (el && lenisRef.current) {
+      lenisRef.current.scrollTo(el, {
+        duration: 1.2,
+        offset: 0,
+      });
+    }
+    // lenisRef.current?.stop();
 
     setTimeout(() => {
       setIsTransitioning(false);
@@ -159,8 +166,6 @@ const EpisodesList = ({
       });
     };
 
-    scrollIntoView();
-
     const handleResize = debounce(scrollIntoView, 200);
 
     window.addEventListener("resize", handleResize);
@@ -211,11 +216,8 @@ const EpisodesList = ({
                 activeEpisode === episode.id ? styles.active : ""
               }`}
               onClick={() => {
-                handleEpisodeClick(episode.id)
-                imagesContainerRef.current[index]?.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
+                handleEpisodeClick(episode.id, index)
+                
               }}
               variants={variants}
               initial="inactive"
