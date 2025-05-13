@@ -12,7 +12,7 @@ const Button = ({
   title: string;
   rightIcon?: React.ReactNode;
   leftIcon?: React.ReactNode;
-  variant?: "default" | "hero" | "voltar" | "ghost" | "fechar";
+  variant?: "default" | "hero" | "voltar" | "assistaAgora" | "fechar" | "anterior";
   style?: React.CSSProperties;
   onClick?: () => void;
 }) => {

@@ -11,23 +11,23 @@ import { seasons } from "@/data/Temporadas";
 import Nav from "../Nav/Nav";
 import Button from "@/components/Button/Button";
 import { closeButtonVariants } from "../../animations/anime";
+import Episodes from "../Episodes/Episodes";
 
 const navItems = ["episódios", "highlights"];
 
 const PrimeiraTemporada = () => {
+  const [isEpisodeActive, setIsEpisodeActive] = useState(false);
   const [activeEpisode, setActiveEpisode] = useState(0);
-  const [activeSeason, setActiveSeason] = useState("Temporada 1");
+  const [activeSeason, setActiveSeason] = useState("Temporada_1");
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isSeasonActive, setIsSeasonActive] = useState(true);
   const [activeTab, setActiveTab] = useState("episódios");
 
-  const temporada = "Temporada 1";
-
-  console.log(setIsSeasonActive, setActiveSeason);
+  const temporada = "Temporada_1";
+  const episodes = seasons.firstSeason;
+  const episodesList = seasons.firstSeason;
 
   useLockBodyScroll(isSeasonActive);
-
-  const episodes = seasons.firstSeason;
 
   return (
     <div className={styles.container}>
@@ -41,8 +41,9 @@ const PrimeiraTemporada = () => {
           <Button
             title="fechar"
             onClick={() => {
-              setIsSeasonActive(false)
-              setActiveSeason("")
+              setIsSeasonActive(false);
+              setActiveSeason("");
+              setActiveTab(" ");
             }}
             variant="fechar"
           />
@@ -62,7 +63,18 @@ const PrimeiraTemporada = () => {
             isTransitioning={isTransitioning}
             setIsTransitioning={setIsTransitioning}
             activeTab={activeTab}
-            episodes={episodes}
+            episodes={episodesList}
+            setIsEpisodeActive={setIsEpisodeActive}
+          />
+          <Episodes
+            subject={episodes}
+            temporada={temporada}
+            activeEpisode={activeEpisode}
+            setActiveEpisode={setActiveEpisode}
+            isTransitioning={isTransitioning}
+            setIsTransitioning={setIsTransitioning}
+            activeTab={activeTab}
+            isEpisodeActive={isEpisodeActive}
           />
         </div>
       </div>

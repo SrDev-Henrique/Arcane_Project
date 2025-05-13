@@ -26,7 +26,7 @@ export const itemRevealVariants = {
     y: "50%",
     scale: 0.5,
     opacity: 0,
-    transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
+    transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
   },
   visible: {
     y: "0%",
@@ -76,6 +76,75 @@ export const buttonVariants = {
       duration: 0.3,
       ease: [0.76, 0, 0.24, 1],
       delay: 0.3,
+    },
+  },
+};
+
+export const episodesContainerVariants = {
+  hidden: {
+    opacity: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  visible: {
+    opacity: 1,
+    transition: { 
+      duration: 0.6,
+      ease: [0.76, 0, 0.24, 1],
+      delay: 1,
+    },
+  },
+};
+
+export const currentEpisodeVariants = {
+  hidden: {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    transition: {
+      duration: 0.6,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  visible: {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    transition: {
+      duration: 0.6,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+};
+
+export const prevEpisodeVariants = {
+  hidden: {
+    clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+    transition: {
+      duration: 0.6,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  visible: {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    transition: {
+      duration: 0.6,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+};
+
+export const nextEpisodeVariants = {
+  hidden: {
+    clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
+    transition: {
+      duration: 0.6,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  visible: {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    transition: {
+      duration: 0.6,
+      ease: [0.76, 0, 0.24, 1],
     },
   },
 };

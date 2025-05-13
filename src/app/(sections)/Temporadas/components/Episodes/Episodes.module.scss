@@ -1,0 +1,296 @@
+@use "src/styles/variables.scss" as *;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin size-full {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  @include flex-center;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  pointer-events: auto;
+
+  &.isHidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.episodesContainer {
+  @include flex-center;
+  @include size-full;
+  position: relative;
+}
+
+.episode {
+  @include size-full;
+  position: absolute;
+  inset: 0;
+  will-change: clip-path, opacity;
+  opacity: 0;
+
+  &.active {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    opacity: 1;
+  }
+
+  &.prev {
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+    opacity: 1;
+  }
+
+  &.upcoming {
+    clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+    opacity: 1;
+  }
+
+  &.hidden {
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0 100%);
+    opacity: 0;
+  }
+}
+
+.episodeContainer {
+  @include size-full;
+  position: relative;
+}
+
+.episodeImageContainer {
+  @include size-full;
+}
+
+.episodeInfoContainer {
+  @include flex-center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.episodeInfo {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 620px;
+  gap: 1rem;
+  background-color: $arcane-white;
+
+  @media (min-width: 621px) {
+    padding: 0.25rem;
+    border-top-left-radius: 1.875rem;
+    border-top-right-radius: 1.875rem;
+  }
+}
+
+.currentEpisodeInfo {
+    @include flex-center;
+    width: fit-content;
+    gap: 0.5rem;
+    padding-inline: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.currentEpisodeImage {
+  width: 4rem;
+  aspect-ratio: 1/1;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  img {
+    @include size-full;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.currentEpisode {
+  @include flex-center;
+  min-width: 3rem;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  border: 1px solid $black-lighter;
+  color: $black-light;
+  font-size: 1.875rem;
+  font-family: $font-lora;
+  line-height: 2.25rem;
+
+  @media (min-width: 768px) {
+    min-width: 3.5rem;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+.currentEpisodeDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.currentEpisodeTitle {
+  color: $black-dark;
+  font-family: $font-playfair;
+  font-weight: 600;
+
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+.currentEpisodeRating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .currentEpisodeImdb {
+    color: $black-lighter;
+    font-family: $font-lora;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+
+    @media (min-width: 1024px) {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+  }
+}
+
+.currentEpisodeFav {
+  @include flex-center;
+  gap: 0.25rem;
+  width: fit-content;
+  min-width: 3.5rem;
+  padding-inline: 0.5rem;
+  height: 1.5rem;
+  background-color: $beige-transparent;
+  border-radius: 100%;
+
+  &.isHidden {
+    opacity: 0;
+  }
+
+  .currentEpisodeFavIcon {
+    color: $black-dark;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .currentEpisodeFavText {
+    color: $black-dark;
+    font-family: $font-lora;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1rem;
+    text-transform: uppercase;
+  }
+}
+
+.currentEpisodeDescriptionContainer {
+  width: 90%;
+  max-width: 32rem;
+  margin-inline-start: 0.5rem;
+  padding-inline: 0.5rem;
+
+  .currentEpisodeDescription {
+    color: $black-dark;
+    font-family: $font-lora;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+
+    @media (min-width: 768px) {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+  }
+}
+
+.nextEpisodeContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-inline: 0.5rem;
+  padding-bottom: 0.75rem;
+  user-select: none;
+}
+
+.watchPrevButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nextEpisodeInfo {
+  @include flex-center;
+  gap: 0.5rem;
+  overflow: hidden;
+  background-color: $black-light;
+  padding-inline: 0.5rem;
+  padding-block: 0.5rem;
+  padding-inline: 0.75rem;
+
+  border-start-start-radius: 0.75rem;
+  border-end-start-radius: 0.75rem;
+
+  margin-inline-end: -0.5rem;
+
+  @media (min-width: 640px) {
+    margin-inline-end: -0.75rem;
+  }
+}
+
+.nextEpisodeTexts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: fit-content;
+  max-width: 9rem;
+  color: $arcane-white;
+
+  .nextText {
+    font-family: $font-lora;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .nextEpisode {
+    font-family: $font-lora;
+    font-weight: 600;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .nextEpisodeTitle {
+    font-family: $font-lora;
+    font-weight: 600;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}
+
+.nextEpisodeButton {
+  width: min(12vh, 5rem);
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  transition: scale 0.3s ease-out;
+  border-radius: 0.5rem;
+
+  &:hover {
+    scale: 0.9;
+  }
+}

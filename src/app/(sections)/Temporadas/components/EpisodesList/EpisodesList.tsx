@@ -32,6 +32,7 @@ interface EpisodesListProps {
   setActiveEpisode: (episode: number) => void;
   isTransitioning: boolean;
   setIsTransitioning: (isTransitioning: boolean) => void;
+  setIsEpisodeActive: (isEpisodeActive: boolean) => void;
 }
 
 const EpisodesList = ({
@@ -41,6 +42,7 @@ const EpisodesList = ({
   setActiveEpisode,
   isTransitioning,
   setIsTransitioning,
+  setIsEpisodeActive,
 }: EpisodesListProps) => {
   const imagesContainerRef = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -48,6 +50,7 @@ const EpisodesList = ({
 
   const [firstClicked, setFirstClicked] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isEpisodeClicked, setIsEpisodeClicked] = useState(false);
 
   const { width } = useDimension();
 
@@ -61,27 +64,28 @@ const EpisodesList = ({
     setIsTransitioning(true);
     setFirstClicked(episodeId);
     setActiveEpisode(episodeId);
+    setIsEpisodeClicked(true);
+    setIsEpisodeActive(true);
     const el = imagesContainerRef.current[index];
     if (el && lenisRef.current) {
       lenisRef.current.scrollTo(el, {
-        duration: 1.2,
+        duration: 1,
         offset: 0,
       });
     }
-    // lenisRef.current?.stop();
-
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 600);
+    }, 1600);
   };
 
   const handleCloseButtonClick = () => {
     setIsTransitioning(true);
-    setActiveEpisode(0);
-
+    setIsEpisodeActive(false);
+    setIsEpisodeClicked(false);
     setTimeout(() => {
+      setActiveEpisode(0);
       setIsTransitioning(false);
-    }, 1200);
+    }, 1600);
   };
 
   //todo: Framer Motion
@@ -92,18 +96,19 @@ const EpisodesList = ({
       height: isMobile ? "340px" : "740px",
       borderRadius: "0.5rem",
     },
+
     active: {
       width: "100vw",
       height: "100vh",
       borderRadius: "0",
-      transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
+      transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
     },
     inactive: {
       width: isMobile ? "340px" : "740px",
       height: isMobile ? "340px" : "740px",
       borderRadius: "0.5rem",
       transition: {
-        duration: 0.6,
+        duration: 1,
         ease: [0.76, 0, 0.24, 1],
         delay: isTransitioning ? 0.6 : 0,
       },
@@ -159,12 +164,14 @@ const EpisodesList = ({
     const idx = episodes.findIndex((ep) => ep.id === activeEpisode);
 
     const scrollIntoView = () => {
-      const behavior = activeEpisode === firstClicked ? "smooth" : "instant";
-      imagesContainerRef.current[idx]?.scrollIntoView({
-        behavior,
-        block: "start",
-      });
+      if (firstClicked === activeEpisode) return;
+      const el = imagesContainerRef.current[idx];
+      setTimeout(() => {
+        el?.scrollIntoView({ behavior: "instant", block: "start" });
+      }, 1000);
     };
+
+    scrollIntoView();
 
     const handleResize = debounce(scrollIntoView, 200);
 
@@ -216,12 +223,15 @@ const EpisodesList = ({
                 activeEpisode === episode.id ? styles.active : ""
               }`}
               onClick={() => {
-                handleEpisodeClick(episode.id, index)
-                
+                handleEpisodeClick(episode.id, index);
               }}
               variants={variants}
               initial="inactive"
-              animate={activeEpisode === episode.id ? "active" : "inactive"}
+              animate={
+                activeEpisode === episode.id && isEpisodeClicked
+                  ? "active"
+                  : "inactive"
+              }
               style={{
                 backgroundImage: `url(/images/Temporadas/Temporada_1/episódio-${episode.episode}.webp)`,
                 backgroundSize: "cover",
@@ -239,7 +249,11 @@ const EpisodesList = ({
                     <motion.h1
                       variants={titlesVariants}
                       initial="initial"
-                      animate={activeEpisode === episode.id ? "enter" : "exit"}
+                      animate={
+                        activeEpisode === episode.id && isEpisodeClicked
+                          ? "enter"
+                          : "exit"
+                      }
                     >
                       {episode.title}
                     </motion.h1>
@@ -259,7 +273,10 @@ const EpisodesList = ({
             transition: "opacity 0.3s ease-out",
           }}
           title="voltar"
-          onClick={handleCloseButtonClick}
+          onClick={() => {
+            if (isTransitioning) return;
+            handleCloseButtonClick();
+          }}
           variant="voltar"
           leftIcon={<FaArrowLeft className={styles.arrowIcon} />}
         />

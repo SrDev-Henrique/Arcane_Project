@@ -1,99 +1,160 @@
 @use "src/styles/variables.scss" as *;
 
-@mixin flexCenter () {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@mixin flexCenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@mixin textContainer ($position: relative) {
-    @include flexCenter;
-    position: $position;
-    gap: 0.25rem;
+@mixin textContainer($position: relative) {
+  @include flexCenter;
+  position: $position;
+  gap: 0.25rem;
 
-    transition: transform 0.3s ease-out, opacity 0.2s ease-out;
+  transition: transform 0.3s ease-out, opacity 0.2s ease-out;
 }
 
-@mixin textWrapper () {
-    position: relative;
-    overflow: hidden;
+@mixin textWrapper($fontWeight: 0) {
+  position: relative;
+  overflow: hidden;
 
-    font-family: $font-lora;
-    font-size: 0.75rem;
-    line-height: 1rem;
+  font-family: $font-lora;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: $fontWeight;
 }
 
-@mixin button ($background: $blue-50, $width: 128px, $color: $black-dark) {
-    @include flexCenter;
-    
-    width: $width;
-    color: $color;
-    background: $background;
+@mixin button($background: $blue-50, $width: 128px, $color: $black-dark) {
+  @include flexCenter;
 
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    border: 1px solid transparent;
+  width: $width;
+  color: $color;
+  background: $background;
 
-    padding-block: 0.75rem;
-    padding-inline: 0.75rem;
-    border-radius: 2rem;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border: 1px solid transparent;
 
-    text-transform: uppercase;
+  padding-block: 0.75rem;
+  padding-inline: 0.75rem;
+  border-radius: 2rem;
 
+  text-transform: uppercase;
 
-    &:hover {
-        .firstText {
-            will-change: transform, opacity;
-            transform: translateY(-1rem);
-            opacity: 0;
-        }
-
-        .secondText {
-            will-change: transform, opacity;
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-}
-
-.baseButton {
-    @include button;
-
+  &:hover {
     .firstText {
-        @include textContainer;
-
-        .textWrapper {
-            @include textWrapper;
-        }
+      will-change: transform, opacity;
+      transform: translateY(-1rem);
+      opacity: 0;
     }
 
     .secondText {
-        @include textContainer(absolute);
-        opacity: 0;
-        transform: translateY(1rem);
-
-        .textWrapper {
-            @include textWrapper;
-        }
+      will-change: transform, opacity;
+      transform: translateY(0);
+      opacity: 1;
     }
+  }
+}
+
+.baseButton {
+  @include button;
+
+  .firstText {
+    @include textContainer;
+
+    .textWrapper {
+      @include textWrapper;
+    }
+  }
+
+  .secondText {
+    @include textContainer(absolute);
+    opacity: 0;
+    transform: translateY(1rem);
+
+    .textWrapper {
+      @include textWrapper;
+    }
+  }
 }
 
 .default {
-    @include button;
+  @include button;
 
-    @media(min-width: 768px) {
-        width: 176px;
-    }
+  @media (min-width: 768px) {
+    width: 176px;
+  }
 }
 
 .fechar {
-    @include button($accent-pink, fit-content);
-    font-weight: 600;
+  @include button($accent-pink, fit-content);
+  font-weight: 600;
 }
 
 .voltar {
-    @include button($black-light, fit-content, $arcane-white);
-    font-weight: bold;
+  @include button($black-light, fit-content, $arcane-white);
+  font-weight: bold;
 }
 
+.assistaAgora {
+  @include button($black-dark, fit-content);
+  padding-block: 0.5rem;
+  color: $arcane-white;
+
+  .firstText {
+    font-size: 1.175rem;
+    .textWrapper {
+      @include textWrapper(600);
+      text-wrap: nowrap;
+    }
+  }
+
+  .secondText {
+    font-size: 1.175rem;
+    .textWrapper {
+      @include textWrapper(600);
+      text-wrap: nowrap;
+    }
+  }
+
+  &:hover {
+    background-color: $arcane-white;
+    color: $black-dark;
+  }
+
+  @media (min-width: 768px) {
+    padding-block: 0.75rem;
+    padding-inline: 1.75rem;
+  }
+}
+
+.anterior {
+  @include button($arcane-white, fit-content);
+  padding-block: 0.5rem;
+  color: $black-dark;
+
+  .firstText {
+    .textWrapper {
+      @include textWrapper(600);
+      text-wrap: nowrap;
+    }
+  }
+
+  .secondText {
+    .textWrapper {
+      @include textWrapper(600);
+      text-wrap: nowrap;
+    }
+  }
+
+  &:hover {
+    background-color: $black-dark;
+    color: $arcane-white;
+  }
+
+  @media (min-width: 768px) {
+    padding-block: 0.75rem;
+    padding-inline: 1.75rem;
+  }
+}
