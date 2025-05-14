@@ -12,7 +12,7 @@
   padding-top: 7rem;
   padding-bottom: 60dvh;
 
-  &.active {
+  &.overflowHidden {
     overflow-y: hidden;
   }
 
@@ -26,22 +26,27 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: min(100%, 1280px);
+  width: min(100%, 620px);
   margin-top: 1.96rem;
   padding-inline: 0.5rem;
   pointer-events: none;
   z-index: 3;
+  transition: opacity 0.3s ease-out;
 
   .arrowIcon {
     font-size: 0.75rem;
   }
 
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     margin-top: 1.781rem;
   }
 
-  @media(min-width: 1280px) {
+  @media (min-width: 1280px) {
     padding-inline: 0;
+  }
+
+  &.opacityLow {
+    opacity: 0.7;
   }
 }
 
@@ -171,6 +176,4 @@
   color: $arcane-white;
 
   z-index: 3;
-  
-  
 }

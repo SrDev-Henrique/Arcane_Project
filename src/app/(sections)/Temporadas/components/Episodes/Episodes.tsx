@@ -31,6 +31,7 @@ const Episodes = ({
   setIsTransitioning,
   activeTab,
   isEpisodeActive,
+  setIsFirstClick,
 }: {
   subject: seasonItems[];
   temporada: string;
@@ -40,6 +41,7 @@ const Episodes = ({
   setIsTransitioning: (transitioning: boolean) => void;
   activeTab: string;
   isEpisodeActive: boolean;
+  setIsFirstClick: (isFirstClick: boolean) => void;
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentEpisode, setCurrentEpisode] = useState(currentIndex);
@@ -54,22 +56,25 @@ const Episodes = ({
   const prevIndex = ((currentIndex - 2 + totalImages) % totalImages) + 1;
   const nextEpisode = (currentEpisode % totalImages) + 1;
 
+  console.log(activeEpisode);
   const handleNextEpisodeClick = () => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setActiveEpisode(upcomingIndex);
+    setIsFirstClick(false);
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 1000);
+    }, 1800);
   };
 
   const handlePrevEpisodeClick = () => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setActiveEpisode(prevIndex);
+    setIsFirstClick(false);
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 1000);
+    }, 1800);
   };
 
   useEffect(() => {
@@ -102,7 +107,11 @@ const Episodes = ({
                 : {}
             }
             initial="hidden"
-            animate={(currentIndex === index + 1 && isEpisodeActive) ? currentEpisodeVariants.visible : "hidden"}
+            animate={
+              currentIndex === index + 1 && isEpisodeActive
+                ? currentEpisodeVariants.visible
+                : "hidden"
+            }
             className={`${styles.episode} ${
               currentIndex === index + 1
                 ? styles.active
@@ -124,43 +133,45 @@ const Episodes = ({
               />
               <div className={styles.episodeInfoContainer}>
                 <div className={styles.episodeInfo}>
-                  <div className={styles.currentEpisodeInfo}>
-                    <div className={styles.currentEpisodeImage}>
-                      <Image
-                        alt={`temporada 1 episódio ${episode.episode}`}
-                        src={episode.image}
-                        width={64}
-                        height={64}
-                      />
-                    </div>
-                    <div className={styles.currentEpisode}>
-                      {episode.episode}
-                    </div>
-                    <div className={styles.currentEpisodeDetails}>
-                      <h1 className={styles.currentEpisodeTitle}>
-                        {episode.title}
-                      </h1>
-                      <div className={styles.currentEpisodeRating}>
-                        <p className={styles.currentEpisodeImdb}>
-                          IMDb: {episode.imdb}/10
-                        </p>
-                        <div
-                          className={`${styles.currentEpisodeFav} ${
-                            episode.imdb < 9 ? styles.isHidden : ""
-                          }`}
-                        >
-                          <MdOutlineStarPurple500
-                            className={styles.currentEpisodeFavIcon}
-                          />
-                          <p className={styles.currentEpisodeFavText}>favs</p>
+                  <div className={styles.episodeInfoContent}>
+                    <div className={styles.currentEpisodeInfo}>
+                      <div className={styles.currentEpisodeImage}>
+                        <Image
+                          alt={`temporada 1 episódio ${episode.episode}`}
+                          src={episode.image}
+                          width={224}
+                          height={224}
+                        />
+                      </div>
+                      <div className={styles.currentEpisode}>
+                        {episode.episode}
+                      </div>
+                      <div className={styles.currentEpisodeDetails}>
+                        <h1 className={styles.currentEpisodeTitle}>
+                          {episode.title}
+                        </h1>
+                        <div className={styles.currentEpisodeRating}>
+                          <p className={styles.currentEpisodeImdb}>
+                            IMDb: {episode.imdb}/10
+                          </p>
+                          <div
+                            className={`${styles.currentEpisodeFav} ${
+                              episode.imdb < 9 ? styles.isHidden : ""
+                            }`}
+                          >
+                            <MdOutlineStarPurple500
+                              className={styles.currentEpisodeFavIcon}
+                            />
+                            <p className={styles.currentEpisodeFavText}>favs</p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className={styles.currentEpisodeDescriptionContainer}>
-                    <p className={styles.currentEpisodeDescription}>
-                      {episode.description}
-                    </p>
+                    <div className={styles.currentEpisodeDescriptionContainer}>
+                      <p className={styles.currentEpisodeDescription}>
+                        {episode.description}
+                      </p>
+                    </div>
                   </div>
                   <div className={styles.nextEpisodeContainer}>
                     <div className={styles.watchPrevButton}>
@@ -173,6 +184,10 @@ const Episodes = ({
                         variant="assistaAgora"
                       />
                       <Button
+                        style={{
+                          opacity: isTransitioning ? 0.7 : 1,
+                          transition: "opacity 0.3s ease-out",
+                        }}
                         title="Anterior"
                         leftIcon={<FaArrowLeft />}
                         variant="anterior"
@@ -181,9 +196,7 @@ const Episodes = ({
                     </div>
                     <div className={styles.nextEpisodeInfo}>
                       <div className={styles.nextEpisodeTexts}>
-                        <p className={styles.nextText}>
-                          Próximo:
-                        </p>
+                        <p className={styles.nextText}>Próximo:</p>
                         <p className={styles.nextEpisode}>
                           episódio {nextEpisode}
                         </p>
@@ -192,7 +205,9 @@ const Episodes = ({
                         </p>
                       </div>
                       <div
-                        className={styles.nextEpisodeButton}
+                        className={`${styles.nextEpisodeButton} ${
+                          isTransitioning ? styles.opacityLow : ""
+                        }`}
                         style={{
                           backgroundImage: `url(${getImageSrc(nextEpisode)})`,
                           backgroundSize: "cover",

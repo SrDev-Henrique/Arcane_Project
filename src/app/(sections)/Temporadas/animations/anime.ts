@@ -102,14 +102,14 @@ export const currentEpisodeVariants = {
   hidden: {
     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     transition: {
-      duration: 0.6,
+      duration: 1,
       ease: [0.76, 0, 0.24, 1],
     },
   },
   visible: {
     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     transition: {
-      duration: 0.6,
+      duration: 1,
       ease: [0.76, 0, 0.24, 1],
     },
   },
@@ -119,14 +119,14 @@ export const prevEpisodeVariants = {
   hidden: {
     clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
     transition: {
-      duration: 0.6,
+      duration: 1,
       ease: [0.76, 0, 0.24, 1],
     },
   },
   visible: {
     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     transition: {
-      duration: 0.6,
+      duration: 1,
       ease: [0.76, 0, 0.24, 1],
     },
   },
@@ -136,14 +136,14 @@ export const nextEpisodeVariants = {
   hidden: {
     clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
     transition: {
-      duration: 0.6,
+      duration: 1,
       ease: [0.76, 0, 0.24, 1],
     },
   },
   visible: {
     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     transition: {
-      duration: 0.6,
+      duration: 1,
       ease: [0.76, 0, 0.24, 1],
     },
   },

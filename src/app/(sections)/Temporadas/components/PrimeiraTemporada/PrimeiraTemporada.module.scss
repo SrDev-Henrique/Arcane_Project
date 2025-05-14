@@ -26,10 +26,11 @@
   position: fixed;
   top: 0;
   left: 50%;
-  width: min(100%, 1280px);
+  width: min(100%, 620px);
   margin-top: 1.96rem;
   padding-inline: 0.5rem;
-  z-index: 2;
+  z-index: 3;
+  pointer-events: none;
 
   .arrowIcon {
     font-size: 0.75rem;

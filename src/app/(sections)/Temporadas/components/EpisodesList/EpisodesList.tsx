@@ -33,6 +33,8 @@ interface EpisodesListProps {
   isTransitioning: boolean;
   setIsTransitioning: (isTransitioning: boolean) => void;
   setIsEpisodeActive: (isEpisodeActive: boolean) => void;
+  isFirstClick: boolean;
+  setIsFirstClick: (isFirstClick: boolean) => void;
 }
 
 const EpisodesList = ({
@@ -43,12 +45,12 @@ const EpisodesList = ({
   isTransitioning,
   setIsTransitioning,
   setIsEpisodeActive,
+  isFirstClick,
+  setIsFirstClick,
 }: EpisodesListProps) => {
   const imagesContainerRef = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const lenisRef = useRef<Lenis | null>(null);
-
-  const [firstClicked, setFirstClicked] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isEpisodeClicked, setIsEpisodeClicked] = useState(false);
 
@@ -62,10 +64,10 @@ const EpisodesList = ({
   const handleEpisodeClick = (episodeId: number, index: number) => {
     if (isTransitioning || activeEpisode > 0) return;
     setIsTransitioning(true);
-    setFirstClicked(episodeId);
     setActiveEpisode(episodeId);
     setIsEpisodeClicked(true);
     setIsEpisodeActive(true);
+    setIsFirstClick(true);
     const el = imagesContainerRef.current[index];
     if (el && lenisRef.current) {
       lenisRef.current.scrollTo(el, {
@@ -161,14 +163,11 @@ const EpisodesList = ({
   }, [width]);
 
   useEffect(() => {
-    const idx = episodes.findIndex((ep) => ep.id === activeEpisode);
-
     const scrollIntoView = () => {
-      if (firstClicked === activeEpisode) return;
-      const el = imagesContainerRef.current[idx];
-      setTimeout(() => {
-        el?.scrollIntoView({ behavior: "instant", block: "start" });
-      }, 1000);
+      if (isFirstClick) return;
+      const el = imagesContainerRef.current[activeEpisode - 1];
+      if (!el) return;
+      el.scrollIntoView({ behavior: "instant", block: "start" });
     };
 
     scrollIntoView();
@@ -181,19 +180,19 @@ const EpisodesList = ({
       window.removeEventListener("resize", handleResize);
       handleResize.cancel();
     };
-  }, [activeEpisode, firstClicked, episodes]);
+  }, [activeEpisode, episodes, isFirstClick]);
 
   useEffect(() => {
     const container = containerRef.current;
 
     if (activeEpisode > 0) {
-      container?.classList.add(styles.active);
+      container?.classList.add(styles.overflowHidden);
     } else {
-      container?.classList.remove(styles.active);
+      container?.classList.remove(styles.overflowHidden);
     }
 
     return () => {
-      container?.classList.remove(styles.active);
+      container?.classList.remove(styles.overflowHidden);
     };
   }, [activeEpisode]);
 
@@ -215,7 +214,11 @@ const EpisodesList = ({
             key={episode.id}
             variants={itemRevealVariants}
             initial="visible"
-            animate={activeTab !== "episódios" ? "hidden" : "visible"}
+            animate={
+              activeTab === "episódios" && activeEpisode >= 0
+                ? "visible"
+                : "hidden"
+            }
           >
             <motion.div
               ref={(el) => addToImagesRefs(el, index)}
@@ -228,7 +231,7 @@ const EpisodesList = ({
               variants={variants}
               initial="inactive"
               animate={
-                activeEpisode === episode.id && isEpisodeClicked
+                activeEpisode === episode.id && isEpisodeClicked	
                   ? "active"
                   : "inactive"
               }
@@ -264,7 +267,7 @@ const EpisodesList = ({
           </motion.div>
         ))}
       </motion.div>
-      <div className={styles.closeButton}>
+      <div className={`${styles.closeButton} ${isTransitioning ? styles.opacityLow : ""}`}>
         <Button
           style={{
             opacity: activeEpisode > 0 ? 1 : 0,

@@ -16,11 +16,12 @@ import Episodes from "../Episodes/Episodes";
 const navItems = ["episódios", "highlights"];
 
 const PrimeiraTemporada = () => {
-  const [isEpisodeActive, setIsEpisodeActive] = useState(false);
   const [activeEpisode, setActiveEpisode] = useState(0);
-  const [activeSeason, setActiveSeason] = useState("Temporada_1");
+  const [isEpisodeActive, setIsEpisodeActive] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isSeasonActive, setIsSeasonActive] = useState(true);
+  const [isFirstClick, setIsFirstClick] = useState(false);
+  const [activeSeason, setActiveSeason] = useState("Temporada_1");
   const [activeTab, setActiveTab] = useState("episódios");
 
   const temporada = "Temporada_1";
@@ -46,6 +47,7 @@ const PrimeiraTemporada = () => {
               setActiveTab(" ");
             }}
             variant="fechar"
+            style={{ pointerEvents: "auto" }}
           />
         </motion.div>
         <Nav
@@ -65,6 +67,8 @@ const PrimeiraTemporada = () => {
             activeTab={activeTab}
             episodes={episodesList}
             setIsEpisodeActive={setIsEpisodeActive}
+            isFirstClick={isFirstClick}
+            setIsFirstClick={setIsFirstClick}
           />
           <Episodes
             subject={episodes}
@@ -75,6 +79,7 @@ const PrimeiraTemporada = () => {
             setIsTransitioning={setIsTransitioning}
             activeTab={activeTab}
             isEpisodeActive={isEpisodeActive}
+            setIsFirstClick={setIsFirstClick}
           />
         </div>
       </div>
