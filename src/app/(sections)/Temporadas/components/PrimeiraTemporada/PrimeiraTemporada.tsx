@@ -12,6 +12,7 @@ import Nav from "../Nav/Nav";
 import Button from "@/components/Button/Button";
 import { closeButtonVariants } from "../../animations/anime";
 import Episodes from "../Episodes/Episodes";
+import HighlightsList from "../HighlightsList/HighlightsList";
 
 const navItems = ["episódios", "highlights"];
 
@@ -24,9 +25,13 @@ const PrimeiraTemporada = () => {
   const [activeSeason, setActiveSeason] = useState("Temporada_1");
   const [activeTab, setActiveTab] = useState("episódios");
 
+  const [activeHighlight, setActiveHighlight] = useState(0);
+  const [isHighlightActive, setIsHighlightActive] = useState(false)
+
   const temporada = "Temporada_1";
   const episodes = seasons.firstSeason;
   const episodesList = seasons.firstSeason;
+  const highlights = seasons.firstSeasonHighlights;
 
   useLockBodyScroll(isSeasonActive);
 
@@ -66,6 +71,7 @@ const PrimeiraTemporada = () => {
             setIsTransitioning={setIsTransitioning}
             activeTab={activeTab}
             episodes={episodesList}
+            isEpisodeActive={isEpisodeActive}
             setIsEpisodeActive={setIsEpisodeActive}
             isFirstClick={isFirstClick}
             setIsFirstClick={setIsFirstClick}
@@ -82,6 +88,14 @@ const PrimeiraTemporada = () => {
             setIsFirstClick={setIsFirstClick}
           />
         </div>
+        <HighlightsList
+          highlights={highlights}
+          activeTab={activeTab}
+          activeHighlight={activeHighlight}
+          setActiveHighlight={setActiveHighlight}
+          isHighlightActive={isHighlightActive}
+          setIsHighlightActive={setIsHighlightActive}
+        />
       </div>
     </div>
   );

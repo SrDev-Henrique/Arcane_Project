@@ -32,6 +32,7 @@ interface EpisodesListProps {
   setActiveEpisode: (episode: number) => void;
   isTransitioning: boolean;
   setIsTransitioning: (isTransitioning: boolean) => void;
+  isEpisodeActive: boolean;
   setIsEpisodeActive: (isEpisodeActive: boolean) => void;
   isFirstClick: boolean;
   setIsFirstClick: (isFirstClick: boolean) => void;
@@ -44,6 +45,7 @@ const EpisodesList = ({
   setActiveEpisode,
   isTransitioning,
   setIsTransitioning,
+  isEpisodeActive,
   setIsEpisodeActive,
   isFirstClick,
   setIsFirstClick,
@@ -101,7 +103,7 @@ const EpisodesList = ({
 
     active: {
       width: "100vw",
-      height: "100vh",
+      height: "100dvh",
       borderRadius: "0",
       transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
     },
@@ -120,7 +122,7 @@ const EpisodesList = ({
   //todo: useEffect
 
   useEffect(() => {
-    if (!containerRef.current || activeEpisode > 0) return;
+    if (!containerRef.current || isEpisodeActive) return;
 
     const localLenis = new Lenis({
       wrapper: containerRef.current,
@@ -144,7 +146,7 @@ const EpisodesList = ({
       localLenis.destroy();
       lenisRef.current = null;
     };
-  }, [activeEpisode]);
+  }, [isEpisodeActive]);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -168,6 +170,12 @@ const EpisodesList = ({
       const el = imagesContainerRef.current[activeEpisode - 1];
       if (!el) return;
       el.scrollIntoView({ behavior: "instant", block: "start" });
+      if (!isEpisodeActive && lenisRef.current) {
+        lenisRef.current.scrollTo(el, {
+          duration: 0,
+          offset: 0,
+        });
+      }
     };
 
     scrollIntoView();
@@ -180,7 +188,7 @@ const EpisodesList = ({
       window.removeEventListener("resize", handleResize);
       handleResize.cancel();
     };
-  }, [activeEpisode, episodes, isFirstClick]);
+  }, [activeEpisode, episodes, isFirstClick, isEpisodeActive]);
 
   useEffect(() => {
     const container = containerRef.current;

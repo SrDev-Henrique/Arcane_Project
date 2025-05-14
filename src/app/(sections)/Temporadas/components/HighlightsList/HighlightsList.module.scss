@@ -1,0 +1,269 @@
+@use "@/styles/variables" as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin size-full {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 8rem;
+
+  scrollbar-width: none;
+
+  padding-bottom: 40vh;
+  padding-top: 11rem;
+
+  overflow-y: auto;
+  transition: padding-top 0.3s ease-out;
+
+  &.isHidden {
+    pointer-events: none;
+  }
+
+  &.isActive {
+    padding-top: 18rem;
+  }
+
+  &:hover {
+    .highlightWatchButtonText {
+      @media (min-width: 1024px) {
+        width: 4.8rem;
+        opacity: 1;
+        padding-inline: 0.5rem;
+      }
+    }
+  }
+}
+
+.highlightItems {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+}
+
+.highlightItem {
+  width: 98vw;
+  height: auto;
+  position: relative;
+  cursor: pointer;
+}
+
+.highlightVideoContainer {
+  @include size-full;
+  position: relative;
+
+  .highlightVideo {
+    @include size-full;
+    object-fit: cover;
+    object-position: center;
+
+    aspect-ratio: 15 / 7;
+
+    border-radius: 1rem;
+
+    max-height: 695.138px;
+
+    @media (min-width: 1600px) {
+      aspect-ratio: 16 / 7;
+      max-height: 823.188px;
+    }
+  }
+}
+
+.highlightInfoContainer {
+  @include size-full;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.highlightInfo {
+  @include size-full;
+  position: relative;
+
+  .highlightTitleContainer {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    width: fit-content;
+
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    background-color: $arcane-white;
+
+    @media (min-width: 1024px) {
+      top: 2rem;
+      left: 2rem;
+    }
+
+    .highlightTitle {
+      font-family: $font-lora;
+      font-weight: 600;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      text-wrap: nowrap;
+      color: $black-dark;
+
+      @media (min-width: 1024px) {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+    }
+  }
+
+  .highlightEmoteContainer {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: fit-content;
+
+    padding: 0.25rem;
+    border-radius: 100%;
+    background-color: $black-dark;
+
+    @media (min-width: 1024px) {
+      top: 2rem;
+      right: 2rem;
+    }
+
+    .highlightEmote {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+  }
+
+  .highlightReference {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    width: fit-content;
+
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    background-color: $arcane-white;
+
+    @media (min-width: 1024px) {
+      bottom: 2rem;
+      right: 2rem;
+    }
+
+    .highlightReferenceText {
+      font-family: $font-lora;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      color: $black-dark;
+
+      @media (min-width: 1024px) {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+
+      .boldText {
+        font-weight: 600;
+      }
+    }
+
+    .highlightWatchButton {
+      @include absolute-center;
+
+      backdrop-filter: blur(16px), brightness(0.75);
+      -webkit-backdrop-filter: blur(16px), brightness(0.75);
+
+      width: fit-content;
+      padding-block: 0.25rem;
+
+      border-radius: 1rem;
+
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+
+      border: 1px solid $arcane-white;
+      overflow: hidden;
+
+      .highlightWatchButtonText {
+        font-family: $font-lora;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        color: $neutral-light;
+        text-wrap: nowrap;
+        text-transform: uppercase;
+        width: 3.5rem;
+        padding-inline: 0.5rem;
+        transition: all 0.3s ease-out;
+
+        @media (min-width: 1024px) {
+          font-size: 1rem;
+          line-height: 1.5rem;
+          width: 0;
+          opacity: 0;
+          padding-inline: 0;
+        }
+      }
+
+      .highlightWatchButtonIcon {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        margin-right: 0.25rem;
+        color: $neutral-light;
+
+        @media (min-width: 1024px) {
+          font-size: 1.875rem;
+          line-height: 2.25rem;
+        }
+      }
+    }
+  }
+}
+
+.closeButton {
+  @include flex-center;
+
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translate(50%, -50%);
+
+  width: 2.5rem;
+  height: 2.5rem;
+
+  border-radius: 100%;
+  backdrop-filter: blur(16px), brightness(0.75);
+  -webkit-backdrop-filter: blur(16px), brightness(0.75);
+
+  cursor: pointer;
+  pointer-events: none;
+
+  .closeButtonIcon {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: $neutral-light;
+
+    @media (min-width: 1600px) {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+  }
+}

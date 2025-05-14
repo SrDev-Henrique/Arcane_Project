@@ -56,7 +56,6 @@ const Episodes = ({
   const prevIndex = ((currentIndex - 2 + totalImages) % totalImages) + 1;
   const nextEpisode = (currentEpisode % totalImages) + 1;
 
-  console.log(activeEpisode);
   const handleNextEpisodeClick = () => {
     if (isTransitioning) return;
     setIsTransitioning(true);
@@ -126,7 +125,7 @@ const Episodes = ({
               <div
                 className={styles.episodeImageContainer}
                 style={{
-                  backgroundImage: `url(/images/Temporadas/Temporada_1/episódio-${episode.episode}.webp)`,
+                  backgroundImage: `url(${episode.image})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -137,7 +136,7 @@ const Episodes = ({
                     <div className={styles.currentEpisodeInfo}>
                       <div className={styles.currentEpisodeImage}>
                         <Image
-                          alt={`temporada 1 episódio ${episode.episode}`}
+                          alt={`${temporada} episódio ${episode.episode}`}
                           src={episode.image}
                           width={224}
                           height={224}

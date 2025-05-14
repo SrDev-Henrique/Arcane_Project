@@ -32,7 +32,7 @@ export const itemRevealVariants = {
     y: "0%",
     scale: 1,
     opacity: 1,
-    transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
+    transition: { duration: 1, ease: [0.76, 0, 0.24, 1], delay: 0.6, },
   },
 };
 
@@ -148,3 +148,37 @@ export const nextEpisodeVariants = {
     },
   },
 };
+
+export const highlightInfoVariants = {
+  hidden: {
+    opacity: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+};
+
+export const highlightItemVariants = {
+  inactive: {
+    scale: 0.85,
+    transition: {
+      duration: 0.6,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  active: {
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  }
+}
