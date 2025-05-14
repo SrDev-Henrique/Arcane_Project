@@ -254,6 +254,12 @@
   border-end-start-radius: 0.75rem;
 
   margin-inline-end: -0.5rem;
+  transition: opacity 0.3s ease-out;
+
+  &.opacityLow {
+    opacity: 0.7;
+    pointer-events: none;
+  }
 
   @media (min-width: 640px) {
     margin-inline-end: -0.75rem;
@@ -294,14 +300,10 @@
   width: min(12vh, 5rem);
   aspect-ratio: 1/1;
   cursor: pointer;
-  transition: scale 0.3s ease-out, opacity 0.3s ease-out;
+  transition: scale 0.3s ease-out;
   border-radius: 0.5rem;
 
   &:hover {
     scale: 0.9;
-  }
-
-  &.opacityLow {
-    opacity: 0.7;
   }
 }

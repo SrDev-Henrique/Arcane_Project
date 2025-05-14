@@ -11,7 +11,7 @@ import Lenis from "lenis";
 
 import { IoPlayCircle } from "react-icons/io5";
 import { GrClose } from "react-icons/gr";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 interface HighlightsItems {
   id: number;
@@ -29,6 +29,8 @@ const HighlightsList = ({
   setActiveHighlight,
   isHighlightActive,
   setIsHighlightActive,
+  isTransitioning,
+  setIsTransitioning,
 }: {
   highlights: HighlightsItems[];
   activeTab: string;
@@ -36,8 +38,11 @@ const HighlightsList = ({
   setActiveHighlight: (index: number) => void;
   isHighlightActive: boolean;
   setIsHighlightActive: (isHighlightActive: boolean) => void;
+  isTransitioning: boolean;
+  setIsTransitioning: (isTransitioning: boolean) => void;
 }) => {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const highlightRefs = useRef<(HTMLDivElement | null)[]>([]);
   const lenisRef = useRef<Lenis | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -47,9 +52,44 @@ const HighlightsList = ({
     }
   };
 
-  useEffect(() => {
-    if (!containerRef.current || isHighlightActive) return;
+  const addToHighlightRefs = (el: HTMLDivElement) => {
+    if (el && !highlightRefs.current.includes(el)) {
+      highlightRefs.current.push(el);
+    }
+  };
 
+  const handleWatch = (index: number) => {
+    if (isTransitioning || activeHighlight > 0) return;
+    setActiveHighlight(index);
+    setIsTransitioning(true);
+    setIsHighlightActive(true);
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 600);
+  };
+
+  const scrollToActiveHighlight = useCallback(() => {
+    const idx = highlights.findIndex((h) => h.id === activeHighlight);
+    const target = highlightRefs.current[idx];
+    if (!target || !lenisRef.current) return;
+    const rect = target.getBoundingClientRect();
+    const container = containerRef.current!;
+    const offsetToCenter =
+      target.offsetTop - (container.clientHeight / 2 - rect.height / 2);
+
+    lenisRef.current.scrollTo(offsetToCenter, {
+      duration: 0.6,
+    });
+  }, [activeHighlight, highlights]);
+
+  useEffect(() => {
+    const delay = activeHighlight === 1 ? 600 : 0;
+    const timer = setTimeout(scrollToActiveHighlight, delay);
+    return () => clearTimeout(timer);
+  }, [activeHighlight, scrollToActiveHighlight]);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
     const localLenis = new Lenis({
       wrapper: containerRef.current,
       content: containerRef.current,
@@ -72,6 +112,48 @@ const HighlightsList = ({
       localLenis.destroy();
       lenisRef.current = null;
     };
+  }, []);
+
+  useEffect(() => {
+    const video = videoRefs.current;
+
+    const handleFullScreenChange = () => {
+      setTimeout(scrollToActiveHighlight, 350);
+    };
+
+    video.forEach((video) => {
+      if (!video) return;
+      video.addEventListener("fullscreenchange", handleFullScreenChange);
+    });
+
+    return () => {
+      video.forEach((video) => {
+        if (!video) return;
+        video.removeEventListener("fullscreenchange", handleFullScreenChange);
+      });
+    };
+  }, [scrollToActiveHighlight]);
+
+  useEffect(() => {
+    window.addEventListener("resize", scrollToActiveHighlight);
+
+    return () => {
+      window.removeEventListener("resize", () => {});
+    };
+  }, [scrollToActiveHighlight]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+
+    if (isHighlightActive) {
+      container?.classList.add(styles.overflowHidden);
+    } else {
+      container?.classList.remove(styles.overflowHidden);
+    }
+
+    return () => {
+      container?.classList.remove(styles.overflowHidden);
+    };
   }, [isHighlightActive]);
 
   return (
@@ -89,6 +171,7 @@ const HighlightsList = ({
         return (
           <motion.div
             key={highlight.id}
+            ref={addToHighlightRefs}
             className={styles.highlightItems}
             variants={itemRevealVariants}
             initial="hidden"
@@ -98,7 +181,11 @@ const HighlightsList = ({
               className={styles.highlightItem}
               variants={highlightItemVariants}
               initial={"inactive"}
-              animate={activeHighlight === highlight.id ? "active" : "inactive"}
+              animate={
+                activeHighlight === highlight.id && isHighlightActive
+                  ? "active"
+                  : "inactive"
+              }
             >
               <div className={styles.highlightVideoContainer}>
                 <video
@@ -116,9 +203,19 @@ const HighlightsList = ({
                     backgroundPosition: "center",
                     position: "absolute",
                     inset: 0,
-                    zIndex: 1,
+                    zIndex:
+                      activeHighlight === highlight.id && isHighlightActive
+                        ? -1
+                        : 1,
                     borderRadius: "1rem",
-                    opacity: activeHighlight === highlight.id ? 0 : 1,
+                    opacity:
+                      activeHighlight === highlight.id && isHighlightActive
+                        ? 0
+                        : 1,
+                    pointerEvents:
+                      activeHighlight === highlight.id && isHighlightActive
+                        ? "none"
+                        : "auto",
                     transition: "opacity 0.6s cubic-bezier(0.76, 0, 0.24, 1)",
                   }}
                 />
@@ -126,9 +223,17 @@ const HighlightsList = ({
               <motion.div
                 className={styles.highlightInfoContainer}
                 variants={highlightInfoVariants}
+                style={{
+                  pointerEvents:
+                    activeHighlight === highlight.id && isHighlightActive
+                      ? "none"
+                      : "auto",
+                }}
                 initial="visible"
                 animate={
-                  activeHighlight === highlight.id ? "hidden" : "visible"
+                  activeHighlight === highlight.id && isHighlightActive
+                    ? "hidden"
+                    : "visible"
                 }
               >
                 <div className={styles.highlightInfo}>
@@ -146,7 +251,12 @@ const HighlightsList = ({
                       </span>
                     </p>
                   </div>
-                  <button className={styles.highlightWatchButton}>
+                  <button
+                    onClick={() => {
+                      handleWatch(highlight.id);
+                    }}
+                    className={styles.highlightWatchButton}
+                  >
                     <h1 className={styles.highlightWatchButtonText}>
                       Assistir
                     </h1>
@@ -154,21 +264,30 @@ const HighlightsList = ({
                   </button>
                 </div>
               </motion.div>
-              <div
-                style={{
-                  opacity: activeHighlight === highlight.id ? 1 : 0,
-                  transition: "opacity 0.6s cubic-bezier(0.76, 0, 0.24, 1)",
-                }}
-                className={styles.closeButton}
-                onClick={() => {
-                  setIsHighlightActive(false);
-                  videoRefs.current[index]?.pause();
-                  setTimeout(() => {
-                    setActiveHighlight(0);
-                  }, 600);
-                }}
-              >
-                <GrClose className={styles.closeButtonIcon} />
+              <div>
+                <div
+                  style={{
+                    opacity:
+                      activeHighlight === highlight.id && isHighlightActive
+                        ? 1
+                        : 0,
+                    transition: "opacity 0.6s cubic-bezier(0.76, 0, 0.24, 1)",
+                    pointerEvents:
+                      activeHighlight === highlight.id && isHighlightActive
+                        ? "auto"
+                        : "none",
+                  }}
+                  className={styles.closeButton}
+                  onClick={() => {
+                    setIsHighlightActive(false);
+                    videoRefs.current[index]?.pause();
+                    setTimeout(() => {
+                      setActiveHighlight(0);
+                    }, 600);
+                  }}
+                >
+                  <GrClose className={styles.closeButtonIcon} />
+                </div>
               </div>
             </motion.div>
           </motion.div>

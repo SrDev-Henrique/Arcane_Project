@@ -17,12 +17,14 @@ import HighlightsList from "../HighlightsList/HighlightsList";
 const navItems = ["episódios", "highlights"];
 
 const PrimeiraTemporada = () => {
-  const [activeEpisode, setActiveEpisode] = useState(0);
-  const [isEpisodeActive, setIsEpisodeActive] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isSeasonActive, setIsSeasonActive] = useState(true);
-  const [isFirstClick, setIsFirstClick] = useState(false);
   const [activeSeason, setActiveSeason] = useState("Temporada_1");
+
+  const [activeEpisode, setActiveEpisode] = useState(0);
+  const [isEpisodeActive, setIsEpisodeActive] = useState(false);
+  const [isFirstClick, setIsFirstClick] = useState(false);
+
   const [activeTab, setActiveTab] = useState("episódios");
 
   const [activeHighlight, setActiveHighlight] = useState(0);
@@ -42,7 +44,11 @@ const PrimeiraTemporada = () => {
           className={styles.closeButton}
           variants={closeButtonVariants}
           initial="hidden"
-          animate={activeSeason === temporada ? "visible" : "hidden"}
+          animate={
+            activeSeason === temporada && !isHighlightActive
+              ? "visible"
+              : "hidden"
+          }
         >
           <Button
             title="fechar"
@@ -62,6 +68,7 @@ const PrimeiraTemporada = () => {
           setActiveEpisode={setActiveEpisode}
           activeSeason={activeSeason}
           temporada={temporada}
+          isHighlightActive={isHighlightActive}
         />
         <div className={styles.episodesContainer}>
           <EpisodesList
@@ -95,6 +102,8 @@ const PrimeiraTemporada = () => {
           setActiveHighlight={setActiveHighlight}
           isHighlightActive={isHighlightActive}
           setIsHighlightActive={setIsHighlightActive}
+          isTransitioning={isTransitioning}
+          setIsTransitioning={setIsTransitioning}
         />
       </div>
     </div>

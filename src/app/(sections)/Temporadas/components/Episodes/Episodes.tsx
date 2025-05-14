@@ -172,7 +172,9 @@ const Episodes = ({
                       </p>
                     </div>
                   </div>
-                  <div className={styles.nextEpisodeContainer}>
+                  <div
+                    className={styles.nextEpisodeContainer}
+                  >
                     <div className={styles.watchPrevButton}>
                       <Button
                         title="Assista agora"
@@ -193,7 +195,11 @@ const Episodes = ({
                         onClick={handlePrevEpisodeClick}
                       />
                     </div>
-                    <div className={styles.nextEpisodeInfo}>
+                    <div
+                      className={`${styles.nextEpisodeInfo} ${
+                        isTransitioning ? styles.opacityLow : ""
+                      }`}
+                    >
                       <div className={styles.nextEpisodeTexts}>
                         <p className={styles.nextText}>Próximo:</p>
                         <p className={styles.nextEpisode}>
@@ -204,9 +210,7 @@ const Episodes = ({
                         </p>
                       </div>
                       <div
-                        className={`${styles.nextEpisodeButton} ${
-                          isTransitioning ? styles.opacityLow : ""
-                        }`}
+                        className={styles.nextEpisodeButton}
                         style={{
                           backgroundImage: `url(${getImageSrc(nextEpisode)})`,
                           backgroundSize: "cover",

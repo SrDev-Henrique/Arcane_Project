@@ -46,14 +46,8 @@
     padding-top: 18rem;
   }
 
-  &:hover {
-    .highlightWatchButtonText {
-      @media (min-width: 1024px) {
-        width: 4.8rem;
-        opacity: 1;
-        padding-inline: 0.5rem;
-      }
-    }
+  &.overflowHidden {
+    overflow-y: hidden;
   }
 }
 
@@ -67,7 +61,20 @@
   width: 98vw;
   height: auto;
   position: relative;
-  cursor: pointer;
+
+  &:hover {
+    .highlightInfo {
+      .highlightWatchButton {
+        .highlightWatchButtonText {
+          @media (min-width: 1024px) {
+            width: 4.8rem;
+            opacity: 1;
+            padding-inline: 0.5rem;
+          }
+        }
+      }
+    }
+  }
 }
 
 .highlightVideoContainer {
@@ -109,9 +116,9 @@
     left: 0.5rem;
     width: fit-content;
 
-    padding: 0.5rem;
+    padding: 0.75rem;
     border-radius: 0.75rem;
-    background-color: $arcane-white;
+    background-color: $black-dark;
 
     @media (min-width: 1024px) {
       top: 2rem;
@@ -124,7 +131,7 @@
       font-size: 0.75rem;
       line-height: 1rem;
       text-wrap: nowrap;
-      color: $black-dark;
+      color: $arcane-white;
 
       @media (min-width: 1024px) {
         font-size: 1rem;
@@ -134,13 +141,16 @@
   }
 
   .highlightEmoteContainer {
+    @include flex-center;
+    
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
-    width: fit-content;
+    width: 2.5rem;
+    height: 2.5rem;
 
     padding: 0.25rem;
-    border-radius: 100%;
+    border-radius: 1.95rem;
     background-color: $black-dark;
 
     @media (min-width: 1024px) {
@@ -160,9 +170,9 @@
     right: 0.5rem;
     width: fit-content;
 
-    padding: 0.5rem;
+    padding: 0.75rem;
     border-radius: 0.75rem;
-    background-color: $arcane-white;
+    background-color: $black-dark;
 
     @media (min-width: 1024px) {
       bottom: 2rem;
@@ -173,7 +183,7 @@
       font-family: $font-lora;
       font-size: 0.75rem;
       line-height: 1rem;
-      color: $black-dark;
+      color: $arcane-white;
 
       @media (min-width: 1024px) {
         font-size: 1rem;
@@ -184,55 +194,57 @@
         font-weight: 600;
       }
     }
+  }
+  .highlightWatchButton {
+    @include absolute-center;
 
-    .highlightWatchButton {
-      @include absolute-center;
+    backdrop-filter: blur(16px) brightness(0.75);
+    --webkit-backdrop-filter: blur(16px) brightness(0.75);
+    background-color: transparent;
 
-      backdrop-filter: blur(16px), brightness(0.75);
-      -webkit-backdrop-filter: blur(16px), brightness(0.75);
+    width: fit-content;
+    padding-block: 0.25rem;
 
-      width: fit-content;
-      padding-block: 0.25rem;
+    border-radius: 1rem;
 
-      border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
 
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
+    border: 1px solid $arcane-white;
+    overflow: hidden;
 
-      border: 1px solid $arcane-white;
-      overflow: hidden;
+    cursor: pointer;
 
-      .highlightWatchButtonText {
-        font-family: $font-lora;
-        font-size: 0.75rem;
-        line-height: 1rem;
-        color: $neutral-light;
-        text-wrap: nowrap;
-        text-transform: uppercase;
-        width: 3.5rem;
-        padding-inline: 0.5rem;
-        transition: all 0.3s ease-out;
+    .highlightWatchButtonText {
+      font-family: $font-lora;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      color: $white-dark;
+      text-wrap: nowrap;
+      text-transform: uppercase;
+      width: 3.5rem;
+      padding-inline: 0.5rem;
+      transition: all 0.3s ease-out;
 
-        @media (min-width: 1024px) {
-          font-size: 1rem;
-          line-height: 1.5rem;
-          width: 0;
-          opacity: 0;
-          padding-inline: 0;
-        }
+      @media (min-width: 1024px) {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        width: 0;
+        opacity: 0;
+        padding-inline: 0;
       }
+    }
 
-      .highlightWatchButtonIcon {
-        font-size: 1.5rem;
-        line-height: 2rem;
-        margin-right: 0.25rem;
-        color: $neutral-light;
+    .highlightWatchButtonIcon {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      margin-right: 0.25rem;
+      color: $white-dark;
 
-        @media (min-width: 1024px) {
-          font-size: 1.875rem;
-          line-height: 2.25rem;
-        }
+      @media (min-width: 1024px) {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
       }
     }
   }
@@ -250,8 +262,8 @@
   height: 2.5rem;
 
   border-radius: 100%;
-  backdrop-filter: blur(16px), brightness(0.75);
-  -webkit-backdrop-filter: blur(16px), brightness(0.75);
+  backdrop-filter: blur(16px) brightness(0.75);
+  --webkit-backdrop-filter: blur(16px) brightness(0.75);
 
   cursor: pointer;
   pointer-events: none;

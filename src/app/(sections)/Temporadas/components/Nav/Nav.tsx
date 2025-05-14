@@ -14,6 +14,7 @@ const Nav = ({
   setActiveEpisode,
   activeSeason,
   temporada,
+  isHighlightActive,
 }: {
   navItems: string[];
   activeTab: string;
@@ -21,6 +22,7 @@ const Nav = ({
   setActiveEpisode: (episode: number) => void;
   activeSeason: string;
   temporada: string;
+  isHighlightActive: boolean;
 }) => {
 
   if (activeSeason === temporada)
@@ -28,14 +30,14 @@ const Nav = ({
       <motion.nav
         variants={navVariants}
         initial="hidden"
-        animate="visible"
+        animate={isHighlightActive ? "hidden" : "visible"}
         className={styles.nav}
       >
         {navItems.map((tab) => (
           <motion.button
             variants={buttonVariants}
             initial="hidden"
-            animate="visible"
+            animate={isHighlightActive ? "hidden" : "visible"}
             key={tab}
             className={`${styles.navButton} ${
               activeTab === tab ? styles.active : ""
