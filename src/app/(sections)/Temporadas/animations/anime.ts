@@ -1,3 +1,95 @@
+export const seasonVariants = {
+  closed: {
+    clipPath: "polygon(20% 25%, 80% 30%, 80% 75%, 20% 75%)",
+    transition: {
+      duration: 1,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  opened: {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    transition: {
+      duration: 1,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+};
+
+export const seasonImageVariants = {
+  visible: {
+    width: "90%",
+    height: "90%",
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  hidden: {
+    width: "100%",
+    height: "100%",
+    opacity: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+};
+
+export const seasonFirstMaskVariants = {
+  visible: {
+    height: "100%",
+    transition: {
+      duration: 1,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  hidden: {
+    height: "0%",
+    transition: {
+      duration: 1,
+      ease: [0.76, 0, 0.24, 1],
+      delay: 0.1,
+    },
+  },
+};
+
+export const seasonSecondMaskVariants = {
+  visible: {
+    height: "100%",
+    transition: {
+      duration: 1,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  hidden: {
+    height: "0%",
+    transition: {
+      duration: 1,
+      ease: [0.76, 0, 0.24, 1],
+      delay: 0.2,
+    },
+  },
+};
+
+export const seasonTitleVariants = {
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  hidden: {
+    opacity: 0,
+    transition: {
+      duration: 1,
+      ease: [0.76, 0, 0.24, 1],
+      delay: 0.2,
+    },
+  },
+};
+
 export const titlesVariants = {
   initial: {
     y: 0,
@@ -46,6 +138,7 @@ export const navVariants = {
     transition: {
       duration: 0.5,
       ease: [0.76, 0, 0.24, 1],
+      delay: 0.6,
     },
   },
 };
@@ -62,6 +155,7 @@ export const closeButtonVariants = {
     transition: {
       duration: 0.5,
       ease: [0.76, 0, 0.24, 1],
+      delay: 0.6,
     },
   },
 };
@@ -75,7 +169,7 @@ export const buttonVariants = {
     transition: {
       duration: 0.3,
       ease: [0.76, 0, 0.24, 1],
-      delay: 0.3,
+      delay: 0.9,
     },
   },
 };

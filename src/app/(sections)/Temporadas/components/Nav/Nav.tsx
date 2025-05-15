@@ -15,6 +15,8 @@ const Nav = ({
   activeSeason,
   temporada,
   isHighlightActive,
+  setIsEpisodeActive,
+  setIsFirstClick,
 }: {
   navItems: string[];
   activeTab: string;
@@ -23,6 +25,8 @@ const Nav = ({
   activeSeason: string;
   temporada: string;
   isHighlightActive: boolean;
+  setIsEpisodeActive: (episode: boolean) => void;
+  setIsFirstClick: (firstClick: boolean) => void;
 }) => {
 
   if (activeSeason === temporada)
@@ -46,6 +50,8 @@ const Nav = ({
               if (activeTab !== tab) {
                 setActiveTab(tab);
                 setActiveEpisode(0);
+                setIsEpisodeActive(false);
+                setIsFirstClick(false);
               }
             }}
           >

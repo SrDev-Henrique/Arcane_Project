@@ -24,7 +24,7 @@
   font-weight: $fontWeight;
 }
 
-@mixin button($background: $blue-50, $width: 128px, $color: $black-dark) {
+@mixin button($background: $blue-50, $width: 128px, $color: $black-dark, $border-radius: 2rem) {
   @include flexCenter;
 
   width: $width;
@@ -38,7 +38,7 @@
 
   padding-block: 0.75rem;
   padding-inline: 0.75rem;
-  border-radius: 2rem;
+  border-radius: $border-radius;
 
   text-transform: uppercase;
 
@@ -156,5 +156,22 @@
   @media (min-width: 768px) {
     padding-block: 0.75rem;
     padding-inline: 1.75rem;
+  }
+}
+
+.ghost {
+  @include button(transparent, fit-content, $black-dark, 0);
+  border: 1px solid $black-dark;
+
+  .firstText {
+    .textWrapper {
+      @include textWrapper(600);
+    }
+  }
+
+  .secondText {
+    .textWrapper {
+      @include textWrapper(600);
+    }
   }
 }

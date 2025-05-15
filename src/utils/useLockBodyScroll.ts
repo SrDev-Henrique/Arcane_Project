@@ -8,14 +8,17 @@ export default function useLockBodyScroll(locked: boolean) {
     if (locked) {
       document.body.style.overflow = "hidden";
       document.body.style.touchAction = "none";
+      document.body.setAttribute("data-lenis-prevent", "");
     } else {
       document.body.style.overflow = originalOverflow;
       document.body.style.touchAction = originalTouch;
+      document.body.removeAttribute("data-lenis-prevent");
     }
 
     return () => {
       document.body.style.overflow = originalOverflow;
       document.body.style.touchAction = originalTouch;
+      document.body.removeAttribute("data-lenis-prevent");
     };
   }, [locked]);
 }
