@@ -12,6 +12,7 @@ body {
 
 body {
   overflow-x: hidden;
+  height: 100lvh;
 }
 
 html.lenis,
