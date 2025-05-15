@@ -236,6 +236,9 @@ const PrimeiraTemporada = () => {
               variants={seasonFirstMaskVariants}
               initial="visible"
               animate={activeSeason === temporada ? "hidden" : "visible"}
+              style={{
+                pointerEvents: isSeasonActive ? "none" : "auto",
+              }}
             >
               <motion.div
                 variants={seasonImageVariants}

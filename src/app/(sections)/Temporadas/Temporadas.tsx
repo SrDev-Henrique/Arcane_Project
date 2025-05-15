@@ -2,7 +2,7 @@ import PrimeiraTemporada from "./components/PrimeiraTemporada/PrimeiraTemporada"
 
 const Temporadas = () => {
   return (
-    <div style={{ height: "800vh", display: "flex", flexDirection: "column", justifyContent: "end" }}>
+    <div style={{ marginTop: "800dvh" }}>
       <PrimeiraTemporada />
     </div>
   );
