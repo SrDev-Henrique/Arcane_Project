@@ -80,7 +80,10 @@ const PrimeiraTemporada = () => {
       const season =
         activeSeason === "Temporada_1" ? "temporada 1" : "temporada 2";
       const currentSeason = sectionRefs.current[`temp<b>o</b>radas-${season}`];
-      currentSeason.scrollIntoView({ behavior: "smooth" });
+      window.scrollTo({
+        top: currentSeason.offsetTop,
+        behavior: "smooth",
+      });
     };
 
     const button = seasonOpenButtonRef.current;
@@ -93,6 +96,26 @@ const PrimeiraTemporada = () => {
       button?.removeEventListener("click", scrollIntoView);
     };
   }, [activeSeason]);
+
+  useEffect(() => {
+    if (!isSeasonActive) return;
+    const currentSeason =
+      activeSeason === "Temporada_1"
+        ? sectionRefs.current["temp<b>o</b>radas-temporada 1"]
+        : sectionRefs.current["temp<b>o</b>radas-temporada 2"];
+    const scrollIntoView = () => {
+      window.scrollTo({
+        top: currentSeason.offsetTop,
+        behavior: "instant",
+      });
+    };
+
+    window.addEventListener("resize", scrollIntoView);
+
+    return () => {
+      window.removeEventListener("resize", scrollIntoView);
+    };
+  }, [isSeasonActive, activeSeason]);
 
   return (
     <section
@@ -107,6 +130,9 @@ const PrimeiraTemporada = () => {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         className={styles.seasonContainer}
+        style={{
+          pointerEvents: isTransitioning ? "none" : "auto",
+        }}
       >
         <motion.div
           className={styles.seasonContent}
@@ -130,6 +156,7 @@ const PrimeiraTemporada = () => {
             <Button
               title="fechar"
               onClick={() => {
+                if(isTransitioning) return;
                 setIsSeasonActive(false);
                 setActiveSeason("");
                 setActiveTab(" ");
@@ -237,6 +264,7 @@ const PrimeiraTemporada = () => {
             title="ver detalhes"
             variant="ghost"
             onClick={() => {
+              if(isTransitioning) return;
               setIsSeasonActive(true);
               setActiveSeason(temporada);
               setActiveTab("episódios");

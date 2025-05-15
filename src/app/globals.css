@@ -10,6 +10,10 @@ body {
   overflow-anchor: none;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 html.lenis,
 html.lenis body {
   height: auto;

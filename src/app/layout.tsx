@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import LenisProvider from "@/components/LenisProvider";
+import { LenisProvider } from "@/contexts/LenisContext";
 import { MenuProvider } from "@/contexts/GlobalContext";
 
 const geistSans = Geist({
@@ -30,11 +30,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <LenisProvider>
-          <MenuProvider>
-            {children}
-          </MenuProvider>
-        </LenisProvider>
+        <MenuProvider>
+          <LenisProvider>{children}</LenisProvider>
+        </MenuProvider>
       </body>
     </html>
   );

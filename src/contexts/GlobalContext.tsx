@@ -1,7 +1,6 @@
 "use client";
 
-import { sectionRefs } from "@/utils/sectionRefs";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 interface MenuContextType {
   isMenuOpen: boolean;
@@ -23,20 +22,6 @@ export const MenuProvider: React.FC<{ children: React.ReactNode }> = ({
   const [isAudioOn, setIsAudioOn] = useState(false);
   const [isSeasonActive, setIsSeasonActive] = useState(false);
   const [activeSeason, setActiveSeason] = useState("");
-    
-    useEffect(() => {
-        if (!isSeasonActive) return;
-        const currentSeason = activeSeason === "Temporada_1" ? sectionRefs.current["temp<b>o</b>radas-temporada 1"] : sectionRefs.current["temp<b>o</b>radas-temporada 2"];
-        const scrollIntoView = () => {
-            currentSeason.scrollIntoView({ behavior: "instant" });
-        }
-
-        window.addEventListener("resize", scrollIntoView);
-
-        return () => {
-            window.removeEventListener("resize", scrollIntoView);
-        }
-    }, [isSeasonActive, activeSeason]);
 
   return (
     <MenuContext.Provider
