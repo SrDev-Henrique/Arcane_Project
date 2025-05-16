@@ -1,19 +1,18 @@
 "use client";
 
-import styles from "./PrimeiraTemporada.module.scss";
+import styles from "./SegundaTemporada.module.scss";
 
 import { sectionRefs } from "@/utils/sectionRefs";
 import RenderSeasons from "../RenderSeasons/RenderSeasons";
 
-
-const PrimeiraTemporada = () => {
-  const temporada = "Temporada_1";
+const SegundaTemporada = () => {
+  const temporada = "Temporada_2";
 
   return (
     <section
       ref={(el) => {
         if (el)
-          sectionRefs.current["temp<b>o</b>radas-temporada 1"] =
+          sectionRefs.current["temp<b>o</b>radas-temporada 2"] =
             el as HTMLElement;
       }}
       className={styles.container}
@@ -25,4 +24,4 @@ const PrimeiraTemporada = () => {
   );
 };
 
-export default PrimeiraTemporada;
+export default SegundaTemporada;

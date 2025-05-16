@@ -36,6 +36,7 @@ interface EpisodesListProps {
   setIsEpisodeActive: (isEpisodeActive: boolean) => void;
   isFirstClick: boolean;
   setIsFirstClick: (isFirstClick: boolean) => void;
+  temporada: string;
 }
 
 const EpisodesList = ({
@@ -49,6 +50,7 @@ const EpisodesList = ({
   setIsEpisodeActive,
   isFirstClick,
   setIsFirstClick,
+  temporada,
 }: EpisodesListProps) => {
   const imagesContainerRef = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -244,7 +246,7 @@ const EpisodesList = ({
                   : "inactive"
               }
               style={{
-                backgroundImage: `url(/images/Temporadas/Temporada_1/episódio-${episode.episode}.webp)`,
+                backgroundImage: `url(/images/Temporadas/${temporada}/episódio-${episode.episode}.webp)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}

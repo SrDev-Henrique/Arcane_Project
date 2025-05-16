@@ -167,7 +167,7 @@ export const seasons = {
     {
       id: 3,
       episode: "Episódio 3",
-      title: "Victor e Jayce descobrem a Hextech",
+      title: "Victor e Jayce ativam a Hextech",
       emote: "💡",
       image: "/images/highlights/Temporada_1/jayce_victor_discovery.webp",
       src: "https://d3v6dicq4pzaym.cloudfront.net/victor_jayce_hextech_legendado.mp4",

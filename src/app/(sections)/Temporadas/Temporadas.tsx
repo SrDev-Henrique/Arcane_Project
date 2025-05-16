@@ -1,9 +1,11 @@
 import PrimeiraTemporada from "./components/PrimeiraTemporada/PrimeiraTemporada";
+import SegundaTemporada from "./components/SegundaTemporada/SegundaTemporada";
 
 const Temporadas = () => {
   return (
-    <div style={{ marginTop: "800vh" }}>
+    <div>
       <PrimeiraTemporada />
+      <SegundaTemporada />
     </div>
   );
 };
