@@ -117,6 +117,25 @@ const PrimeiraTemporada = () => {
     };
   }, [isSeasonActive, activeSeason]);
 
+  const enterFullscreen = () => {
+    const el = document.documentElement;
+    if (el.requestFullscreen) {
+      el.requestFullscreen();
+    } else if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    }
+  };
+
+  const exitFullscreen = () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen?.();
+    } else if (document.fullscreenElement) {
+      document.exitFullscreen?.();
+    } else if (document.fullscreenElement) {
+      document.exitFullscreen?.();
+    }
+  };
+
   return (
     <section
       ref={(el) => {
@@ -156,7 +175,8 @@ const PrimeiraTemporada = () => {
             <Button
               title="fechar"
               onClick={() => {
-                if(isTransitioning) return;
+                if (isTransitioning) return;
+                exitFullscreen();
                 setIsSeasonActive(false);
                 setActiveSeason("");
                 setActiveTab(" ");
@@ -267,7 +287,8 @@ const PrimeiraTemporada = () => {
             title="ver detalhes"
             variant="ghost"
             onClick={() => {
-              if(isTransitioning) return;
+              if (isTransitioning) return;
+              enterFullscreen();
               setIsSeasonActive(true);
               setActiveSeason(temporada);
               setActiveTab("episódios");

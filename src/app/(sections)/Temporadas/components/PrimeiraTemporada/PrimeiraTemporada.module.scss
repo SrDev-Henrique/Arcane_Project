@@ -19,7 +19,7 @@
 }
 
 .container {
-  height: 100dvh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 100%;
   background-color: $sage-green;
   position: relative;
@@ -30,6 +30,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .seasonContent {
@@ -101,7 +102,7 @@
       width: 90%;
       height: 90%;
     }
-    
+
     .firstMaskTitle {
       color: $black-dark;
       font-size: clamp(1.5rem, 5vw, 3.75rem);
@@ -118,6 +119,6 @@
   position: absolute;
   right: 50%;
   transform: translateX(50%);
-  bottom: 18%;
+  bottom: 12%;
   width: fit-content;
 }

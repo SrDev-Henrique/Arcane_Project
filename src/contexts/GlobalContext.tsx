@@ -2,6 +2,8 @@
 
 import React, { createContext, useContext, useState } from "react";
 
+import { useViewportHeight } from "@/hooks/useViewportHeight";
+
 interface MenuContextType {
   isMenuOpen: boolean;
   setIsMenuOpen: (isOpen: boolean) => void;
@@ -18,6 +20,8 @@ const MenuContext = createContext<MenuContextType | undefined>(undefined);
 export const MenuProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  useViewportHeight();
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAudioOn, setIsAudioOn] = useState(false);
   const [isSeasonActive, setIsSeasonActive] = useState(false);

@@ -239,7 +239,7 @@ const EpisodesList = ({
               variants={variants}
               initial="inactive"
               animate={
-                activeEpisode === episode.id && isEpisodeClicked	
+                activeEpisode === episode.id && isEpisodeClicked
                   ? "active"
                   : "inactive"
               }
@@ -275,7 +275,11 @@ const EpisodesList = ({
           </motion.div>
         ))}
       </motion.div>
-      <div className={`${styles.closeButton} ${isTransitioning ? styles.opacityLow : ""}`}>
+      <div
+        className={`${styles.closeButton} ${
+          isTransitioning ? styles.opacityLow : ""
+        }`}
+      >
         <Button
           style={{
             opacity: activeEpisode > 0 ? 1 : 0,

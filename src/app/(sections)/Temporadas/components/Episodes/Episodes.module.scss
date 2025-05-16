@@ -16,7 +16,7 @@
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
   pointer-events: auto;
 
   &.isHidden {
@@ -32,7 +32,8 @@
 }
 
 .episode {
-  @include size-full;
+  width: 100%;
+  height: 100dvh;
   position: absolute;
   inset: 0;
   will-change: clip-path, opacity;

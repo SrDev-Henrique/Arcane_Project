@@ -5,14 +5,16 @@
   outline: none;
 }
 
-html,
-body {
+html, body {
+  height: auto !important;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
   overflow-anchor: none;
 }
 
 body {
   overflow-x: hidden;
-  height: 100dvh;
 }
 
 html.lenis,
