@@ -3,14 +3,14 @@ export const seasonVariants = {
     clipPath: "polygon(20% 25%, 80% 30%, 80% 75%, 20% 75%)",
     transition: {
       duration: 1,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.65, 0, 0.35, 1],
     },
   },
   opened: {
     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     transition: {
       duration: 1,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.65, 0, 0.35, 1],
     },
   },
 };
@@ -22,7 +22,7 @@ export const seasonImageVariants = {
     opacity: 1,
     transition: {
       duration: 0.6,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.65, 0, 0.35, 1],
     },
   },
   hidden: {
@@ -31,7 +31,7 @@ export const seasonImageVariants = {
     opacity: 0,
     transition: {
       duration: 0.6,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.65, 0, 0.35, 1],
     },
   },
 };
@@ -41,14 +41,14 @@ export const seasonFirstMaskVariants = {
     height: "100%",
     transition: {
       duration: 1,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.65, 0, 0.35, 1],
     },
   },
   hidden: {
     height: "0%",
     transition: {
       duration: 1,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.65, 0, 0.35, 1],
       delay: 0.1,
     },
   },
@@ -59,14 +59,14 @@ export const seasonSecondMaskVariants = {
     height: "100%",
     transition: {
       duration: 1,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.65, 0, 0.35, 1],
     },
   },
   hidden: {
     height: "0%",
     transition: {
       duration: 1,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.65, 0, 0.35, 1],
       delay: 0.2,
     },
   },
@@ -77,14 +77,14 @@ export const seasonTitleVariants = {
     opacity: 1,
     transition: {
       duration: 1,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.65, 0, 0.35, 1],
     },
   },
   hidden: {
     opacity: 0,
     transition: {
       duration: 1,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.65, 0, 0.35, 1],
       delay: 0.2,
     },
   },
@@ -118,13 +118,13 @@ export const itemRevealVariants = {
     y: "50%",
     scale: 0.5,
     opacity: 0,
-    transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
+    transition: { duration: 0.6, ease: [0.65, 0, 0.35, 1] },
   },
   visible: {
     y: "0%",
     scale: 1,
     opacity: 1,
-    transition: { duration: 1, ease: [0.76, 0, 0.24, 1], delay: 0.6, },
+    transition: { duration: 1, ease: [0.65, 0, 0.35, 1], delay: 0.5 },
   },
 };
 
@@ -184,7 +184,7 @@ export const episodesContainerVariants = {
   },
   visible: {
     opacity: 1,
-    transition: { 
+    transition: {
       duration: 0.6,
       ease: [0.76, 0, 0.24, 1],
       delay: 1,
@@ -248,14 +248,14 @@ export const highlightInfoVariants = {
     opacity: 0,
     transition: {
       duration: 0.6,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.65, 0, 0.35, 1],
     },
   },
   visible: {
     opacity: 1,
     transition: {
       duration: 0.6,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.65, 0, 0.35, 1],
     },
   },
 };
@@ -265,14 +265,48 @@ export const highlightItemVariants = {
     scale: 0.85,
     transition: {
       duration: 0.6,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.65, 0, 0.35, 1],
     },
   },
   active: {
     scale: 1,
     transition: {
       duration: 0.6,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.65, 0, 0.35, 1],
     },
-  }
-}
+  },
+};
+
+export const navContainerVariants = {
+  hidden: {
+    opacity: 0,
+    right: "50%",
+    transform: "translateX(50%) translateY(-100%)",
+    transition: {
+      opacity: {
+        duration: 1,
+        ease: [0.65, 0, 0.35, 1],
+      },
+      transform: {
+        duration: 1,
+        ease: [0.65, 0, 0.35, 1],
+      },
+    },
+  },
+
+  visible: {
+    opacity: 1,
+    right: "50%",
+    transform: "translateX(50%) translateY(0)",
+    transition: {
+      opacity: {
+        duration: 1,
+        ease: [0.65, 0, 0.35, 1],
+      },
+      transform: {
+        duration: 1,
+        ease: [0.65, 0, 0.35, 1],
+      },
+    },
+  },
+};

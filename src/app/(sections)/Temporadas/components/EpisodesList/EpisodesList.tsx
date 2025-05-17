@@ -16,7 +16,7 @@ import {
   itemRevealVariants,
   listVariants,
   titlesVariants,
-} from "../../animations/anime";
+} from "../../../../../animations/anime";
 
 interface EpisodesItems {
   id: number;

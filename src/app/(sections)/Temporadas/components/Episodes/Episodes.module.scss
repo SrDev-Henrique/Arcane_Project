@@ -134,7 +134,7 @@
   font-family: $font-lora;
   line-height: 2.25rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: $md) {
     min-width: 3.5rem;
     font-size: 2.25rem;
     line-height: 2.5rem;
@@ -153,7 +153,7 @@
   font-size: 1.125rem;
   line-height: 1.75rem;
 
-  @media (min-width: 1024px) {
+  @media (min-width: $lg) {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
@@ -170,7 +170,7 @@
     font-size: 0.875rem;
     line-height: 1.25rem;
 
-    @media (min-width: 1024px) {
+    @media (min-width: $lg) {
       font-size: 1rem;
       line-height: 1.5rem;
     }
@@ -185,7 +185,7 @@
   padding-inline: 0.5rem;
   height: 1.5rem;
   background-color: $beige-transparent;
-  border-radius: 100%;
+  border-radius: 1rem;
 
   &.isHidden {
     opacity: 0;
@@ -219,7 +219,7 @@
     font-size: 0.875rem;
     line-height: 1.25rem;
 
-    @media (min-width: 768px) {
+    @media (min-width: $md) {
       font-size: 1rem;
       line-height: 1.5rem;
     }

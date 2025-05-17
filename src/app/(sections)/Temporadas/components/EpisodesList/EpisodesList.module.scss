@@ -37,11 +37,11 @@
     font-size: 0.75rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: $md) {
     margin-top: 1.781rem;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: $xl) {
     padding-inline: 0;
   }
 
@@ -59,7 +59,7 @@
 
   gap: 4rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: $md) {
     gap: 8rem;
   }
 }
@@ -121,7 +121,7 @@
         font-size: 0.975rem;
         line-height: 1rem;
 
-        @media (min-width: 768px) {
+        @media (min-width: $md) {
           font-size: 0.875rem;
           line-height: 1.25rem;
         }
@@ -156,7 +156,7 @@
       text-transform: uppercase;
       color: $neutral-light;
 
-      @media (min-width: 768px) {
+      @media (min-width: $md) {
         font-size: 1.5rem;
       }
 

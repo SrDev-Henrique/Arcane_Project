@@ -19,18 +19,14 @@ import {
   seasonSecondMaskVariants,
   seasonTitleVariants,
   seasonImageVariants,
-} from "../../animations/anime";
+} from "../../../../../animations/anime";
 
 import { useMenu } from "@/contexts/GlobalContext";
 import { sectionRefs } from "@/utils/sectionRefs";
 import { seasons } from "@/data/Temporadas";
 const navItems = ["episódios", "highlights"];
 
-const RenderSeasons = ({
-  temporada,
-}: {
-  temporada: string;
-}) => {
+const RenderSeasons = ({ temporada }: { temporada: string }) => {
   const { isSeasonActive, setIsSeasonActive, activeSeason, setActiveSeason } =
     useMenu();
 
@@ -51,9 +47,16 @@ const RenderSeasons = ({
 
   useLockBodyScroll(isSeasonActive);
 
-  const episodes = temporada === "Temporada_1" ? seasons.firstSeason : seasons.secondSeason;
-  const episodesList = temporada === "Temporada_1" ? seasons.firstSeasonEpisodes : seasons.secondSeasonEpisodes;
-  const highlights = temporada === "Temporada_1" ? seasons.firstSeasonHighlights : seasons.secondSeasonHighlights;
+  const episodes =
+    temporada === "Temporada_1" ? seasons.firstSeason : seasons.secondSeason;
+  const episodesList =
+    temporada === "Temporada_1"
+      ? seasons.firstSeasonEpisodes
+      : seasons.secondSeasonEpisodes;
+  const highlights =
+    temporada === "Temporada_1"
+      ? seasons.firstSeasonHighlights
+      : seasons.secondSeasonHighlights;
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!itemRef.current || isTransitioning) return;

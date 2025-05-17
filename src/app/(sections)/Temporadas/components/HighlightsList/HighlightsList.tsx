@@ -5,7 +5,7 @@ import {
   itemRevealVariants,
   highlightInfoVariants,
   highlightItemVariants,
-} from "../../animations/anime";
+} from "../../../../../animations/anime";
 
 import Lenis from "lenis";
 

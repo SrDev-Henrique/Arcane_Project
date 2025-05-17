@@ -11,7 +11,7 @@ import {
   nextEpisodeVariants,
   prevEpisodeVariants,
   episodesContainerVariants,
-} from "../../animations/anime";
+} from "../../../../../animations/anime";
 
 interface seasonItems {
   episode: string;
@@ -172,9 +172,7 @@ const Episodes = ({
                       </p>
                     </div>
                   </div>
-                  <div
-                    className={styles.nextEpisodeContainer}
-                  >
+                  <div className={styles.nextEpisodeContainer}>
                     <div className={styles.watchPrevButton}>
                       <Button
                         title="Assista agora"

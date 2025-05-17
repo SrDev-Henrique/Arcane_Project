@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 import { RiPlayList2Fill } from "react-icons/ri";
 import { MdOndemandVideo } from "react-icons/md";
-import { buttonVariants } from "../../animations/anime";
-import { navVariants } from "../../animations/anime";
+import { buttonVariants } from "../../../../../animations/anime";
+import { navVariants } from "../../../../../animations/anime";
 
 const Nav = ({
   navItems,
@@ -28,7 +28,6 @@ const Nav = ({
   setIsEpisodeActive: (episode: boolean) => void;
   setIsFirstClick: (firstClick: boolean) => void;
 }) => {
-
   if (activeSeason === temporada)
     return (
       <motion.nav

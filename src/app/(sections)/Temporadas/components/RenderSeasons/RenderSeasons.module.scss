@@ -67,11 +67,11 @@
     font-size: 0.75rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: $md) {
     margin-top: 1.781rem;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: $xl) {
     padding-inline: 0;
   }
 }
