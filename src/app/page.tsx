@@ -1,10 +1,10 @@
 import Temporadas from "./(sections)/Temporadas/Temporadas";
-import NavBar from "@/components/NavBar/NavBar";
+// import NavBar from "@/components/NavBar/NavBar";
 
 export default function Home() {
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       <Temporadas />
     </div>
   );
