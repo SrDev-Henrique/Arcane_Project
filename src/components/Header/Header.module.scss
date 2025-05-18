@@ -1,0 +1,15 @@
+@use "src/styles/variables.scss" as *;
+
+.header {
+  position: fixed;
+  right: min(50px, 8vw);
+  top: min(50px, 7vh);
+  z-index: 100;
+  .menu {
+    width: 480px;
+    height: 650px;
+    background-color: $accent-pink;
+    border-radius: 25px;
+    position: relative;
+  }
+}

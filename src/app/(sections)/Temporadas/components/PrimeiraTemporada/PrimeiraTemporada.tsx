@@ -13,7 +13,7 @@ const PrimeiraTemporada = () => {
     <section
       ref={(el) => {
         if (el)
-          sectionRefs.current["temp<b>o</b>radas-temporada 1"] =
+          sectionRefs.current["temporadas-temporada 1"] =
             el as HTMLElement;
       }}
       className={styles.container}

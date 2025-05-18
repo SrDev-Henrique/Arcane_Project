@@ -11,7 +11,7 @@ import {
   nextEpisodeVariants,
   prevEpisodeVariants,
   episodesContainerVariants,
-} from "../../../../../animations/anime";
+} from "../../anime";
 
 interface seasonItems {
   episode: string;
@@ -32,6 +32,7 @@ const Episodes = ({
   activeTab,
   isEpisodeActive,
   setIsFirstClick,
+  activeSeason,
 }: {
   subject: seasonItems[];
   temporada: string;
@@ -42,6 +43,7 @@ const Episodes = ({
   activeTab: string;
   isEpisodeActive: boolean;
   setIsFirstClick: (isFirstClick: boolean) => void;
+  activeSeason: string;
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentEpisode, setCurrentEpisode] = useState(currentIndex);
@@ -82,6 +84,8 @@ const Episodes = ({
       setCurrentEpisode(activeEpisode);
     }
   }, [activeEpisode]);
+
+  if (activeSeason !== temporada) return null;
 
   return (
     <motion.div

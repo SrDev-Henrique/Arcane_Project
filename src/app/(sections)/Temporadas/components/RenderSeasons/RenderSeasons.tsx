@@ -4,11 +4,11 @@ import styles from "./RenderSeasons.module.scss";
 
 import { useEffect, useRef, useState } from "react";
 
-import EpisodesList from "../EpisodesList/EpisodesList";
 import useLockBodyScroll from "@/utils/useLockBodyScroll";
 import Nav from "../Nav/Nav";
 import Button from "@/components/Button/Button";
 import Episodes from "../Episodes/Episodes";
+import EpisodesList from "../EpisodesList/EpisodesList";
 import HighlightsList from "../HighlightsList/HighlightsList";
 
 import { motion } from "framer-motion";
@@ -19,11 +19,12 @@ import {
   seasonSecondMaskVariants,
   seasonTitleVariants,
   seasonImageVariants,
-} from "../../../../../animations/anime";
+} from "../../anime";
 
 import { useMenu } from "@/contexts/GlobalContext";
 import { sectionRefs } from "@/utils/sectionRefs";
 import { seasons } from "@/data/Temporadas";
+
 const navItems = ["episódios", "highlights"];
 
 const RenderSeasons = ({ temporada }: { temporada: string }) => {
@@ -84,7 +85,7 @@ const RenderSeasons = ({ temporada }: { temporada: string }) => {
     const scrollIntoView = () => {
       const season =
         activeSeason === "Temporada_1" ? "temporada 1" : "temporada 2";
-      const currentSeason = sectionRefs.current[`temp<b>o</b>radas-${season}`];
+      const currentSeason = sectionRefs.current[`temporadas-${season}`];
       window.scrollTo({
         top: currentSeason.offsetTop,
         behavior: "smooth",
@@ -102,26 +103,6 @@ const RenderSeasons = ({ temporada }: { temporada: string }) => {
     };
   }, [activeSeason, temporada]);
 
-  useEffect(() => {
-    if (!isSeasonActive) return;
-    const currentSeason =
-      activeSeason === "Temporada_1"
-        ? sectionRefs.current["temp<b>o</b>radas-temporada 1"]
-        : sectionRefs.current["temp<b>o</b>radas-temporada 2"];
-    const scrollIntoView = () => {
-      window.scrollTo({
-        top: currentSeason.offsetTop,
-        behavior: "instant",
-      });
-    };
-
-    window.addEventListener("resize", scrollIntoView);
-
-    return () => {
-      window.removeEventListener("resize", scrollIntoView);
-    };
-  }, [isSeasonActive, activeSeason]);
-
   return (
     <div
       onMouseMove={handleMouseMove}
@@ -137,7 +118,7 @@ const RenderSeasons = ({ temporada }: { temporada: string }) => {
         initial="closed"
         animate={activeSeason === temporada ? "opened" : "closed"}
         style={{
-          zIndex: isSeasonActive ? "200" : "2",
+          zIndex: isSeasonActive ? "200" : "1",
         }}
       >
         <motion.div
@@ -206,6 +187,7 @@ const RenderSeasons = ({ temporada }: { temporada: string }) => {
             activeTab={activeTab}
             isEpisodeActive={isEpisodeActive}
             setIsFirstClick={setIsFirstClick}
+            activeSeason={activeSeason}
           />
         </div>
         <div

@@ -12,11 +12,7 @@ import debounce from "lodash.debounce";
 import { motion } from "framer-motion";
 import Lenis from "lenis";
 
-import {
-  itemRevealVariants,
-  listVariants,
-  titlesVariants,
-} from "../../../../../animations/anime";
+import { itemRevealVariants, listVariants, titlesVariants } from "../../anime";
 
 interface EpisodesItems {
   id: number;
@@ -27,6 +23,7 @@ interface EpisodesItems {
 
 interface EpisodesListProps {
   activeTab: string;
+  temporada: string;
   episodes: EpisodesItems[];
   activeEpisode: number;
   setActiveEpisode: (episode: number) => void;
@@ -36,11 +33,11 @@ interface EpisodesListProps {
   setIsEpisodeActive: (isEpisodeActive: boolean) => void;
   isFirstClick: boolean;
   setIsFirstClick: (isFirstClick: boolean) => void;
-  temporada: string;
 }
 
 const EpisodesList = ({
   activeTab,
+  temporada,
   episodes,
   activeEpisode,
   setActiveEpisode,
@@ -50,7 +47,6 @@ const EpisodesList = ({
   setIsEpisodeActive,
   isFirstClick,
   setIsFirstClick,
-  temporada,
 }: EpisodesListProps) => {
   const imagesContainerRef = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);

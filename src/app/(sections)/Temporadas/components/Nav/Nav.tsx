@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 import { RiPlayList2Fill } from "react-icons/ri";
 import { MdOndemandVideo } from "react-icons/md";
-import { buttonVariants } from "../../../../../animations/anime";
-import { navVariants } from "../../../../../animations/anime";
+import { buttonVariants } from "../../anime";
+import { navVariants } from "../../anime";
 
 const Nav = ({
   navItems,

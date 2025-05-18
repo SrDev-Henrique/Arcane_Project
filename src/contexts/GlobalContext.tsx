@@ -1,6 +1,7 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import { sectionRefs } from "@/utils/sectionRefs";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 // import { useViewportHeight } from "@/hooks/useViewportHeight";
 
@@ -26,6 +27,26 @@ export const MenuProvider: React.FC<{ children: React.ReactNode }> = ({
   const [isAudioOn, setIsAudioOn] = useState(false);
   const [isSeasonActive, setIsSeasonActive] = useState(false);
   const [activeSeason, setActiveSeason] = useState("");
+
+  useEffect(() => {
+    if (!isSeasonActive) return;
+    const currentSeason =
+      activeSeason === "Temporada_1"
+        ? sectionRefs.current["temporadas-temporada 1"]
+        : sectionRefs.current["temporadas-temporada 2"];
+    const scrollIntoView = () => {
+      window.scrollTo({
+        top: currentSeason.offsetTop,
+        behavior: "instant",
+      });
+    };
+
+    window.addEventListener("resize", scrollIntoView);
+
+    return () => {
+      window.removeEventListener("resize", scrollIntoView);
+    };
+  }, [isSeasonActive, activeSeason]);
 
   return (
     <MenuContext.Provider

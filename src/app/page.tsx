@@ -1,10 +1,10 @@
+import Header from "@/components/Header/Header";
 import Temporadas from "./(sections)/Temporadas/Temporadas";
-// import NavBar from "@/components/NavBar/NavBar";
 
 export default function Home() {
   return (
     <div>
-      {/* <NavBar /> */}
+      <Header />
       <Temporadas />
     </div>
   );
