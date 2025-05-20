@@ -5,7 +5,8 @@
   outline: none;
 }
 
-html, body {
+html,
+body {
   height: auto !important;
   min-height: 100%;
   overflow-x: hidden;
@@ -15,6 +16,10 @@ html, body {
 
 body {
   overflow-x: hidden;
+}
+
+body.overflow-hidden {
+  overflow: hidden;
 }
 
 html.lenis,

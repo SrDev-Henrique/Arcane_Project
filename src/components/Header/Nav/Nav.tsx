@@ -4,9 +4,10 @@ import { links } from "./data";
 import { perspective, slideIn } from "./anime";
 import { useEffect, useState } from "react";
 import { sectionRefs } from "@/utils/sectionRefs";
-import { enterFullscreen } from "@/hooks/useFullscreen";
-import { exitFullscreen } from "@/hooks/useFullscreen";
+import { enterFullscreen, exitFullscreen, useFullscreenStatus } from "@/hooks/useFullscreen";
 import Link from "next/link";
+import { FaPlus } from "react-icons/fa6";
+import { FaMinus } from "react-icons/fa6";
 
 const Nav = ({
   isMenuOpen,
@@ -16,10 +17,9 @@ const Nav = ({
   setIsMenuOpen: (isMenuOpen: boolean) => void;
 }) => {
   const [focusedTitle, setFocusedTitle] = useState<string | null>(null);
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const isFullScreen = useFullscreenStatus();
 
   const toggleFullScreen = () => {
-    setIsFullScreen(!isFullScreen);
     if (isFullScreen) {
       exitFullscreen();
     } else {
@@ -86,7 +86,11 @@ const Nav = ({
                     focusedTitle === title ? styles.active : ""
                   }`}
                 >
-                  <h3 onClick={() => handleTitleClick(title)}>{title}</h3>
+                  <div className={styles.titleContainer}>
+                    <h3 onClick={() => handleTitleClick(title)}>{title}</h3>
+                    {content &&
+                      (focusedTitle === title ? <FaMinus /> : <FaPlus />)}
+                  </div>
                   <div className={styles.linkContent}>
                     {content &&
                       content.map((content, index) => (
@@ -117,9 +121,13 @@ const Nav = ({
         className={styles.footer}
       >
         <div className={styles.footerText}>
-          <p>Desenvolvido por</p>
+          <p>Desenvolvido por:</p>
         </div>
-        <Link className={styles.footerLink} href={"https://github.com/SrDev-Henrique"} target="_blank">
+        <Link
+          className={styles.footerLink}
+          href={"https://github.com/SrDev-Henrique"}
+          target="_blank"
+        >
           <p>SRDEV HENRIQUE</p>
         </Link>
       </motion.div>

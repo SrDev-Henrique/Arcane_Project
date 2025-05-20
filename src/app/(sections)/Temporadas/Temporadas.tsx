@@ -1,12 +1,23 @@
-import PrimeiraTemporada from "./components/PrimeiraTemporada/PrimeiraTemporada";
-import SegundaTemporada from "./components/SegundaTemporada/SegundaTemporada";
+"use client";
+
+import dynamic from "next/dynamic";
+
+const PrimeiraTemporada = dynamic(
+  () => import("./components/PrimeiraTemporada/PrimeiraTemporada"),
+  {
+    ssr: false,
+  }
+);
+const SegundaTemporada = dynamic(
+  () => import("./components/SegundaTemporada/SegundaTemporada"),
+  {
+    ssr: false,
+  }
+);
 
 const Temporadas = () => {
   return (
     <div>
-      {Array.from({ length: 2 }).map((_, index) => (
-        <div style={{ height: "100vh", width: "100vw", backgroundColor: "red" }} key={index}>{index}</div>
-      ))}
       <PrimeiraTemporada />
       <SegundaTemporada />
     </div>

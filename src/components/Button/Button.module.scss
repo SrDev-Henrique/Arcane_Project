@@ -196,3 +196,16 @@
     }
   }
 }
+
+.hero {
+  @include button($arcane-blue, fit-content, $black-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 0.75rem;
+  padding-inline-start: 1.2rem;
+  padding-inline-end: 1.7rem;
+  font-weight: 600;
+  font-size: 1.175rem;
+  min-height: 43.6px
+}

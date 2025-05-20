@@ -1,3 +1,9 @@
+"use client";
+
+import { useState } from "react";
+
+import { useEffect } from "react";
+
 const enterFullscreen = () => {
   const el = document.documentElement;
   if (el.requestFullscreen) {
@@ -18,3 +24,22 @@ const exitFullscreen = () => {
 };
 
 export { enterFullscreen, exitFullscreen };
+
+export function useFullscreenStatus() {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    function handleFullscreenChange() {
+      setIsFullscreen(!!document.fullscreenElement);
+    }
+
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    handleFullscreenChange();
+
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+    };
+  }, []);
+
+  return isFullscreen;
+}

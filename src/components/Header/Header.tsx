@@ -1,9 +1,21 @@
 "use client";
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Button from "./Button/Button";
 import styles from "./Header.module.scss";
-import Nav from "./Nav/Nav";
+
+const Nav = dynamic(() => import("./Nav/Nav"), {
+  ssr: false,
+  loading: () => (
+    <div className={styles.navLoading}>
+      <span className={styles.spinner} />
+    </div>
+  ),
+});
+
+const Button = dynamic(() => import("./Button/Button"), {
+  ssr: false,
+});
 
 const menu = {
   open: {
@@ -32,7 +44,7 @@ export default function Index() {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleMenuTransition = () => {
-    if(isTransitioning) return;
+    if (isTransitioning) return;
     setIsActive(!isActive);
     setIsTransitioning(true);
     setTimeout(() => {
@@ -48,12 +60,13 @@ export default function Index() {
         animate={isActive ? "open" : "closed"}
         initial="closed"
       >
-        <AnimatePresence>{isActive && <Nav isMenuOpen={isActive} setIsMenuOpen={setIsActive} />}</AnimatePresence>
+        <AnimatePresence>
+          {isActive && (
+            <Nav isMenuOpen={isActive} setIsMenuOpen={setIsActive} />
+          )}
+        </AnimatePresence>
       </motion.div>
-      <Button
-        isActive={isActive}
-        toggleMenu={handleMenuTransition}
-      />
+      <Button isActive={isActive} toggleMenu={handleMenuTransition} />
     </div>
   );
 }

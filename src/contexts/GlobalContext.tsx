@@ -14,6 +14,8 @@ interface MenuContextType {
   setIsSeasonActive: (isActive: boolean) => void;
   activeSeason: string;
   setActiveSeason: (season: string) => void;
+  isLoading: boolean;
+  setIsLoading: (isLoading: boolean) => void;
 }
 
 const MenuContext = createContext<MenuContextType | undefined>(undefined);
@@ -22,7 +24,7 @@ export const MenuProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   // useViewportHeight();
-  
+  const [isLoading, setIsLoading] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAudioOn, setIsAudioOn] = useState(false);
   const [isSeasonActive, setIsSeasonActive] = useState(false);
@@ -59,6 +61,8 @@ export const MenuProvider: React.FC<{ children: React.ReactNode }> = ({
         setIsSeasonActive,
         activeSeason,
         setActiveSeason,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}
