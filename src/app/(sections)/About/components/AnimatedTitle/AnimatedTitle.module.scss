@@ -1,0 +1,37 @@
+@use "@/styles/variables" as *;
+
+.animatedTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 4.5rem;
+  line-height: 0.8;
+
+  @media (min-width: $sm) {
+    padding-inline: 8rem;
+  }
+  @media (min-width: $md) {
+    font-size: 6rem;
+  }
+}
+.titles {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 0.5rem;
+  padding-inline: 2.5rem;
+  will-change: opacity, transform;
+
+  @media (min-width: $md) {
+    gap: 0.75rem;
+  }
+}
+.words {
+  font-family: $font-zentry;
+  color: black;
+
+  b {
+    font-family: $font-zentry;
+    font-feature-settings: "ss01" on;
+  }
+}

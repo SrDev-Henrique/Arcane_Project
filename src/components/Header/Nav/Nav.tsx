@@ -4,7 +4,11 @@ import { links } from "./data";
 import { perspective, slideIn } from "./anime";
 import { useEffect, useState } from "react";
 import { sectionRefs } from "@/utils/sectionRefs";
-import { enterFullscreen, exitFullscreen, useFullscreenStatus } from "@/hooks/useFullscreen";
+import {
+  enterFullscreen,
+  exitFullscreen,
+  useFullscreenStatus,
+} from "@/hooks/useFullscreen";
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
@@ -12,9 +16,13 @@ import { FaMinus } from "react-icons/fa6";
 const Nav = ({
   isMenuOpen,
   setIsMenuOpen,
+  isTransitioning,
+  setIsTransitioning,
 }: {
   isMenuOpen: boolean;
   setIsMenuOpen: (isMenuOpen: boolean) => void;
+  isTransitioning: boolean;
+  setIsTransitioning: (isTransitioning: boolean) => void;
 }) => {
   const [focusedTitle, setFocusedTitle] = useState<string | null>(null);
   const isFullScreen = useFullscreenStatus();
@@ -28,7 +36,9 @@ const Nav = ({
   };
 
   const handleTitleClick = (title: string) => {
+    if (isTransitioning) return;
     if (title === "Início") {
+      setIsTransitioning(true);
       scrollToTop();
       return;
     }
@@ -48,17 +58,27 @@ const Nav = ({
     }
 
     setFocusedTitle(null);
+    setIsTransitioning(true);
 
-    setTimeout(() => {
-      setIsMenuOpen(!isMenuOpen);
-    }, 1000);
+    const interval = setInterval(() => {
+      const { top } = section.getBoundingClientRect();
+      if (top === 0) {
+        clearInterval(interval);
+        setIsMenuOpen(!isMenuOpen);
+        setIsTransitioning(false);
+      }
+    }, 10);
   };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    setTimeout(() => {
-      setIsMenuOpen(!isMenuOpen);
-    }, 1000);
+    const interval = setInterval(() => {
+      if (window.scrollY === 0) {
+        clearInterval(interval);
+        setIsMenuOpen(!isMenuOpen);
+        setIsTransitioning(false);
+      }
+    }, 10);
   };
 
   useEffect(() => {

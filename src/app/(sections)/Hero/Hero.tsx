@@ -34,7 +34,7 @@ const Hero = () => {
     scrollYProgress,
     [0, 1],
     [
-      "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+      "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       "polygon(14% 0%, 72% 0%, 90% 90%, 5% 100%)",
     ]
   );
@@ -117,7 +117,7 @@ const Hero = () => {
                       objectPosition: "center",
                     }}
                     src={getVideoSrc(index)}
-                    playsInline
+                    playsInline={index === 0}
                     autoPlay={index === 0}
                     muted
                     loop
@@ -162,8 +162,8 @@ const Hero = () => {
                       objectPosition: "center",
                     }}
                     src={getVideoSrc(index)}
-                    playsInline
-                    autoPlay
+                    playsInline={index === 0}
+                    autoPlay={index === 0}
                     muted
                     loop
                     poster={
@@ -180,8 +180,8 @@ const Hero = () => {
         </div>
 
         <div className={styles.heroInfo}>
-          <div className={styles.cta}>
-            <h1>ARCANE</h1>
+          <header className={styles.cta} aria-label="Hero call to action">
+            <h1 id="hero-heading">ARCANE</h1>
             <p className={styles.description}>
               Descubra o universo de Arcane. Clique no botão abaixo para
               conhecer esta série incrível.
@@ -194,12 +194,13 @@ const Hero = () => {
                 window.open("https://www.netflix.com/title/81435684", "_blank")
               }
             />
-          </div>
-          <div className={styles.netflix}>
+          </header>
+
+          <aside className={styles.netflix} aria-label="Netflix brand logo">
             <h2>
               N<b>e</b>tflix
             </h2>
-          </div>
+          </aside>
         </div>
       </motion.div>
     </div>

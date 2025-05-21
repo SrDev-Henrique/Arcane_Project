@@ -62,7 +62,12 @@ export default function Index() {
       >
         <AnimatePresence>
           {isActive && (
-            <Nav isMenuOpen={isActive} setIsMenuOpen={setIsActive} />
+            <Nav
+              isMenuOpen={isActive}
+              setIsMenuOpen={setIsActive}
+              isTransitioning={isTransitioning}
+              setIsTransitioning={setIsTransitioning}
+            />
           )}
         </AnimatePresence>
       </motion.div>
