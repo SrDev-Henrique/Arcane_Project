@@ -12,6 +12,7 @@ import Lenis from "lenis";
 import { IoPlayCircle } from "react-icons/io5";
 import { GrClose } from "react-icons/gr";
 import { useCallback, useEffect, useRef } from "react";
+import { isMobile } from "react-device-detect";
 
 interface HighlightsItems {
   id: number;
@@ -31,6 +32,8 @@ const HighlightsList = ({
   setIsHighlightActive,
   isTransitioning,
   setIsTransitioning,
+  activeSeason,
+  temporada,
 }: {
   highlights: HighlightsItems[];
   activeTab: string;
@@ -40,6 +43,8 @@ const HighlightsList = ({
   setIsHighlightActive: (isHighlightActive: boolean) => void;
   isTransitioning: boolean;
   setIsTransitioning: (isTransitioning: boolean) => void;
+  activeSeason: string;
+  temporada: string;
 }) => {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const highlightRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -155,6 +160,8 @@ const HighlightsList = ({
       container?.classList.remove(styles.overflowHidden);
     };
   }, [isHighlightActive]);
+
+  if (isMobile && activeSeason !== temporada) return null;
 
   return (
     <div

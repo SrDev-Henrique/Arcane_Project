@@ -60,12 +60,21 @@ const Nav = ({
     setFocusedTitle(null);
     setIsTransitioning(true);
 
+    let fallbackTimeout: NodeJS.Timeout | null = null;
+
     const interval = setInterval(() => {
       const { top } = section.getBoundingClientRect();
-      if (top === 0) {
+
+      if (top <= 0 && top >= -100) {
         clearInterval(interval);
+        if (fallbackTimeout) clearTimeout(fallbackTimeout);
         setIsMenuOpen(!isMenuOpen);
         setIsTransitioning(false);
+      } else if (!fallbackTimeout) {
+        fallbackTimeout = setTimeout(() => {
+          clearInterval(interval);
+          setIsTransitioning(false);
+        }, 1000);
       }
     }, 10);
   };
@@ -77,6 +86,10 @@ const Nav = ({
         clearInterval(interval);
         setIsMenuOpen(!isMenuOpen);
         setIsTransitioning(false);
+      } else {
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 1000);
       }
     }, 10);
   };

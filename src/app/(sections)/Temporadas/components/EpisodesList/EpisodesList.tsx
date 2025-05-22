@@ -4,6 +4,7 @@ import styles from "./EpisodesList.module.scss";
 
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
+import { isMobile } from "react-device-detect";
 
 import useDimension from "@/utils/useDimension";
 import Button from "@/components/Button/Button";
@@ -33,6 +34,7 @@ interface EpisodesListProps {
   setIsEpisodeActive: (isEpisodeActive: boolean) => void;
   isFirstClick: boolean;
   setIsFirstClick: (isFirstClick: boolean) => void;
+  activeSeason: string;
 }
 
 const EpisodesList = ({
@@ -47,11 +49,12 @@ const EpisodesList = ({
   setIsEpisodeActive,
   isFirstClick,
   setIsFirstClick,
+  activeSeason,
 }: EpisodesListProps) => {
   const imagesContainerRef = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const lenisRef = useRef<Lenis | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobileWidth, setIsMobileWidth] = useState(false);
   const [isEpisodeClicked, setIsEpisodeClicked] = useState(false);
 
   const { width } = useDimension();
@@ -94,8 +97,8 @@ const EpisodesList = ({
 
   const variants = {
     initial: {
-      width: isMobile ? "340px" : "740px",
-      height: isMobile ? "340px" : "740px",
+      width: isMobileWidth ? "340px" : "740px",
+      height: isMobileWidth ? "340px" : "740px",
       borderRadius: "0.5rem",
     },
 
@@ -106,8 +109,8 @@ const EpisodesList = ({
       transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
     },
     inactive: {
-      width: isMobile ? "340px" : "740px",
-      height: isMobile ? "340px" : "740px",
+      width: isMobileWidth ? "340px" : "740px",
+      height: isMobileWidth ? "340px" : "740px",
       borderRadius: "0.5rem",
       transition: {
         duration: 1,
@@ -149,7 +152,7 @@ const EpisodesList = ({
   useEffect(() => {
     const checkMobile = () => {
       if (typeof window !== "undefined") {
-        setIsMobile(window.innerWidth <= 768 || window.innerHeight <= 500);
+        setIsMobileWidth(window.innerWidth <= 768 || window.innerHeight <= 500);
       }
     };
 
@@ -201,6 +204,8 @@ const EpisodesList = ({
       container?.classList.remove(styles.overflowHidden);
     };
   }, [activeEpisode]);
+
+  if (isMobile && activeSeason !== temporada) return null;
 
   return (
     <div

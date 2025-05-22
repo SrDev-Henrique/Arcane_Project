@@ -14,7 +14,7 @@ import { heroVideos } from "./anime";
 
 const Hero = () => {
   // const { isLoading, setIsLoading } = useMenu();
-  
+
   const [currentIndex, setCurrentIndex] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -92,39 +92,25 @@ const Hero = () => {
         </div>
       )} */}
       <motion.div style={{ clipPath }} className={styles.hero}>
-        <div style={{ height: "0.03rem" }} />
         <div ref={targetRef} className={styles.videoContainer}>
           {isMobile ? (
             <div className={styles.videoContainer}>
-              {Array.from({ length: totalVideos }).map((_, index) => (
-                <motion.div
-                  variants={heroVideos}
-                  initial={`${
-                    index + 1 === currentIndex ? "initial" : "hidden"
-                  }`}
-                  animate={`${
-                    index + 1 === currentIndex ? "initial" : "hidden"
-                  }`}
-                  key={index}
-                  className={styles.video__item}
-                >
-                  <video
-                    ref={addToVideoRef}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center",
-                    }}
-                    src={getVideoSrc(index)}
-                    playsInline={index === 0}
-                    autoPlay={index === 0}
-                    muted
-                    loop
-                    onEnded={handleNextVideo}
-                  />
-                </motion.div>
-              ))}
+              <div className={styles.video__item}>
+                <video
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center",
+                  }}
+                  src={getVideoSrc(1)}
+                  playsInline
+                  autoPlay
+                  muted
+                  loop
+                  onEnded={handleNextVideo}
+                />
+              </div>
             </div>
           ) : (
             <div className={styles.videoContainer}>

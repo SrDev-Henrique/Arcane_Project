@@ -2,14 +2,23 @@
 
 import styles from "./RenderSeasons.module.scss";
 
+import dynamic from "next/dynamic";
+
+const EpisodesList = dynamic(() => import("../EpisodesList/EpisodesList"), {
+  ssr: false,
+});
+const HighlightsList = dynamic(
+  () => import("../HighlightsList/HighlightsList"),
+  {
+    ssr: false,
+  }
+);
+
 import { useEffect, useRef, useState } from "react";
 
-import useLockBodyScroll from "@/utils/useLockBodyScroll";
 import Nav from "../Nav/Nav";
 import Button from "@/components/Button/Button";
 import Episodes from "../Episodes/Episodes";
-import EpisodesList from "../EpisodesList/EpisodesList";
-import HighlightsList from "../HighlightsList/HighlightsList";
 
 import { motion } from "framer-motion";
 import {
@@ -21,6 +30,7 @@ import {
   seasonImageVariants,
 } from "../../anime";
 
+import useLockBodyScroll from "@/utils/useLockBodyScroll";
 import { useMenu } from "@/contexts/GlobalContext";
 import { sectionRefs } from "@/utils/sectionRefs";
 import { seasons } from "@/data/Temporadas";
@@ -176,6 +186,7 @@ const RenderSeasons = ({ temporada }: { temporada: string }) => {
             isFirstClick={isFirstClick}
             setIsFirstClick={setIsFirstClick}
             temporada={temporada}
+            activeSeason={activeSeason}
           />
           <Episodes
             subject={episodes}
@@ -203,6 +214,8 @@ const RenderSeasons = ({ temporada }: { temporada: string }) => {
             setIsHighlightActive={setIsHighlightActive}
             isTransitioning={isTransitioning}
             setIsTransitioning={setIsTransitioning}
+            activeSeason={activeSeason}
+            temporada={temporada}
           />
         </div>
         <motion.div

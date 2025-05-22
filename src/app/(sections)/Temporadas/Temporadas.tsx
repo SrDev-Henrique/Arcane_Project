@@ -1,19 +1,7 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
-const PrimeiraTemporada = dynamic(
-  () => import("./components/PrimeiraTemporada/PrimeiraTemporada"),
-  {
-    ssr: false,
-  }
-);
-const SegundaTemporada = dynamic(
-  () => import("./components/SegundaTemporada/SegundaTemporada"),
-  {
-    ssr: false,
-  }
-);
+import PrimeiraTemporada from "./components/PrimeiraTemporada/PrimeiraTemporada";
+import SegundaTemporada from "./components/SegundaTemporada/SegundaTemporada";
 
 const Temporadas = () => {
   return (
