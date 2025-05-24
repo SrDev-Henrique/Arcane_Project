@@ -17,7 +17,7 @@ export const useLenis = () => useContext(LenisContext);
 
 export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
   const lenisRef = useRef<Lenis | null>(null);
-  const { isSeasonActive } = useMenu();
+  const { isSeasonActive, isLoading } = useMenu();
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -43,13 +43,13 @@ export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (lenisRef.current) {
-      if (isSeasonActive) {
+      if (isSeasonActive || isLoading) {
         lenisRef.current.stop();
       } else {
         lenisRef.current.start();
       }
     }
-  }, [isSeasonActive]);
+  }, [isSeasonActive, isLoading]);
 
   return (
     <LenisContext.Provider value={{ lenis: lenisRef.current }}>

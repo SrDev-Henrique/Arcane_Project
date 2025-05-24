@@ -161,7 +161,7 @@ const HighlightsList = ({
     };
   }, [isHighlightActive]);
 
-  if (isMobile && activeSeason !== temporada) return null;
+  if (isMobile && activeSeason !== temporada) return;
 
   return (
     <div

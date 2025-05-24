@@ -167,7 +167,7 @@ const Hero = () => {
 
         <div className={styles.heroInfo}>
           <header className={styles.cta} aria-label="Hero call to action">
-            <h1 id="hero-heading">ARCANE</h1>
+            <h1>ARCANE</h1>
             <p className={styles.description}>
               Descubra o universo de Arcane. Clique no botão abaixo para
               conhecer esta série incrível.
@@ -182,11 +182,11 @@ const Hero = () => {
             />
           </header>
 
-          <aside className={styles.netflix} aria-label="Netflix brand logo">
-            <h2>
+          <div className={styles.netflix} aria-label="Netflix brand logo">
+            <h1>
               N<b>e</b>tflix
-            </h2>
-          </aside>
+            </h1>
+          </div>
         </div>
       </motion.div>
     </div>

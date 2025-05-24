@@ -24,7 +24,7 @@ export const MenuProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   // useViewportHeight();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAudioOn, setIsAudioOn] = useState(false);
   const [isSeasonActive, setIsSeasonActive] = useState(false);

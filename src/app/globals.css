@@ -11,6 +11,17 @@ body {
   min-height: 100%;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+  background: #F4E7E1;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 7px;
+  background: #7a7454;
+  border-radius: 12px;
+}
+
 body {
   overflow-x: hidden;
 }

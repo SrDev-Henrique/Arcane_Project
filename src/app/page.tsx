@@ -1,7 +1,8 @@
 import Header from "@/components/Header/Header";
-import Temporadas from "./(sections)/Temporadas/Temporadas";
 import Hero from "./(sections)/Hero/Hero";
 import About from "./(sections)/About/About";
+import Piltover from "./(sections)/Piltover/Piltover";
+import Temporadas from "./(sections)/Temporadas/Temporadas";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Header />
       <Hero />
       <About />
+      <Piltover />
       <Temporadas />
     </div>
   );

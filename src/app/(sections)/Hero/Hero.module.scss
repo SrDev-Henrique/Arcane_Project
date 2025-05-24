@@ -69,7 +69,7 @@
   flex-direction: column;
   padding: 45px 20px;
 
-  @media(max-height: 640px) {
+  @media (max-height: 640px) {
     padding: 30px 20px;
   }
 
@@ -109,7 +109,7 @@
     padding: 20px 40px;
   }
 
-  h2 {
+  h1 {
     @include netflix;
   }
 }
@@ -211,15 +211,33 @@
 }
 
 @keyframes loadingProgress {
-  0%   { width:   0%; }
-  10%  { width:  15%; }
-  25%  { width:  30%; }
-  35%  { width:  30%; }
-  50%  { width:  60%; }
-  65%  { width:  60%; }
-  75%  { width:  85%; }
-  90%  { width: 100%; }
-  100% { width: 100%; }
+  0% {
+    width: 0%;
+  }
+  10% {
+    width: 15%;
+  }
+  25% {
+    width: 30%;
+  }
+  35% {
+    width: 30%;
+  }
+  50% {
+    width: 60%;
+  }
+  65% {
+    width: 60%;
+  }
+  75% {
+    width: 85%;
+  }
+  90% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 @keyframes spin78236 {

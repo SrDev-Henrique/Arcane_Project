@@ -1,0 +1,56 @@
+@use "@/styles/variables" as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+.container {
+  @include flex-center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding-block: 1.5rem;
+
+  .imageContainer {
+    position: absolute;
+    inset: 0;
+    width: 110%;
+    height: 110%;
+    min-height: 427px;
+    @include flex-center;
+
+    .image {
+      width: 100%;
+      height: 100%;
+      filter: brightness(.8);
+      will-change: transform;
+    }
+  }
+
+  .textContainer {
+    width: fit-content;
+    max-width: 99%;
+    height: fit-content;
+    z-index: 1;
+    padding: 1rem;
+    position: relative;
+
+    @media(min-width: $xl) {
+        max-width: 70%;
+    }
+    p {
+      font-size: clamp(1rem, 1vw + 0.5rem, 1.5rem);
+      line-height: 1.2;
+      color: $orange;
+      font-family: $font-lora;
+
+      span {
+        display: inline-block;
+      }
+    }
+  }
+}

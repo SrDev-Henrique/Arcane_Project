@@ -1,17 +1,18 @@
 import styles from "./Nav.module.scss";
-import { motion } from "framer-motion";
 import { links } from "./data";
 import { perspective, slideIn } from "./anime";
-import { useEffect, useState } from "react";
 import { sectionRefs } from "@/utils/sectionRefs";
 import {
   enterFullscreen,
   exitFullscreen,
   useFullscreenStatus,
 } from "@/hooks/useFullscreen";
+import { motion } from "framer-motion";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
+import { isMobile } from "react-device-detect";
 
 const Nav = ({
   isMenuOpen,
@@ -119,8 +120,11 @@ const Nav = ({
                     focusedTitle === title ? styles.active : ""
                   }`}
                 >
-                  <div className={styles.titleContainer}>
-                    <h3 onClick={() => handleTitleClick(title)}>{title}</h3>
+                  <div
+                    onClick={() => handleTitleClick(title)}
+                    className={styles.titleContainer}
+                  >
+                    <h3>{title}</h3>
                     {content &&
                       (focusedTitle === title ? <FaMinus /> : <FaPlus />)}
                   </div>
@@ -164,29 +168,31 @@ const Nav = ({
           <p>SRDEV HENRIQUE</p>
         </Link>
       </motion.div>
-      <motion.div
-        variants={slideIn}
-        initial="initial"
-        animate="enter"
-        exit="exit"
-        custom={{ delayInitial: 0.5, index: 1 }}
-        onClick={toggleFullScreen}
-        className={`${styles.fullScreenSwitcher} ${
-          isFullScreen ? styles.active : ""
-        }`}
-      >
-        <div className={styles.fullScreenSwitcherTextContainer}>
-          <div
-            className={`${styles.fullScreenSwitcherText} ${
-              isFullScreen ? styles.active : ""
-            }`}
-          >
-            <span className={styles.transformText}>ativar</span>
-            <span className={styles.transformText}>desativar</span>
+      {!isMobile && (
+        <motion.div
+          variants={slideIn}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          custom={{ delayInitial: 0.5, index: 1 }}
+          onClick={toggleFullScreen}
+          className={`${styles.fullScreenSwitcher} ${
+            isFullScreen ? styles.active : ""
+          }`}
+        >
+          <div className={styles.fullScreenSwitcherTextContainer}>
+            <div
+              className={`${styles.fullScreenSwitcherText} ${
+                isFullScreen ? styles.active : ""
+              }`}
+            >
+              <span className={styles.transformText}>ativar</span>
+              <span className={styles.transformText}>desativar</span>
+            </div>
+            <p>modo tela cheia</p>
           </div>
-          <p>modo tela cheia</p>
-        </div>
-      </motion.div>
+        </motion.div>
+      )}
     </div>
   );
 };

@@ -1,0 +1,107 @@
+@use "@/styles/variables" as *;
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin padding-inline {
+  padding-inline: 0.5vw;
+
+  @media (min-width: $md) {
+    padding-inline: 2vw;
+  }
+}
+
+@mixin cardAsideContainer($backgroundColor: transparent) {
+  height: 100%;
+  min-height: 110vh;
+  width: 100%;
+  padding-block: 4vh;
+  background-color: $backgroundColor;
+  margin-bottom: 1rem;
+  @include padding-inline;
+
+  h1 {
+    font-family: $font-cinzel;
+    font-size: clamp(2rem, 8.5vw + 0.5rem, 5rem);
+    margin-block: 0.25rem;
+  }
+  p {
+    font-family: $font-lora;
+  }
+
+  @media (min-width: $lg) {
+    height: 85vh;
+  }
+}
+
+@mixin cardInnerContainer {
+  width: 100%;
+  height: 85vh;
+  @include padding-inline;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  min-height: 200vh;
+  background-color: $cream-dark;
+  color: $orange-500;
+  padding-bottom: 26vh;
+
+  .content {
+    @include flex-center;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 26vh;
+    width: 100%;
+    background-color: $cream-dark;
+  }
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5.5rem;
+  margin-bottom: 25vh;
+
+  .subTitle {
+    font-size: clamp(0.575rem, 2vw + 0.5rem, 1.2rem);
+    font-weight: 100;
+    font-family: $font-cinzel;
+    text-transform: uppercase;
+    height: fit-content;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    // padding-right: 0.5rem;
+  }
+
+  .title {
+    font-size: clamp(3.5rem, 8vw + 0.5rem, 6rem);
+    font-family: $font-cinzel;
+    font-weight: 600;
+    text-transform: uppercase;
+    height: fit-content;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+  }
+}
+
+.firstCardInnerContainer {
+  @include cardInnerContainer;
+}
+
+.secondCardInnerContainer {
+  @include cardInnerContainer;
+}
+
+.firstCardAsideContainer {
+  @include cardAsideContainer;
+}
+
+.secondCardAsideContainer {
+  @include cardAsideContainer;
+}

@@ -2,17 +2,8 @@
 
 import styles from "./RenderSeasons.module.scss";
 
-import dynamic from "next/dynamic";
-
-const EpisodesList = dynamic(() => import("../EpisodesList/EpisodesList"), {
-  ssr: false,
-});
-const HighlightsList = dynamic(
-  () => import("../HighlightsList/HighlightsList"),
-  {
-    ssr: false,
-  }
-);
+import EpisodesList from "../EpisodesList/EpisodesList";
+import HighlightsList from "../HighlightsList/HighlightsList";
 
 import { useEffect, useRef, useState } from "react";
 

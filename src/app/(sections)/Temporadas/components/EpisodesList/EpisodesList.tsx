@@ -205,7 +205,7 @@ const EpisodesList = ({
     };
   }, [activeEpisode]);
 
-  if (isMobile && activeSeason !== temporada) return null;
+  if (isMobile && activeSeason !== temporada) return;
 
   return (
     <div
