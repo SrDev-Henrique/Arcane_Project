@@ -66,7 +66,7 @@ const Nav = ({
     const interval = setInterval(() => {
       const { top } = section.getBoundingClientRect();
 
-      if (top <= 0 && top >= -100) {
+      if (top <= 0.5 && top >= -10) {
         clearInterval(interval);
         if (fallbackTimeout) clearTimeout(fallbackTimeout);
         setIsMenuOpen(!isMenuOpen);

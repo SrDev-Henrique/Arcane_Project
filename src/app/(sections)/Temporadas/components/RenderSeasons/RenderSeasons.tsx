@@ -87,9 +87,9 @@ const RenderSeasons = ({ temporada }: { temporada: string }) => {
       const season =
         activeSeason === "Temporada_1" ? "temporada 1" : "temporada 2";
       const currentSeason = sectionRefs.current[`temporadas-${season}`];
-      window.scrollTo({
-        top: currentSeason.offsetTop,
+      currentSeason.scrollIntoView({
         behavior: "smooth",
+        block: "start",
       });
     };
 

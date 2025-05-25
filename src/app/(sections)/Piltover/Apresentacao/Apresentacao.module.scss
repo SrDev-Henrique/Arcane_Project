@@ -14,9 +14,7 @@
 
 @mixin cardAsideContainer($backgroundColor: transparent) {
   height: 100%;
-  min-height: 110vh;
   width: 100%;
-  padding-block: 4vh;
   background-color: $backgroundColor;
   margin-bottom: 1rem;
   @include padding-inline;
@@ -38,16 +36,17 @@
 @mixin cardInnerContainer {
   width: 100%;
   height: 85vh;
+  margin-bottom: 1rem;
   @include padding-inline;
 }
 
 .container {
   position: relative;
-  width: 100vw;
+  width: 100svw;
   min-height: 200vh;
   background-color: $cream-dark;
   color: $orange-500;
-  padding-bottom: 26vh;
+  padding-bottom: 50vh;
 
   .content {
     @include flex-center;
@@ -55,7 +54,6 @@
     gap: 2rem;
     padding-top: 26vh;
     width: 100%;
-    background-color: $cream-dark;
   }
 }
 
@@ -75,7 +73,6 @@
     width: 100%;
     text-align: center;
     overflow: hidden;
-    // padding-right: 0.5rem;
   }
 
   .title {

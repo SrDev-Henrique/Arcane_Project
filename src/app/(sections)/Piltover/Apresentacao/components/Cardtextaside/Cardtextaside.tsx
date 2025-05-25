@@ -32,7 +32,7 @@ const Cardtextaside = ({
           {title && <AnimatedText text={title} stagger={0.01} el="h1" />}
         </div>
         <div className={styles.text}>
-          <AnimatedText text={text} stagger={0.01} />
+          <p>{text}</p>
         </div>
       </div>
       <div className={styles.imageContainer}>

@@ -5,8 +5,23 @@ import { sectionRefs } from "@/utils/sectionRefs";
 import Cardinnertext from "./components/Cardinnertext/Cardinnertext";
 import Cardtextaside from "./components/Cardtextaside/Cardtextaside";
 import { AnimatedText } from "@/components/AnimatedText/AnimatedText";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const Apresentacao = () => {
+  const targetRef = useRef<HTMLDivElement | null>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["end end", "end center"],
+  });
+
+  const backgroundColor = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["#EAD8C0", "#F4E7E1"]
+  );
+
   return (
     <section
       ref={(el) => {
@@ -14,7 +29,9 @@ const Apresentacao = () => {
           sectionRefs.current["piltover-apresentação"] = el as HTMLElement;
       }}
     >
-      <div className={styles.container}>
+      <motion.div style={{
+        backgroundColor,
+      }} ref={targetRef} className={styles.container}>
         <div className={styles.content}>
           <div className={styles.titleContainer}>
             <div className={styles.subTitle}>
@@ -60,7 +77,7 @@ const Apresentacao = () => {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

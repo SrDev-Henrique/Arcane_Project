@@ -60,7 +60,13 @@ export const AnimatedText = ({
             {line.split(" ").map((word, index) => (
               <span key={index}>
                 {word.split("").map((char, i) => (
-                  <motion.span variants={charsAnimations} key={i}>
+                  <motion.span
+                    style={{
+                      willChange: isInView ? "transform, opacity" : "none",
+                    }}
+                    variants={charsAnimations}
+                    key={i}
+                  >
                     {char}
                   </motion.span>
                 ))}
@@ -91,7 +97,7 @@ export const AnimatedTitle = ({
 
   const titleAnimation = {
     hidden: {
-      y: -125,
+      y: 125,
     },
     visible: {
       y: 0,

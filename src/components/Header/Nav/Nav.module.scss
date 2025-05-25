@@ -30,7 +30,7 @@
       transition: height 0.3s ease-in-out;
       gap: 0.25rem;
       &.active {
-        height: clamp(30px, 55vh + 0.5rem, 130px);
+        height: clamp(30px, 55vh + 0.5rem, 132px);
         will-change: height;
       }
       .titleContainer {
@@ -41,14 +41,14 @@
         padding-top: 0.5rem;
         cursor: pointer;
         h3 {
-        text-decoration: none;
-        color: $black-dark;
-        font-size: clamp(1.5rem, 5vw + 0.5rem, 2.5rem);
-        font-family: $font-cinzel;
-        font-weight: bold;
-        line-height: clamp(2rem, 6vw + 0.5rem, 2.5rem);
-        text-transform: uppercase;
-      }
+          text-decoration: none;
+          color: $black-dark;
+          font-size: clamp(1.5rem, 5vw + 0.5rem, 2.5rem);
+          font-family: $font-cinzel;
+          font-weight: bold;
+          line-height: clamp(2rem, 6vw + 0.5rem, 2.5rem);
+          text-transform: uppercase;
+        }
       }
 
       .linkContent {
@@ -62,6 +62,11 @@
           color: $black-light;
           font-weight: 600;
           cursor: pointer;
+
+          &:hover {
+            color: $neutral-light;
+            background-color: $black-dark;
+          }
         }
       }
     }
@@ -152,11 +157,11 @@
     }
     .footerLink {
       text-decoration: none;
-        color: $black-dark;
-        font-size: 0.985rem;
-        text-transform: uppercase;
-        font-family: $font-lora;
-        font-weight: 600;
+      color: $black-dark;
+      font-size: 0.985rem;
+      text-transform: uppercase;
+      font-family: $font-lora;
+      font-weight: 600;
     }
   }
 }

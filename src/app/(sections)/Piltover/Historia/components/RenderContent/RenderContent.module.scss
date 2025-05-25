@@ -1,0 +1,60 @@
+@use "@/styles/variables" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 80%;
+  padding-inline: 2rem;
+  font-size: 12px;
+
+  @media (min-width: $md) {
+    width: 36%;
+    max-width: 550px;
+
+    .title {
+        font-size: clamp(1.2em, 1vw + 0.5em, 1.5em);
+    }
+
+    .text {
+        font-size: clamp(0.575em, 0.5vw + 0.5em, 1em);
+    }
+    
+    &:not(:first-child) {
+        margin-top: -13rem;
+    }
+
+    &.alignEnd {
+      align-self: end;
+    }
+    &.alignStart {
+      align-self: start;
+    }
+  }
+
+  @media(min-width: $lg) {
+    width: 26%;
+  }
+}
+
+.title {
+  font-size: clamp(1.5em, 2.2vw + 0.5em, 2em);
+  font-family: $font-cinzel;
+  text-transform: uppercase;
+  color: $black-dark;
+  align-self: start;
+}
+
+.text {
+  font-size: clamp(0.675em, 1.2vw + 0.5em, 1.5em);
+  font-family: $font-lora;
+  color: $black-light;
+}
+
+.imageContainer {
+  margin-top: 1rem;
+  width: 70%;
+  height: 100%;
+  aspect-ratio: 1/1.2;
+}

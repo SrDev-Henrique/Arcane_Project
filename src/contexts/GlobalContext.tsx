@@ -37,10 +37,7 @@ export const MenuProvider: React.FC<{ children: React.ReactNode }> = ({
         ? sectionRefs.current["temporadas-temporada 1"]
         : sectionRefs.current["temporadas-temporada 2"];
     const scrollIntoView = () => {
-      window.scrollTo({
-        top: currentSeason.offsetTop,
-        behavior: "instant",
-      });
+      currentSeason.scrollIntoView({ behavior: "instant", block: "start" });
     };
 
     window.addEventListener("resize", scrollIntoView);
