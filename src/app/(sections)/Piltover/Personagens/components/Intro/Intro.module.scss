@@ -1,0 +1,55 @@
+@use "@/styles/variables" as *;
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: $beige-dark;
+  position: relative;
+  padding-top: calc(26vh + 8rem);
+  padding-bottom: 8rem;
+  position: relative;
+}
+
+.checkInView {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  height: 65%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  gap: 2svw;
+  width: 100%;
+  height: fit-content;
+
+  overflow: hidden;
+
+  .columns {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    gap: 2svw;
+
+    .imageContainer {
+      max-width: 29svw;
+      min-width: 113px;
+      aspect-ratio: 1.8/1;
+      border-radius: 0.5rem;
+
+      img {
+        border-radius: 0.5rem;
+        max-width: 100%;
+      }
+    }
+  }
+}

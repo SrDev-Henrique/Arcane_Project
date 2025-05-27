@@ -21,6 +21,11 @@ const Historia = () => {
     offset: ["start end", "start center"],
   });
 
+  const { scrollYProgress: finalBackgroundProgress } = useScroll({
+    target: containerRef,
+    offset: ["end end", "end center"],
+  })
+
   const { scrollYProgress: progress } = useScroll({
     target: contentRef,
     offset: ["start end", "end start"],
@@ -37,8 +42,14 @@ const Historia = () => {
     ["#EAD8C0", "#F4E7E1"]
   );
 
+  const finalBackground = useTransform(
+    finalBackgroundProgress,
+    [0, 1],
+    ["#EAD8C0", "#7a7454"]
+  );
+
   const background = useTransform(
-    diskProgress,
+    scrollYProgress,
     [0, 1],
     ["#F4E7E1", "#EAD8C0"]
   );
@@ -56,7 +67,7 @@ const Historia = () => {
       "clamp(3.5rem, 7vw + 0.5rem, 6.3rem)",
       "clamp(3.5rem, 5vw + 0.5rem, 1.6rem)",
       "clamp(3.5rem, 5vw + 0.5rem, 1.6rem)",
-      "clamp(3.5rem, 7vw + 0.5rem, 6.3rem)",
+      "clamp(3.5rem, 9vw + 0.5rem, 8.3rem)",
     ]
   );
 
@@ -111,7 +122,7 @@ const Historia = () => {
             História
           </motion.h1>
         </div>
-        <div ref={contentRef} className={styles.contentContainer}>
+        <motion.div ref={contentRef} style={{ background: finalBackground }} className={styles.contentContainer}>
           {historiaItems.map((item, index) => (
             <RenderContent
               key={index}
@@ -122,7 +133,7 @@ const Historia = () => {
               alignEnd={index % 2 !== 0}
             />
           ))}
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );
