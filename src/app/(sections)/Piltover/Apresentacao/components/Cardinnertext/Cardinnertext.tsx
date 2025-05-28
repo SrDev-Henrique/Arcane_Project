@@ -41,7 +41,7 @@ const Cardinnertext = ({
         </motion.div>
       </div>
       <div className={styles.textContainer}>
-        {text && <AnimatedText text={text} stagger={0.01} />}
+        {text && <AnimatedText text={text} stagger={0.01} once />}
       </div>
     </div>
   );

@@ -31,15 +31,15 @@ const Intro = () => {
     ["#EAD8C0", "#7a7454"]
   );
 
-  const rawX0 = useTransform(columnsProgress, [0, 1], ["-5%", "45%"]);
+  const rawX0 = useTransform(columnsProgress, [0, 1], ["-3%", "45%"]);
 
-  const rawX1 = useTransform(columnsProgress, [0, 1], ["-7%", "47%"]);
+  const rawX1 = useTransform(columnsProgress, [0, 1], ["-5%", "45%"]);
 
-  const rawX2 = useTransform(columnsProgress, [0, 1], ["-11%", "49%"]);
+  const rawX2 = useTransform(columnsProgress, [0, 1], ["-7%", "45%"]);
 
-  const rawX3 = useTransform(columnsProgress, [0, 1], ["-13%", "51%"]);
+  const rawX3 = useTransform(columnsProgress, [0, 1], ["-9%", "45%"]);
 
-  const rawX4 = useTransform(columnsProgress, [0, 1], ["-15%", "53%"]);
+  const rawX4 = useTransform(columnsProgress, [0, 1], ["-11%", "45%"]);
 
   const smoothX0 = useSpring(rawX0, {
     damping: 10,
@@ -114,8 +114,8 @@ const Intro = () => {
                   <Image
                     alt={`${nome} - ${index}`}
                     src={src}
-                    width={1632}
-                    height={736}
+                    width={720}
+                    height={536}
                     style={{
                       width: "100%",
                       height: "100%",

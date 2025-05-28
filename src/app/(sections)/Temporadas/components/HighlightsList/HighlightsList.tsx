@@ -143,7 +143,7 @@ const HighlightsList = ({
     window.addEventListener("resize", scrollToActiveHighlight);
 
     return () => {
-      window.removeEventListener("resize", () => {});
+      window.removeEventListener("resize", scrollToActiveHighlight);
     };
   }, [scrollToActiveHighlight]);
 

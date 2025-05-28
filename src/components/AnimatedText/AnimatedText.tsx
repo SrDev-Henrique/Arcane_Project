@@ -7,29 +7,52 @@ export const AnimatedText = ({
   stagger,
   el: Wrapper = "p",
   scale,
+  skew,
+  blur,
+  x,
+  y,
+  once,
 }: {
   text: string | string[];
   stagger?: number;
   el?: keyof JSX.IntrinsicElements;
   scale?: number;
+  skew?: number;
+  blur?: number;
+  x?: number;
+  y?: number;
+  once?: boolean;
 }) => {
   const textRef = useRef<HTMLSpanElement | null>(null);
 
+  const onceAnimation = once || false;
+
   const textArray = Array.isArray(text) ? text : [text];
-  const isInView = useInView(textRef, { amount: 0.5, once: true });
+  const isInView = useInView(textRef, { amount: 0.5, once: onceAnimation });
 
   const staggerChildren = stagger || 0.005;
   const scaleAnimation = scale || 1;
+  const skewAnimation = skew || 0;
+  const blurAnimation = blur || 0;
+  const xAnimation = x || -20;
+  const yAnimation = y || 0;
 
   const charsAnimations = {
     hidden: {
       opacity: 0,
-      x: -20,
+      x: xAnimation,
+      y: yAnimation,
       scale: scaleAnimation,
+      skewX: `${skewAnimation}deg`,
+      filter: `blur(${blurAnimation}px)`,
     },
     visible: {
       opacity: 1,
       x: 0,
+      y: 0,
+      scale: 1,
+      skewX: "0deg",
+      filter: "blur(0px)",
       transition: {
         duration: 1,
         ease: "easeInOut",
@@ -63,6 +86,7 @@ export const AnimatedText = ({
                   <motion.span
                     style={{
                       willChange: isInView ? "transform, opacity" : "none",
+                      display: "inline-block",
                     }}
                     variants={charsAnimations}
                     key={i}

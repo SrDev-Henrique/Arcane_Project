@@ -29,20 +29,20 @@ const Apresentacao = () => {
           sectionRefs.current["piltover-apresentação"] = el as HTMLElement;
       }}
     >
-      <motion.div style={{
-        backgroundColor,
-      }} ref={targetRef} className={styles.container}>
+      <motion.div
+        style={{
+          backgroundColor,
+        }}
+        ref={targetRef}
+        className={styles.container}
+      >
         <div className={styles.content}>
           <div className={styles.titleContainer}>
             <div className={styles.subTitle}>
-              <AnimatedText
-                text="A cidade do progresso"
-                stagger={0.01}
-                scale={0.2}
-              />
+              <AnimatedText text="A cidade do progresso" stagger={0.01} once />
             </div>
             <div className={styles.title}>
-              <AnimatedText text="Piltover" stagger={0.01} scale={0.2} />
+              <AnimatedText text="Piltover" stagger={0.01} once />
             </div>
           </div>
           <div className={styles.firstCardInnerContainer}>

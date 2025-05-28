@@ -9,5 +9,5 @@ export default function Piltover() {
       <Historia />
       <Personagens />
     </div>
-  )
+  );
 }

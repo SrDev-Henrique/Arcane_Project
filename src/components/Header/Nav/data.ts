@@ -16,6 +16,6 @@ export const links = [
   {
     title: "Temporadas",
     href: "/",
-    content: ["Temporada 1", "Temporada 2"]
-  }
+    content: ["Temporada 1", "Temporada 2"],
+  },
 ];

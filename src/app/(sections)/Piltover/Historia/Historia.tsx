@@ -24,7 +24,7 @@ const Historia = () => {
   const { scrollYProgress: finalBackgroundProgress } = useScroll({
     target: containerRef,
     offset: ["end end", "end center"],
-  })
+  });
 
   const { scrollYProgress: progress } = useScroll({
     target: contentRef,
@@ -54,11 +54,7 @@ const Historia = () => {
     ["#F4E7E1", "#EAD8C0"]
   );
 
-  const rotate = useTransform(
-    diskProgress,
-    [0, 1],
-    ["180deg", "360deg"]
-  );
+  const rotate = useTransform(diskProgress, [0, 1], ["180deg", "360deg"]);
 
   const fontSize = useTransform(
     progress,
@@ -122,7 +118,11 @@ const Historia = () => {
             História
           </motion.h1>
         </div>
-        <motion.div ref={contentRef} style={{ background: finalBackground }} className={styles.contentContainer}>
+        <motion.div
+          ref={contentRef}
+          style={{ background: finalBackground }}
+          className={styles.contentContainer}
+        >
           {historiaItems.map((item, index) => (
             <RenderContent
               key={index}

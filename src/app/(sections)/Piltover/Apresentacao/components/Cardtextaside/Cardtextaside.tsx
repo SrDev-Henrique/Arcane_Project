@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { AnimatedText } from "@/components/AnimatedText/AnimatedText";
+import AnimatedLine from "@/components/AnimatedLine";
 
 const Cardtextaside = ({
   image,
@@ -29,10 +30,12 @@ const Cardtextaside = ({
     <div className={`${styles.container} ${reverse ? styles.reverse : ""}`}>
       <div className={styles.textContainer}>
         <div className={styles.text}>
-          {title && <AnimatedText text={title} stagger={0.01} el="h1" />}
+          {title && <AnimatedText text={title} stagger={0.01} once el="h1" />}
+          <AnimatedLine color="#ca7842" />
         </div>
         <div className={styles.text}>
           <p>{text}</p>
+          <AnimatedLine color="#ca7842" />
         </div>
       </div>
       <div className={styles.imageContainer}>

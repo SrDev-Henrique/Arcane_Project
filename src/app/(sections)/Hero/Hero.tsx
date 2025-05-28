@@ -181,12 +181,6 @@ const Hero = () => {
               }
             />
           </header>
-
-          <div className={styles.netflix} aria-label="Netflix brand logo">
-            <h1>
-              N<b>e</b>tflix
-            </h1>
-          </div>
         </div>
       </motion.div>
     </div>

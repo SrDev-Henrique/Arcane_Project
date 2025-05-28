@@ -5,7 +5,6 @@ import styles from "./PrimeiraTemporada.module.scss";
 import { sectionRefs } from "@/utils/sectionRefs";
 import RenderSeasons from "../RenderSeasons/RenderSeasons";
 
-
 const PrimeiraTemporada = () => {
   const temporada = "Temporada_1";
 
@@ -13,14 +12,11 @@ const PrimeiraTemporada = () => {
     <section
       ref={(el) => {
         if (el)
-          sectionRefs.current["temporadas-temporada 1"] =
-            el as HTMLElement;
+          sectionRefs.current["temporadas-temporada 1"] = el as HTMLElement;
       }}
       className={styles.container}
     >
-      <RenderSeasons
-        temporada={temporada}
-      />
+      <RenderSeasons temporada={temporada} />
     </section>
   );
 };

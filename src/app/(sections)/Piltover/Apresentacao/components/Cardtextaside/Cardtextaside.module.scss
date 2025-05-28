@@ -70,13 +70,11 @@
     .text {
       width: 100%;
       height: fit-content;
-      border-bottom: 1px solid $orange;
 
       h1 {
-        border-top: 1px solid $orange;
         padding-top: 0.5rem;
         font-weight: 100;
-        color: $brown;
+        color: $orange-500;
 
         span {
           display: inline-block;

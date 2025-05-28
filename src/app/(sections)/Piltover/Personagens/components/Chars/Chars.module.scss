@@ -1,0 +1,52 @@
+@use "@/styles/variables" as *;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100svw;
+  background-color: $beige-fadedBrown;
+  padding-top: 23rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .cardsContainer {
+    @include flex-center;
+    flex-direction: column;
+    gap: 4rem;
+    min-height: 100vh;
+    width: 100%;
+    background-color: $cream-dark;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    padding-top: 50vh;
+    padding-bottom: 18rem;
+
+    .titleContainer {
+      width: 100%;
+      perspective: 700px;
+      text-align: center;
+      padding-bottom: 50vh;
+
+      h1 {
+        color: $black-intense;
+        font-size: clamp(2rem, 10vw, 9rem);
+        font-family: $font-cinzel;
+        font-weight: 100;
+        text-transform: uppercase;
+      }
+    }
+
+    .extraSpace {
+      @include flex-center;
+      position: relative;
+      width: 100%;
+      height: 150vh;
+    }
+  }
+}

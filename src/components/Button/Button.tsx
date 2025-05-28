@@ -1,4 +1,4 @@
-import styles from "./Button.module.scss"
+import styles from "./Button.module.scss";
 import classNames from "classnames";
 
 const Button = ({
@@ -12,7 +12,14 @@ const Button = ({
   title: string;
   rightIcon?: React.ReactNode;
   leftIcon?: React.ReactNode;
-  variant?: "default" | "hero" | "voltar" | "assistaAgora" | "fechar" | "anterior" | "ghost";
+  variant?:
+    | "default"
+    | "hero"
+    | "voltar"
+    | "assistaAgora"
+    | "fechar"
+    | "anterior"
+    | "ghost";
   style?: React.CSSProperties;
   onClick?: () => void;
 }) => {
@@ -22,18 +29,14 @@ const Button = ({
       className={classNames(styles.baseButton, styles[variant])}
       onClick={onClick}
     >
-      <div
-        className={styles.firstText}
-      >
+      <div className={styles.firstText}>
         {leftIcon}
         <span className={styles.textWrapper}>
           <p>{title}</p>
         </span>
         {rightIcon}
       </div>
-      <div
-        className={styles.secondText}
-      >
+      <div className={styles.secondText}>
         {leftIcon}
         <span className={styles.textWrapper}>
           <p>{title}</p>
