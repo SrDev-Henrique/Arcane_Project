@@ -1,6 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import styles from "./Header.module.scss";
 
@@ -43,6 +43,8 @@ export default function Index() {
   const [isActive, setIsActive] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
   const handleMenuTransition = () => {
     if (isTransitioning) return;
     setIsActive(!isActive);
@@ -52,9 +54,27 @@ export default function Index() {
     }, 1000);
   };
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        isActive &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setIsActive(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isActive]);
+
   return (
     <div className={styles.header}>
       <motion.div
+        ref={menuRef}
         className={styles.menu}
         variants={menu}
         animate={isActive ? "open" : "closed"}

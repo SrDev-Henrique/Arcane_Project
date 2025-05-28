@@ -38,7 +38,7 @@ const CharsCard = ({
 
   const cardWidth = useTransform(scrollYProgress, [0, 1], ["78svw", "98svw"]);
 
-  const isInView = useInView(targetRef, { amount: 1 });
+  const isInView = useInView(targetRef, { amount: 0.8 });
 
   const infoVariants = {
     original: {

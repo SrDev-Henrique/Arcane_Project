@@ -1,0 +1,35 @@
+@use "@/styles/variables" as *;
+
+.container {
+    width: 100svw;
+    height: calc(250vh + 10rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding-top: 10rem;
+    background-color: $cream-dark;
+}
+
+.bar {
+    width: 1.265rem;
+    height: 100%;
+    border-radius: 2rem;
+    overflow: hidden;
+    background-color: $cream;
+
+    .barProgress {
+        width: 100%;
+        height: 10%;
+        background-color: $orange;
+    }
+}
+
+.piltover {
+    font-family: $font-cinzel;
+    color: $orange;
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: clamp(3rem, 10vw, 9rem);
+}
