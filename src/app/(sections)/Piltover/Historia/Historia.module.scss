@@ -6,7 +6,7 @@
 }
 
 .container {
-  min-height: 200vh;
+  height: 100%;
   width: 100svw;
   position: relative;
 
@@ -58,7 +58,7 @@
   align-items: center;
   gap: 6rem;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   background-color: $cream-dark;
   padding-block: 6.675rem;
   @media (min-width: $lg) {

@@ -3,5 +3,5 @@
 .container {
     width: 100svw;
     background-color: $black-lighter;
-    border: 1px solid transparent;
+    border: 0.001px solid $black-lighter;
 }

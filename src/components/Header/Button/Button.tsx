@@ -4,12 +4,14 @@ import styles from "./Button.module.scss";
 export default function Button({
   isActive,
   toggleMenu,
+  ref,
 }: {
   isActive: boolean;
   toggleMenu: () => void;
+  ref: React.RefObject<HTMLDivElement | null>;
 }) {
   return (
-    <div className={styles.button}>
+    <div ref={ref} className={styles.button}>
       <motion.div
         className={styles.slider}
         animate={{ top: isActive ? "-100%" : "0%" }}

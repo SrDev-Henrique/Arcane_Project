@@ -7,7 +7,7 @@
 }
 
 .container {
-  min-height: 100vh;
+  height: 100%;
   width: 100svw;
   background-color: $beige-fadedBrown;
   padding-top: 23rem;
@@ -19,7 +19,7 @@
     @include flex-center;
     flex-direction: column;
     gap: 4rem;
-    min-height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: $cream-dark;
     border-top-left-radius: 2rem;

@@ -1,7 +1,37 @@
 @use "@/styles/variables" as *;
 
 .container {
+  width: 100svw;
+  min-height: 150vh;
+  background-color: $black-lighter;
+
+  .marquees {
+    position: relative;
     width: 100svw;
-    min-height: 150vh;
-    background-color: $black-lighter;
+    white-space: nowrap;
+    height: 50vh;
+    overflow: hidden;
+
+    .marqueesText {
+      position: absolute;
+      top: 50%;
+      font-size: clamp(6.675rem, 18vw, 15rem);
+      line-height: 1;
+      font-family: $font-cinzel;
+      color: $desert-olive;
+      font-weight: 100;
+
+      span {
+        color: $purple;
+      }
+    }
+  }
+
+  .cardsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100svw;
+    min-height: 200vh;
+  }
 }

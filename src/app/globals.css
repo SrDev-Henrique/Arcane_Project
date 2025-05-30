@@ -5,6 +5,12 @@
   outline: none;
 }
 
+html {
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  touch-action: pan-y;
+}
+
 html,
 body {
   height: auto !important;

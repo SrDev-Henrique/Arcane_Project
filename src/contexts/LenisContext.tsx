@@ -21,10 +21,11 @@ export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.5,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 0,
+      touchMultiplier: 0.6,
+      wheelMultiplier: 0.7,
     });
 
     lenisRef.current = lenis;

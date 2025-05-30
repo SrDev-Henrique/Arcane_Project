@@ -4,7 +4,6 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView, useScroll, useSpring, useTransform } from "framer-motion";
 import { columnsVariants } from "./anime";
-import { isMobile } from "react-device-detect";
 
 const Intro = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -75,8 +74,6 @@ const Intro = () => {
     smoothX0, smoothX1, smoothX2, smoothX3, smoothX4
   ]
 
-  const offsetList = ["20%", "23%", "26%", "32%", "35%"]
-
   return (
     <motion.div
       ref={containerRef}
@@ -101,7 +98,7 @@ const Intro = () => {
               layoutScroll={false}
               className={styles.columns}
               style={{
-                x: isMobile ? offsetList[index] : smoothList[index],
+                x: smoothList[index],
                 willChange: "transform",
               }}
             >
@@ -114,8 +111,8 @@ const Intro = () => {
                   <Image
                     alt={`${nome} - ${index}`}
                     src={src}
-                    width={720}
-                    height={536}
+                    width={736}
+                    height={736}
                     style={{
                       width: "100%",
                       height: "100%",

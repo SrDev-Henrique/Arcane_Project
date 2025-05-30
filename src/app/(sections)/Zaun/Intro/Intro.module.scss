@@ -44,7 +44,7 @@
     align-self: end;
 
     @media (max-height: $md) {
-      height: 34vh !important;
+      height: 26vw !important;
     }
   }
 }
@@ -59,7 +59,7 @@
   .imageContainer {
     position: sticky;
     top: 1vh;
-    width: 98%;
+    width: 100%;
     height: 98vh;
     border-radius: 3rem;
     will-change: mask-image;

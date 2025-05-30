@@ -2,7 +2,12 @@
 
 import { useRef } from "react";
 import styles from "./Intro.module.scss";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useInView,
+} from "framer-motion";
 import { textVariants } from "./anime";
 import Image from "next/image";
 
@@ -35,6 +40,8 @@ const Intro = () => {
       "linear-gradient(to top, white 78%, transparent 98%)",
     ]
   );
+
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   const { scrollYProgress: topProgress } = useScroll({
     target: contentRef,
@@ -83,10 +90,14 @@ const Intro = () => {
         </motion.div>
       </motion.div>
       <div className={styles.introImage}>
-        <motion.div style={{
-          maskImage: imageMaskImage,
-          WebkitMaskImage: imageMaskImage,
-        }} className={styles.imageContainer}>
+        <motion.div
+          style={{
+            maskImage: imageMaskImage,
+            WebkitMaskImage: imageMaskImage,
+            opacity,
+          }}
+          className={styles.imageContainer}
+        >
           <Image
             src="/images/arcane_zaun/intro.webp"
             alt="Vi olhando para a cidade de Zaun"

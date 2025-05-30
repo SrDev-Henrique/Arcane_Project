@@ -44,6 +44,7 @@ export default function Index() {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
 
   const handleMenuTransition = () => {
     if (isTransitioning) return;
@@ -59,9 +60,11 @@ export default function Index() {
       if (
         isActive &&
         menuRef.current &&
-        !menuRef.current.contains(event.target as Node)
+        !menuRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
       ) {
-        setIsActive(false);
+        setIsActive(!isActive);
       }
     }
 
@@ -91,7 +94,7 @@ export default function Index() {
           )}
         </AnimatePresence>
       </motion.div>
-      <Button isActive={isActive} toggleMenu={handleMenuTransition} />
+      <Button ref={buttonRef} isActive={isActive} toggleMenu={handleMenuTransition} />
     </div>
   );
 }
