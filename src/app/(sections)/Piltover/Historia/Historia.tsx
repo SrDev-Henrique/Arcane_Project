@@ -82,7 +82,7 @@ const Historia = () => {
   return (
     <section
       ref={(el) => {
-        if (el) sectionRefs.current["piltover-historia"] = el as HTMLElement;
+        if (el) sectionRefs.current["piltover-história"] = el as HTMLElement;
       }}
     >
       <motion.div

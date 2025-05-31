@@ -1,0 +1,54 @@
+@use "@/styles/variables" as *;
+
+.container {
+  position: relative;
+  width: 100svw;
+
+  .stickyContainer {
+    position: absolute;
+    top: 0;
+    height: 150vh;
+    inset-inline: 0;
+
+    .sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      width: 100svw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+
+      h1 {
+        font-size: clamp(3.5rem, 7vw + 0.5rem, 6.3rem);
+        text-transform: uppercase;
+        color: $black-lighter;
+      }
+    }
+  }
+
+  .columnsContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    height: 150vh;
+
+    .column {
+      height: 100%;
+      width: 100%;
+      background-color: $green;
+      transform-origin: top;
+      will-change: scale;
+    }
+  }
+
+  .closingDiv {
+    margin-top: -1px;
+    height: 50vh;
+    width: 100svw;
+    background-color: $green;
+    border: 1px solid $green;
+    will-change: clip-path;
+  }
+}

@@ -1,0 +1,8 @@
+@use "@/styles/variables" as *;
+
+.container {
+    height: 50vh;
+    width: 100svw;
+    background-color: $green;
+    will-change: clip-path;
+}

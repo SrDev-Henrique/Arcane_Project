@@ -12,7 +12,8 @@ export const columnImages = [
     nome: "Jayce",
     image: Array.from(
       { length: 7 },
-      (_, i) => `/images/arcane_piltover/characters/intro/jayce/jayce-${i + 1}.webp`
+      (_, i) =>
+        `/images/arcane_piltover/characters/intro/jayce/jayce-${i + 1}.webp`
     ),
   },
   {
@@ -37,7 +38,9 @@ export const columnImages = [
     image: Array.from(
       { length: 7 },
       (_, i) =>
-        `/images/arcane_piltover/characters/intro/heimerdinger/heimerdinger-${i + 1}.webp`
+        `/images/arcane_piltover/characters/intro/heimerdinger/heimerdinger-${
+          i + 1
+        }.webp`
     ),
   },
 ];

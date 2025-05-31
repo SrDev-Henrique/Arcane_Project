@@ -2,7 +2,13 @@ import styles from "./Intro.module.scss";
 import { columnImages } from "./data";
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView, useScroll, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { columnsVariants } from "./anime";
 
 const Intro = () => {
@@ -70,9 +76,7 @@ const Intro = () => {
     mass: 0.5,
   });
 
-  const smoothList = [
-    smoothX0, smoothX1, smoothX2, smoothX3, smoothX4
-  ]
+  const smoothList = [smoothX0, smoothX1, smoothX2, smoothX3, smoothX4];
 
   return (
     <motion.div

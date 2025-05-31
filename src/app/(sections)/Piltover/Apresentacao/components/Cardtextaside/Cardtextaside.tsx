@@ -31,11 +31,11 @@ const Cardtextaside = ({
       <div className={styles.textContainer}>
         <div className={styles.text}>
           {title && <AnimatedText text={title} stagger={0.01} once el="h1" />}
-          <AnimatedLine color="#ca7842" />
+          <AnimatedLine color="#ca7842" once />
         </div>
         <div className={styles.text}>
           <p>{text}</p>
-          <AnimatedLine color="#ca7842" />
+          <AnimatedLine color="#ca7842" once />
         </div>
       </div>
       <div className={styles.imageContainer}>

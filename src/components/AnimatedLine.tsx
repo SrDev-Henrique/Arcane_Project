@@ -3,17 +3,38 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const AnimatedLine = ({ color }: { color: string }) => {
+const AnimatedLine = ({
+  color,
+  vertical,
+  once,
+  inView,
+}: {
+  color: string;
+  vertical?: boolean;
+  once?: boolean;
+  inView?: React.RefObject<HTMLDivElement | null>;
+}) => {
   const targetRef = useRef<HTMLDivElement | null>(null);
 
-  const isInView = useInView(targetRef, { amount: 0.1, once: true });
+  const isInView = useInView(inView ? inView : targetRef, {
+    amount: inView ? 0.99 : 0.1,
+    once: once ? true : false,
+  });
+
+  const scaleY = vertical ? 0 : 1;
 
   const lineVariants = {
     hidden: {
-      scaleX: 0,
+      scaleX: vertical ? 1 : 0,
+      scaleY,
+      transition: {
+        duration: 2,
+        ease: [0.215, 1, 0.3, 1],
+      },
     },
     visible: {
       scaleX: 1,
+      scaleY: 1,
       transition: {
         duration: 2,
         ease: [0.215, 1, 0.3, 1],
@@ -25,10 +46,10 @@ const AnimatedLine = ({ color }: { color: string }) => {
     <motion.div
       ref={targetRef}
       style={{
-        width: "100%",
-        height: "1px",
+        width: vertical ? "1px" : "100%",
+        height: vertical ? "100%" : "1px",
         backgroundColor: color,
-        transformOrigin: "left",
+        transformOrigin: vertical ? "top" : "left",
       }}
       initial="hidden"
       variants={lineVariants}

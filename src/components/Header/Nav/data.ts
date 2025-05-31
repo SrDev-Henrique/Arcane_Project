@@ -6,12 +6,12 @@ export const links = [
   {
     title: "Piltover",
     href: "/",
-    content: ["Apresentação", "Historia", "Personagens"],
+    content: ["Apresentação", "História", "Personagens"],
   },
   {
     title: "Zaun",
     href: "/",
-    content: ["Apresentação", "Historia", "Personagens"],
+    content: ["Apresentação", "História", "Personagens"],
   },
   {
     title: "Temporadas",

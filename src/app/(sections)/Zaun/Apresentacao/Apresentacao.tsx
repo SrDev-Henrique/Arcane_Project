@@ -6,6 +6,7 @@ import { useRef } from "react";
 import CardAside from "./components/CardAside/CardAside";
 import { intro } from "./data";
 import { sectionRefs } from "@/utils/sectionRefs";
+import AnimatedColumns from "./components/AnimatedColumns/AnimatedColumns";
 
 const Apresentacao = () => {
   const marqueesRef = useRef<HTMLDivElement | null>(null);
@@ -55,6 +56,7 @@ const Apresentacao = () => {
           );
         })}
       </div>
+      <AnimatedColumns />
     </section>
   );
 };
