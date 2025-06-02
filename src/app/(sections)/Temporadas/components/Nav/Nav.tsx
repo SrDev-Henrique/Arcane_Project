@@ -17,6 +17,8 @@ const Nav = ({
   isHighlightActive,
   setIsEpisodeActive,
   setIsFirstClick,
+  isTransitioning,
+  setIsTransitioning,
 }: {
   navItems: string[];
   activeTab: string;
@@ -27,7 +29,23 @@ const Nav = ({
   isHighlightActive: boolean;
   setIsEpisodeActive: (episode: boolean) => void;
   setIsFirstClick: (firstClick: boolean) => void;
+  isTransitioning: boolean;
+  setIsTransitioning: (isTransitioning: boolean) => void;
 }) => {
+  const onNavClick = (tab: string) => {
+    if (activeTab !== tab) {
+      if (isTransitioning) return;
+      setActiveTab(tab);
+      setActiveEpisode(0);
+      setIsEpisodeActive(false);
+      setIsFirstClick(false);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 1200);
+    }
+  };
+
   if (activeSeason === temporada)
     return (
       <motion.nav
@@ -45,14 +63,7 @@ const Nav = ({
             className={`${styles.navButton} ${
               activeTab === tab ? styles.active : ""
             }`}
-            onClick={() => {
-              if (activeTab !== tab) {
-                setActiveTab(tab);
-                setActiveEpisode(0);
-                setIsEpisodeActive(false);
-                setIsFirstClick(false);
-              }
-            }}
+            onClick={() => onNavClick(tab)}
           >
             <div className={styles.navButtonIconContainer}>
               {tab === "episódios" ? (

@@ -1,0 +1,8 @@
+@use "@/styles/variables" as *;
+
+.container {
+  height: calc(500vh + 1px);
+  position: relative;
+  background-color: $black-dark;
+  z-index: 3;
+}

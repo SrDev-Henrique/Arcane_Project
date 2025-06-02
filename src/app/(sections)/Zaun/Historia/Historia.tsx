@@ -3,11 +3,7 @@
 import { sectionRefs } from "@/utils/sectionRefs";
 import styles from "./Historia.module.scss";
 import { historia } from "./data";
-import dynamic from "next/dynamic";
-
-const RenderContent = dynamic(() => import("./RenderContent/RenderContent"), {
-  ssr: false,
-});
+import RenderContent from "./RenderContent/RenderContent";
 
 const Historia = () => {
   return (

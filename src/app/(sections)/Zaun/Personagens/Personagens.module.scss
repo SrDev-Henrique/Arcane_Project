@@ -1,0 +1,14 @@
+@use "@/styles/variables" as *;
+
+.container {
+    position: relative;
+    height: 670vh;
+    padding-top: 170vh;
+    width: 100svw;
+    background-color: $black-dark;
+
+    @media(min-width: $lg) {
+        height: 780vh;
+        padding-top: 280vh;
+    }
+}

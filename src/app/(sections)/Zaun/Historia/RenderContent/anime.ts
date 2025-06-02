@@ -6,7 +6,7 @@ export const contentVariants = {
     },
   },
   outOfView: {
-    backgroundColor: "#9BEC00",
+    backgroundColor: "#84D323",
     transition: {
       duration: 0,
     },
@@ -30,7 +30,7 @@ export const hiddenTextVariants = {
 
 export const textVariants = {
   inView: {
-    color: "#9BEC00",
+    color: "#84D323",
     transition: {
       duration: 0,
     },

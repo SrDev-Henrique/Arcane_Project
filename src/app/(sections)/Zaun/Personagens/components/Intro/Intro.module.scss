@@ -1,8 +1,46 @@
 @use "@/styles/variables" as *;
 
 .container {
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 200vh;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: $lg) {
+    height: 350vh;
+  }
+
+  .content {
     position: relative;
-    height: 100vh;
-    width: 100svw;
-    overflow: hidden;
+    width: 100%;
+    height: 90%;
+
+    @media (min-width: $lg) {
+      width: 80%;
+    }
+
+    .stickyTitle {
+      position: sticky;
+      top: 45svh;
+      width: 100svw;
+      text-align: center;
+      z-index: 1;
+      mix-blend-mode: difference;
+
+      @media (min-width: $lg) {
+        margin-left: -10vw;
+      }
+
+      h1 {
+        font-size: clamp(3.5rem, 9vw + 0.5rem, 8.3rem);
+        font-weight: 100;
+        font-family: $font-cinzel;
+        text-transform: uppercase;
+        color: $green;
+      }
+    }
+  }
 }

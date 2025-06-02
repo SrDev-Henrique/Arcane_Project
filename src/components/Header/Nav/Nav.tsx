@@ -55,7 +55,7 @@ const Nav = ({
     const sectionId = `${title.toLowerCase()}-${content.toLowerCase()}`;
     const section = sectionRefs.current[sectionId];
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      section.scrollIntoView({ behavior: "instant" });
     }
 
     setFocusedTitle(null);
@@ -81,7 +81,7 @@ const Nav = ({
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "instant" });
     const interval = setInterval(() => {
       if (window.scrollY === 0) {
         clearInterval(interval);

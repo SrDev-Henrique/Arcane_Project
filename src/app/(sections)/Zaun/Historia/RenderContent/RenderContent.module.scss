@@ -92,8 +92,12 @@
     .rightSide {
       position: relative;
       width: 100%;
-      height: 100%;
+      height: 80%;
       padding-inline: 2rem;
+
+      @media(min-width: $lg) {
+        height: 100%;
+      }
 
       .contentText {
         @include textContainer;

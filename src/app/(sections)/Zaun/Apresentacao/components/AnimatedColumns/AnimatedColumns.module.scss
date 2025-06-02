@@ -7,7 +7,7 @@
   .stickyContainer {
     position: absolute;
     top: 0;
-    height: 150vh;
+    height: 130vh;
     inset-inline: 0;
 
     .sticky {
@@ -23,7 +23,7 @@
       h1 {
         font-size: clamp(3.5rem, 7vw + 0.5rem, 6.3rem);
         text-transform: uppercase;
-        color: $black-lighter;
+        color: $black-dark;
       }
     }
   }
@@ -38,7 +38,7 @@
       height: 100%;
       width: 100%;
       background-color: $green;
-      transform-origin: top;
+      transform-origin: bottom;
       will-change: scale;
     }
   }

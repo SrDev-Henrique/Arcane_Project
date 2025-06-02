@@ -181,8 +181,8 @@
 }
 
 .ghost {
-  @include button(transparent, fit-content, $black-dark, 0);
-  border: 1px solid $black-dark;
+  @include button(transparent, fit-content, $white, 0);
+  border: 1px solid $white;
 
   .firstText {
     .textWrapper {

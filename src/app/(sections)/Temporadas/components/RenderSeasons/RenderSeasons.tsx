@@ -163,6 +163,8 @@ const RenderSeasons = ({ temporada }: { temporada: string }) => {
           activeSeason={activeSeason}
           temporada={temporada}
           isHighlightActive={isHighlightActive}
+          isTransitioning={isTransitioning}
+          setIsTransitioning={setIsTransitioning}
         />
         <div className={styles.episodesContainer}>
           <EpisodesList

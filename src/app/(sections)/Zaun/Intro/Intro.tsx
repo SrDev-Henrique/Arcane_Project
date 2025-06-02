@@ -99,7 +99,7 @@ const Intro = () => {
           className={styles.imageContainer}
         >
           <Image
-            src="/images/arcane_zaun/intro.webp"
+            src="/images/arcane_zaun/historia-1.webp"
             alt="Vi olhando para a cidade de Zaun"
             width={3840}
             height={1632}

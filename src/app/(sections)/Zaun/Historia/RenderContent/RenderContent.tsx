@@ -16,7 +16,7 @@ const RenderContent = ({ title, text }: { title: string; text: string }) => {
 
   const [isVertical, setIsVertical] = useState(false);
 
-  const isInView = useInView(contentRef, { amount: 0.98 });
+  const isInView = useInView(contentRef, { amount: !isVertical ? 0.8 : 0.96 });
 
   const { width } = useDimension();
 
@@ -64,7 +64,7 @@ const RenderContent = ({ title, text }: { title: string; text: string }) => {
               </motion.h1>
               {isVertical && (
                 <AnimatedLine
-                  color={isInView ? "#9BEC00" : "#333333"}
+                  color={isInView ? "#84D323" : "#333333"}
                   inView={contentRef}
                 />
               )}
@@ -83,7 +83,7 @@ const RenderContent = ({ title, text }: { title: string; text: string }) => {
                     cx="30"
                     cy="30"
                     r="27"
-                    stroke={isInView ? "#9BEC00" : "#0d0d0d"}
+                    stroke={isInView ? "#84D323" : "#0d0d0d"}
                     strokeWidth="4"
                     fill="none"
                     strokeLinecap="round"
@@ -98,7 +98,7 @@ const RenderContent = ({ title, text }: { title: string; text: string }) => {
           </div>
           {isVertical && (
             <AnimatedLine
-              color={isInView ? "#9BEC00" : "#333333"}
+              color={isInView ? "#84D323" : "#333333"}
               vertical={isVertical}
               inView={contentRef}
             />

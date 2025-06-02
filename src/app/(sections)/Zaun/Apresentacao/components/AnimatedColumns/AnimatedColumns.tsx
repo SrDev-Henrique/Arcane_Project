@@ -11,15 +11,15 @@ const AnimatedColumns = () => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start center", "end end"],
+    offset: ["start end", "end end"],
   });
 
-  const height0 = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const height1 = useTransform(scrollYProgress, [0.2, 1], ["0%", "100%"]);
-  const height2 = useTransform(scrollYProgress, [0.4, 1], ["0%", "100%"]);
-  const height3 = useTransform(scrollYProgress, [0.6, 1], ["0%", "100%"]);
+  const transform0 = useTransform(scrollYProgress, [0, 1], ["scaleY(0)", "scaleY(1)"]);
+  const transform1 = useTransform(scrollYProgress, [0.2, 1], ["scaleY(0)", "scaleY(1)"]);
+  const transform2 = useTransform(scrollYProgress, [0.4, 1], ["scaleY(0)", "scaleY(1)"]);
+  const transform3 = useTransform(scrollYProgress, [0.6, 1], ["scaleY(0)", "scaleY(1)"]);
 
-  const heightsList = [height3, height2, height1, height0];
+  const transformList = [transform3, transform2, transform1, transform0];
 
   return (
     <div className={styles.container}>
@@ -32,7 +32,7 @@ const AnimatedColumns = () => {
         {[...Array(4)].map((column, index) => (
           <motion.div
             key={index}
-            style={{ height: heightsList[index] }}
+            style={{ transform: transformList[index] }}
             className={styles.column}
           />
         ))}
