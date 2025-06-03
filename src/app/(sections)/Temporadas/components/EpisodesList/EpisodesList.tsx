@@ -4,7 +4,6 @@ import styles from "./EpisodesList.module.scss";
 
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
-import { isMobile } from "react-device-detect";
 
 import useDimension from "@/utils/useDimension";
 import Button from "@/components/Button/Button";
@@ -34,7 +33,6 @@ interface EpisodesListProps {
   setIsEpisodeActive: (isEpisodeActive: boolean) => void;
   isFirstClick: boolean;
   setIsFirstClick: (isFirstClick: boolean) => void;
-  activeSeason: string;
 }
 
 const EpisodesList = ({
@@ -49,7 +47,6 @@ const EpisodesList = ({
   setIsEpisodeActive,
   isFirstClick,
   setIsFirstClick,
-  activeSeason,
 }: EpisodesListProps) => {
   const imagesContainerRef = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -151,8 +148,8 @@ const EpisodesList = ({
 
   useEffect(() => {
     const checkMobile = () => {
-      if (typeof window !== "undefined") {
-        setIsMobileWidth(window.innerWidth <= 768 || window.innerHeight <= 500);
+      if (width !== null) {
+        setIsMobileWidth(width <= 768 || width <= 500);
       }
     };
 
@@ -205,8 +202,6 @@ const EpisodesList = ({
     };
   }, [activeEpisode]);
 
-  if (isMobile && activeSeason !== temporada) return;
-
   return (
     <div
       ref={containerRef}
@@ -224,7 +219,7 @@ const EpisodesList = ({
           <motion.div
             key={episode.id}
             variants={itemRevealVariants}
-            initial="visible"
+            initial="hidden"
             animate={
               activeTab === "episódios" && activeEpisode >= 0
                 ? "visible"

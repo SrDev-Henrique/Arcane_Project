@@ -1,0 +1,78 @@
+@use "@/styles/variables" as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullScreenSwitcher {
+  @include flex-center;
+  position: relative;
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  padding-inline: 0.5rem;
+  padding-block: 0.565rem;
+  border: 2px solid $white;
+  border-radius: 0.5rem;
+  background-color: $white;
+  color: $black-intense;
+  cursor: pointer;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-size: 0.675rem;
+  font-weight: 600;
+  font-family: $font-lora;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  pointer-events: auto;
+
+  &.active {
+    background-color: $black-intense;
+    color: $white;
+  }
+  .fullScreenSwitcherTextContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+
+    .fullScreenSwitcherText {
+      position: relative;
+      width: 2.3rem;
+      height: 1.5rem;
+      transition: width 0.5s ease-in-out;
+
+      .transformText:nth-child(1) {
+        position: absolute;
+        opacity: 1;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      }
+
+      .transformText:nth-child(2) {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(175%);
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      }
+
+      &.active {
+        width: 3.55rem;
+        .transformText {
+          &:nth-child(1) {
+            opacity: 0;
+            transform: translateY(-250%);
+          }
+
+          &:nth-child(2) {
+            opacity: 1;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
+  }
+}

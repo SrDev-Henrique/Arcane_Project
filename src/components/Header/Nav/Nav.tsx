@@ -2,17 +2,13 @@ import styles from "./Nav.module.scss";
 import { links } from "./data";
 import { perspective, slideIn } from "./anime";
 import { sectionRefs } from "@/utils/sectionRefs";
-import {
-  enterFullscreen,
-  exitFullscreen,
-  useFullscreenStatus,
-} from "@/hooks/useFullscreen";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 import { isMobile } from "react-device-detect";
+import FullscreenSwitcher from "@/components/FullscreenSwitcher/FullscreenSwitcher";
 
 const Nav = ({
   isMenuOpen,
@@ -26,15 +22,6 @@ const Nav = ({
   setIsTransitioning: (isTransitioning: boolean) => void;
 }) => {
   const [focusedTitle, setFocusedTitle] = useState<string | null>(null);
-  const isFullScreen = useFullscreenStatus();
-
-  const toggleFullScreen = () => {
-    if (isFullScreen) {
-      exitFullscreen();
-    } else {
-      enterFullscreen();
-    }
-  };
 
   const handleTitleClick = (title: string) => {
     if (isTransitioning) return;
@@ -175,22 +162,13 @@ const Nav = ({
           animate="enter"
           exit="exit"
           custom={{ delayInitial: 0.5, index: 1 }}
-          onClick={toggleFullScreen}
-          className={`${styles.fullScreenSwitcher} ${
-            isFullScreen ? styles.active : ""
-          }`}
+          style={{
+            position: "absolute",
+            top: "25px",
+            left: "45px",
+          }}
         >
-          <div className={styles.fullScreenSwitcherTextContainer}>
-            <div
-              className={`${styles.fullScreenSwitcherText} ${
-                isFullScreen ? styles.active : ""
-              }`}
-            >
-              <span className={styles.transformText}>ativar</span>
-              <span className={styles.transformText}>desativar</span>
-            </div>
-            <p>modo tela cheia</p>
-          </div>
+          <FullscreenSwitcher />
         </motion.div>
       )}
     </div>

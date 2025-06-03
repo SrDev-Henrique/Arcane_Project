@@ -5,6 +5,7 @@ import {
   itemRevealVariants,
   highlightInfoVariants,
   highlightItemVariants,
+  listVariants,
 } from "../../anime";
 
 import Lenis from "lenis";
@@ -12,7 +13,6 @@ import Lenis from "lenis";
 import { IoPlayCircle } from "react-icons/io5";
 import { GrClose } from "react-icons/gr";
 import { useCallback, useEffect, useRef } from "react";
-import { isMobile } from "react-device-detect";
 
 interface HighlightsItems {
   id: number;
@@ -32,8 +32,6 @@ const HighlightsList = ({
   setIsHighlightActive,
   isTransitioning,
   setIsTransitioning,
-  activeSeason,
-  temporada,
 }: {
   highlights: HighlightsItems[];
   activeTab: string;
@@ -43,8 +41,6 @@ const HighlightsList = ({
   setIsHighlightActive: (isHighlightActive: boolean) => void;
   isTransitioning: boolean;
   setIsTransitioning: (isTransitioning: boolean) => void;
-  activeSeason: string;
-  temporada: string;
 }) => {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const highlightRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -161,10 +157,8 @@ const HighlightsList = ({
     };
   }, [isHighlightActive]);
 
-  if (isMobile && activeSeason !== temporada) return;
-
   return (
-    <div
+    <motion.div
       ref={containerRef}
       className={`${styles.container} ${
         activeTab !== "highlights"
@@ -173,6 +167,9 @@ const HighlightsList = ({
           ? styles.isActive
           : ""
       }`}
+      variants={listVariants}
+      initial="hidden"
+      animate={activeTab === "highlights" ? "visible" : "hidden"}
     >
       {highlights.map((highlight, index) => {
         return (
@@ -300,7 +297,7 @@ const HighlightsList = ({
           </motion.div>
         );
       })}
-    </div>
+    </motion.div>
   );
 };
 

@@ -109,19 +109,19 @@
 }
 
 .fechar {
-  @include button($accent-pink, fit-content);
+  @include button($black-light, fit-content, $white);
   font-weight: 600;
 }
 
 .voltar {
-  @include button($black-light, fit-content, $arcane-white);
+  @include button($white, fit-content, $black-dark);
   font-weight: bold;
 }
 
 .assistaAgora {
   @include button($black-dark, fit-content);
   padding-block: 0.5rem;
-  color: $arcane-white;
+  color: $white;
 
   .firstText {
     font-size: 1.175rem;
@@ -140,7 +140,7 @@
   }
 
   &:hover {
-    background-color: $arcane-white;
+    background-color: $white;
     color: $black-dark;
   }
 
@@ -151,7 +151,7 @@
 }
 
 .anterior {
-  @include button($arcane-white, fit-content);
+  @include button($white, fit-content);
   padding-block: 0.5rem;
   color: $black-dark;
 
@@ -171,7 +171,7 @@
 
   &:hover {
     background-color: $black-dark;
-    color: $arcane-white;
+    color: $white;
   }
 
   @media (min-width: $md) {

@@ -18,42 +18,9 @@
   transform: translate(-50%, -50%);
 }
 
-.seasonContainer {
-  @include size-full;
+@mixin topButton($justify: end) {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-}
-
-.seasonContent {
-  @include size-full;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  background-color: $black-dark;
-  clip-path: polygon(20% 25%, 80% 30%, 80% 75%, 20% 75%);
-
-  .isActive {
-    will-change: clip-path;
-  }
-}
-
-.episodesContainer {
-  position: absolute;
-  inset: 0;
-}
-
-.highlightsContainer {
-  position: absolute;
-  inset: 0;
-}
-
-.closeButton {
-  display: flex;
-  justify-content: end;
+  justify-content: $justify;
   position: absolute;
   top: 0;
   left: 50%;
@@ -76,39 +43,43 @@
   }
 }
 
-.secondMask {
+@mixin icon() {
   position: absolute;
-  inset: 0;
-  background-color: $celadon;
-
-  .firstMask {
-    @include size-full;
-    @include flex-center;
-    background-color: $sage-green;
-    position: relative;
-
-    .firstMaskImageContainer {
-      @include absolute-center;
-      width: 90%;
-      height: 90%;
-    }
-
-    .firstMaskTitle {
-      color: $black-dark;
-      font-size: clamp(1.5rem, 5vw, 3.75rem);
-      font-family: $font-lora;
-      font-weight: 600;
-      line-height: clamp(2rem, 6vw, 2.5rem);
-      text-transform: uppercase;
-      z-index: 3;
-    }
-  }
+  top: 50%;
+  transform: translateY(-50%);
+  left: 2px;
+  padding: 0.15rem;
+  background-color: black;
+  border-radius: 1rem;
+  height: 1.675rem;
+  width: 1.675rem;
 }
 
-.seasonOpenButton {
+.seasonContent {
+  @include size-full;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $black-dark;
+  overflow: hidden;
+}
+
+.episodesContainer {
   position: absolute;
-  right: 50%;
-  transform: translateX(50%);
-  bottom: 12%;
-  width: fit-content;
+  inset: 0;
+}
+
+.highlightsContainer {
+  position: absolute;
+  inset: 0;
+}
+
+.closeButton {
+  @include topButton;
+}
+
+.fullscreenSwitcher {
+  @include topButton(start);
 }

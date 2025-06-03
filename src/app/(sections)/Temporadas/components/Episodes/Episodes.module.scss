@@ -86,7 +86,7 @@
   height: 274px;
   max-height: 274px;
   gap: 1rem;
-  background-color: $arcane-white;
+  background-color: $white;
 
   @media (min-width: 621px) {
     padding: 0.25rem;
@@ -273,7 +273,7 @@
   gap: 0.25rem;
   width: fit-content;
   max-width: 9rem;
-  color: $arcane-white;
+  color: $white;
 
   .nextText {
     font-family: $font-lora;

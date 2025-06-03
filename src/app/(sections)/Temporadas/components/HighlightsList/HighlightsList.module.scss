@@ -129,7 +129,7 @@
       font-size: 0.75rem;
       line-height: 1rem;
       text-wrap: nowrap;
-      color: $arcane-white;
+      color: $white;
 
       @media (min-width: $lg) {
         font-size: 1rem;
@@ -181,7 +181,7 @@
       font-family: $font-lora;
       font-size: 0.75rem;
       line-height: 1rem;
-      color: $arcane-white;
+      color: $white;
 
       @media (min-width: $lg) {
         font-size: 1rem;
@@ -209,7 +209,7 @@
     align-items: center;
     gap: 0.25rem;
 
-    border: 1px solid $arcane-white;
+    border: 1px solid $white;
     overflow: hidden;
 
     cursor: pointer;
@@ -218,7 +218,7 @@
       font-family: $font-lora;
       font-size: 0.75rem;
       line-height: 1rem;
-      color: $white-dark;
+      color: $white;
       text-wrap: nowrap;
       text-transform: uppercase;
       width: 3.7rem;
@@ -238,7 +238,7 @@
       font-size: 1.5rem;
       line-height: 2rem;
       margin-right: 0.25rem;
-      color: $white-dark;
+      color: $white;
 
       @media (min-width: $lg) {
         font-size: 1.875rem;

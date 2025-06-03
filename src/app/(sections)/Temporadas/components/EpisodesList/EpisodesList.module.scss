@@ -9,7 +9,7 @@
 
   position: relative;
 
-  padding-top: 7rem;
+  padding-top: 11rem;
   padding-bottom: 60vh;
 
   &.overflowHidden {
@@ -110,7 +110,7 @@
       width: fit-content;
       height: fit-content;
 
-      color: $arcane-white;
+      color: $white;
       background-color: $black-dark;
       border-radius: 0.75rem;
 
@@ -165,15 +165,4 @@
       }
     }
   }
-}
-
-.nextEpisode {
-  position: fixed;
-  top: 10%;
-  left: 10%;
-
-  background-color: $black-dark;
-  color: $arcane-white;
-
-  z-index: 3;
 }

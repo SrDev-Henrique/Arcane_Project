@@ -35,8 +35,8 @@
   text-transform: uppercase;
   font-family: $font-lora;
   font-size: 0.75rem;
-  background-color: #0a0a0a;
-  color: #c1c1ba;
+  background-color: $black-dark;
+  color: $neutral-light;
   padding: 0.5rem;
   border-radius: 1.2rem;
   overflow: hidden;
@@ -45,15 +45,15 @@
   transition: all 0.3s ease-out;
 
   &.active:nth-child(1) {
-    background-color: #c1c1ba;
-    color: #0a0a0a;
+    background-color: $neutral-light;
+    color: $black-dark;
     gap: 0.25rem;
     width: 105px;
   }
 
   &.active:nth-child(2) {
-    background-color: #c1c1ba;
-    color: #0a0a0a;
+    background-color: $neutral-light;
+    color: $black-dark;
     gap: 0.25rem;
     width: 115px;
   }

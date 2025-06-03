@@ -12,8 +12,6 @@ const Nav = ({
   activeTab,
   setActiveTab,
   setActiveEpisode,
-  activeSeason,
-  temporada,
   isHighlightActive,
   setIsEpisodeActive,
   setIsFirstClick,
@@ -24,8 +22,6 @@ const Nav = ({
   activeTab: string;
   setActiveTab: (tab: string) => void;
   setActiveEpisode: (episode: number) => void;
-  activeSeason: string;
-  temporada: string;
   isHighlightActive: boolean;
   setIsEpisodeActive: (episode: boolean) => void;
   setIsFirstClick: (firstClick: boolean) => void;
@@ -45,8 +41,7 @@ const Nav = ({
       }, 1200);
     }
   };
-
-  if (activeSeason === temporada)
+  
     return (
       <motion.nav
         variants={navVariants}
