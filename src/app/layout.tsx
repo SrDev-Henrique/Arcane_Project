@@ -4,6 +4,9 @@ import "./globals.css";
 
 import { LenisProvider } from "@/contexts/LenisContext";
 import { MenuProvider } from "@/contexts/GlobalContext";
+import { ViewTransitions } from "next-view-transitions";
+
+import ClientSideScrollRestorer from "@/utils/ClientSideScrollRestorer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,24 +28,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
-    <html lang="pt-br">
-      <head>
-        <link
-          rel="preload"
-          href="/fonts/zentry-regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <MenuProvider>
-          <LenisProvider>{children}</LenisProvider>
-        </MenuProvider>
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="pt-br">
+        <head>
+          <link
+            rel="preload"
+            href="/fonts/zentry-regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+        </head>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <ClientSideScrollRestorer />
+          <MenuProvider>
+            <LenisProvider>{children}</LenisProvider>
+          </MenuProvider>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

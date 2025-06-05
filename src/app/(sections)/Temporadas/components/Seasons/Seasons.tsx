@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { imageList, buttonVariants } from "./anime";
 import { useRef, useState } from "react";
-import Link from "next/link";
+import { TransitionLink } from "@/components/TransitionLink";
 
 const Seasons = ({
   season,
@@ -63,9 +63,9 @@ const Seasons = ({
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <Link href={href}>
+          <TransitionLink href={href}>
             <Button title="Ver detalhes" variant="ghost" />
-          </Link>
+          </TransitionLink>
         </motion.div>
       </div>
       <motion.div

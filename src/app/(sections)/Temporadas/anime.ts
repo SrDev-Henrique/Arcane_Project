@@ -130,32 +130,31 @@ export const itemRevealVariants = {
 
 export const navVariants = {
   hidden: {
-    scaleY: 0,
-    transformOrigin: "top",
+    opacity: 0,
   },
   visible: {
-    scaleY: 1,
+    opacity: 1,
     transition: {
       duration: 0.5,
       ease: [0.76, 0, 0.24, 1],
-      delay: 0.6,
+      delay: 0.8,
     },
   },
 };
 
 export const closeButtonVariants = {
   hidden: {
-    scaleY: 0,
+    opacity: 0,
     transformOrigin: "top",
     translateX: "-50%",
   },
   visible: {
-    scaleY: 1,
+    opacity: 1,
     translateX: "-50%",
     transition: {
       duration: 0.5,
       ease: [0.76, 0, 0.24, 1],
-      delay: 0.6,
+      delay: 0.8,
     },
   },
 };

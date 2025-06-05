@@ -14,13 +14,33 @@ body {
 
 ::-webkit-scrollbar {
   width: 5px;
-  background: #F4E7E1;
+  background: #f4e7e1;
 }
 
 ::-webkit-scrollbar-thumb {
   width: 7px;
   background: #7a7454;
   border-radius: 12px;
+}
+
+::view-transition-group(root) {
+  z-index: auto !important;
+}
+
+::view-transition-image-pair(root) {
+  isolation: isolate;
+  will-change: transform, opacity, scale;
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+  animation: none !important;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+  animation: none !important;
 }
 
 body {

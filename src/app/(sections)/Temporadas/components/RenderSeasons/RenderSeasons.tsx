@@ -17,8 +17,8 @@ import { closeButtonVariants } from "../../anime";
 import useLockBodyScroll from "@/utils/useLockBodyScroll";
 import { useMenu } from "@/contexts/GlobalContext";
 import { seasons } from "@/data/Temporadas";
-import { useRouter } from "next/navigation";
 import FullscreenSwitcher from "@/components/FullscreenSwitcher/FullscreenSwitcher";
+import { TransitionLink } from "@/components/TransitionLink";
 
 const navItems = ["episódios", "highlights"];
 
@@ -37,8 +37,6 @@ const RenderSeasons = ({ temporada }: { temporada: string }) => {
   const [isHighlightActive, setIsHighlightActive] = useState(false);
 
   useLockBodyScroll(isSeasonActive);
-
-  const router = useRouter();
 
   const episodes =
     temporada === "Temporada_1" ? seasons.firstSeason : seasons.secondSeason;
@@ -69,6 +67,9 @@ const RenderSeasons = ({ temporada }: { temporada: string }) => {
             ? "visible"
             : "hidden"
         }
+        style={{
+          zIndex: isHighlightActive || isEpisodeActive ? -1 : 3,
+        }}
       >
         <FullscreenSwitcher />
       </motion.div>
@@ -82,14 +83,13 @@ const RenderSeasons = ({ temporada }: { temporada: string }) => {
             : "hidden"
         }
       >
-        <Button
-          title="Página Inicial"
-          onClick={() => {
-            router.push("/");
-          }}
-          variant="fechar"
-          style={{ pointerEvents: "auto" }}
-        />
+        <TransitionLink href="/">
+          <Button
+            title="Página Inicial"
+            variant="fechar"
+            style={{ pointerEvents: "auto" }}
+          />
+        </TransitionLink>
       </motion.div>
       <Nav
         navItems={navItems}
