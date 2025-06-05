@@ -181,7 +181,7 @@
 }
 
 .ghost {
-  @include button(transparent, fit-content, $white, 0);
+  @include button(transparent, fit-content, $white);
   border: 1px solid $white;
 
   .firstText {

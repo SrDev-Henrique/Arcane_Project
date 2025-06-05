@@ -51,6 +51,7 @@ const CardAside = ({
             text={title}
             blur={8}
             skew={10}
+            x={-20}
             y={10}
             stagger={0.02}
             el={"h1"}

@@ -27,7 +27,7 @@ const Chars = () => {
             text="Personagens"
             stagger={0.02}
             blur={5}
-            x={0}
+            x={-20}
             y={20}
             el={"h1"}
           />

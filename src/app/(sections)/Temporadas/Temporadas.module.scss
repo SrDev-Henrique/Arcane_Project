@@ -1,0 +1,16 @@
+@use "@/styles/variables" as *;
+
+.container {
+    padding-top: 10rem;
+    background-color: $black-dark;
+
+    .titleContainer {
+        width: 100%;
+        text-align: center;
+        color: $white;
+        font-size: clamp(2rem, 10vw, 9rem);
+        text-transform: uppercase;
+        overflow: hidden;
+        margin-block: 10rem;
+    }
+}

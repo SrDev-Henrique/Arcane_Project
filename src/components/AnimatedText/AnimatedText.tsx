@@ -34,7 +34,7 @@ export const AnimatedText = ({
   const scaleAnimation = scale || 1;
   const skewAnimation = skew || 0;
   const blurAnimation = blur || 0;
-  const xAnimation = x || -20;
+  const xAnimation = x || 0;
   const yAnimation = y || 0;
 
   const charsAnimations = {

@@ -2,7 +2,7 @@
 
 import styles from "./Outro.module.scss";
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 
 const Outro = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -19,7 +19,7 @@ const Outro = () => {
   const containerBackground = useTransform(
     scrollYProgress,
     [0.4, 0.65],
-    ["#ead8c0", "#1d1d1d"]
+    ["#ead8c0", "#0a0a0a"]
   );
   const barBackground = useTransform(
     scrollYProgress,
@@ -29,8 +29,17 @@ const Outro = () => {
   const progressBackground = useTransform(
     scrollYProgress,
     [0.4, 0.65],
-    ["#d6a77a", "#8a9a5b"]
+    ["#d6a77a", "#84D323"]
   );
+  const backgroundBody = useTransform(
+    scrollYProgress,
+    [0.4, 0.65],
+    ["#ead8c0", "#0a0a0a"]
+  );
+
+  useMotionValueEvent(backgroundBody, "change", (latest) => {
+    document.body.style.backgroundColor = latest;
+  });
 
   return (
     <motion.div

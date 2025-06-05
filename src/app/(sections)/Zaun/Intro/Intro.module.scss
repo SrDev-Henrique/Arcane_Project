@@ -4,7 +4,7 @@
   position: relative;
   width: 100svw;
   height: 250vh;
-  margin-top: 35px;
+  padding-top: 35px;
 }
 
 .content {
@@ -24,14 +24,14 @@
 
     h1 {
       font-family: $font-cinzel;
-      color: $celadon;
+      color: $green;
       font-weight: 100;
       text-transform: uppercase;
     }
   }
 
   .introText {
-    color: $celadon;
+    color: $green;
     font-size: clamp(1.2rem, 2.5vw, 7rem);
     font-family: $font-cinzel;
     font-weight: 100;

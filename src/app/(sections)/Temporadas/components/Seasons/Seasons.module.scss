@@ -1,0 +1,79 @@
+@use "@/styles/variables" as *;
+
+@mixin absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  min-height: 750px;
+  width: 100svw;
+  background-color: $black-dark;
+  color: $white;
+  margin-top: 15rem;
+  overflow: hidden;
+
+  .textContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.75rem;
+    z-index: 3;
+
+    .title {
+      height: fit-content;
+      width: fit-content;
+      font-size: clamp(2rem, 4vw, 6rem);
+      text-transform: uppercase;
+      justify-self: start;
+    }
+  }
+
+  .frontImages {
+    @include absoluteCenter;
+    position: absolute;
+    width: 100svw;
+    height: 70vh;
+    min-height: 650px;
+    pointer-events: none;
+
+    @media (min-width: $lg) {
+      width: 80svw;
+      height: 100vh;
+      min-height: 750px;
+    }
+
+    .imageContainer {
+      width: clamp(107.725px, 18vw, 227.587px);
+      height: clamp(140.587px, 18vw, 252.7px);
+      border-radius: 0.35rem;
+      // overflow: hidden;
+      position: absolute;
+
+      &:nth-child(1) {
+        width: clamp(107.725px, 18vw, 252.587px);
+      }
+
+      &:nth-child(3) {
+        width: clamp(97.725px, 18vw, 207.587px);
+        height: clamp(140.587px, 18vw, 232.7px);
+      }
+
+      &:nth-child(4) {
+        width: clamp(77.725px, 18vw, 192.587px);
+      }
+
+      &:nth-child(6) {
+        width: clamp(77.725px, 18vw, 227.587px);
+      }
+    }
+  }
+}
