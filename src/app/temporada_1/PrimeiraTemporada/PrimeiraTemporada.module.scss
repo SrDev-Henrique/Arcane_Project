@@ -1,8 +1,10 @@
 @use "src/styles/variables.scss" as *;
 
 .container {
-  height: 100vh;
-  width: 100%;
+  height: 100svh;
+  max-height: 100svh;
+  width: 100svw;
   background-color: $black-dark;
   position: relative;
+  overflow: hidden;
 }

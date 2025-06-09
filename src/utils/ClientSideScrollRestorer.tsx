@@ -1,6 +1,6 @@
 "use client";
 
-import { useScrollRestoration } from "@/components/ScrollRestoration";
+import { useScrollRestoration } from "@/utils/ScrollRestoration";
 
 export default function ClientScrollRestorer() {
   useScrollRestoration();

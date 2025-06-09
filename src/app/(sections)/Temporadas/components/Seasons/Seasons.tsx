@@ -63,7 +63,7 @@ const Seasons = ({
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <TransitionLink href={href}>
+          <TransitionLink color="#0a0a0a" href={href}>
             <Button title="Ver detalhes" variant="ghost" />
           </TransitionLink>
         </motion.div>

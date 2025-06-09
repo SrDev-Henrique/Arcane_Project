@@ -1,8 +1,9 @@
 @use "src/styles/variables.scss" as *;
 
 @mixin size-full {
-  width: 100%;
+  width: 100svw;
   height: 100%;
+  max-height: 100svh;
 }
 
 @mixin flex-center {
@@ -43,18 +44,6 @@
   }
 }
 
-@mixin icon() {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 2px;
-  padding: 0.15rem;
-  background-color: black;
-  border-radius: 1rem;
-  height: 1.675rem;
-  width: 1.675rem;
-}
-
 .seasonContent {
   @include size-full;
   position: relative;
@@ -63,7 +52,6 @@
   align-items: center;
   justify-content: space-between;
   background-color: $black-dark;
-  overflow: hidden;
 }
 
 .episodesContainer {

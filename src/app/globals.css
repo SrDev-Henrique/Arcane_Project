@@ -29,7 +29,7 @@ body {
 
 ::view-transition-image-pair(root) {
   isolation: isolate;
-  will-change: transform, opacity, scale;
+  will-change: transform, opacity, scale, clip-path;
   z-index: 1;
 }
 
@@ -45,6 +45,7 @@ body {
 
 body {
   overflow-x: hidden;
+  background-color: #ead8c0;
 }
 
 body.overflow-hidden {

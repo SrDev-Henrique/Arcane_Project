@@ -7,16 +7,22 @@ import { useTransitionRouter } from "next-view-transitions";
 interface TransitionLinkProps extends LinkProps {
   children: ReactNode;
   href: string;
+  color?: string;
 }
 
 export const TransitionLink = ({
   children,
   href,
+  color,
   ...props
 }: TransitionLinkProps) => {
   const router = useTransitionRouter();
 
   const handleTransition = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (color) {
+      document.body.style.backgroundColor = color;
+    }
+
     e.preventDefault();
 
     const fromPath = window.location.pathname;
@@ -30,7 +36,12 @@ export const TransitionLink = ({
   };
 
   return (
-    <Link onClick={handleTransition} href={href} {...props}>
+    <Link
+      style={{ textDecoration: "none" }}
+      onClick={handleTransition}
+      href={href}
+      {...props}
+    >
       {children}
     </Link>
   );
@@ -45,9 +56,9 @@ const pageAnimation = () => {
         transform: "translateY(0)",
       },
       {
-        opacity: 0.2,
+        opacity: 0.7,
         scale: 0.9,
-        transform: "translateY(-100px)",
+        transform: "translateY(-50%)",
       },
     ],
     {
@@ -61,10 +72,10 @@ const pageAnimation = () => {
   document.documentElement.animate(
     [
       {
-        transform: "translateY(100%)",
+        clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0 100%)",
       },
       {
-        transform: "translateY(0)",
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       },
     ],
     {

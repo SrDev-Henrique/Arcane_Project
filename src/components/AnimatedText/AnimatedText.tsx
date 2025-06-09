@@ -11,6 +11,9 @@ export const AnimatedText = ({
   blur,
   x,
   y,
+  yTo,
+  opacity,
+  duration,
   once,
 }: {
   text: string | string[];
@@ -21,6 +24,9 @@ export const AnimatedText = ({
   blur?: number;
   x?: number;
   y?: number;
+  yTo?: number;
+  opacity?: number;
+  duration?: number;
   once?: boolean;
 }) => {
   const textRef = useRef<HTMLSpanElement | null>(null);
@@ -36,10 +42,13 @@ export const AnimatedText = ({
   const blurAnimation = blur || 0;
   const xAnimation = x || 0;
   const yAnimation = y || 0;
+  const yToAnimation = yTo || 0;
+  const opacityAnimation = opacity || 0;
+  const durationAnimation = duration || 1;
 
   const charsAnimations = {
     hidden: {
-      opacity: 0,
+      opacity: opacityAnimation,
       x: xAnimation,
       y: yAnimation,
       scale: scaleAnimation,
@@ -49,12 +58,12 @@ export const AnimatedText = ({
     visible: {
       opacity: 1,
       x: 0,
-      y: 0,
+      y: yToAnimation,
       scale: 1,
       skewX: "0deg",
       filter: "blur(0px)",
       transition: {
-        duration: 1,
+        duration: durationAnimation,
         ease: "easeInOut",
       },
     },

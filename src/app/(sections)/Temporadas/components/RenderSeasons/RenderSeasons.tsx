@@ -56,6 +56,12 @@ const RenderSeasons = ({ temporada }: { temporada: string }) => {
     }, 600);
   }, [setActiveSeason, temporada]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   return (
     <motion.div className={styles.seasonContent}>
       <motion.div

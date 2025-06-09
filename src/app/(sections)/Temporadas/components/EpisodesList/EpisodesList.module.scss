@@ -73,6 +73,7 @@
 
   flex-shrink: 0;
 
+  
   &.active {
     will-change: width, height;
     pointer-events: none;

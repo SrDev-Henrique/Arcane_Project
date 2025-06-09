@@ -23,6 +23,8 @@ const CharsCard = ({
 
   const { width } = useDimension();
 
+  const slug = name.toLowerCase();
+
   useEffect(() => {
     if (width !== null) {
       setIsMobile(width < 1024);
@@ -127,7 +129,7 @@ const CharsCard = ({
           >
             {title}
           </motion.p>
-          <TransitionLink href={"/"}>
+          <TransitionLink color="#ead8c0" href={`/${slug}`}>
             <motion.div
               variants={itemsVariants}
               animate={isInView ? "visible" : "hidden"}

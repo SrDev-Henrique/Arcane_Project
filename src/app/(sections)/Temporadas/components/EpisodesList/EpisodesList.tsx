@@ -54,7 +54,7 @@ const EpisodesList = ({
   const [isMobileWidth, setIsMobileWidth] = useState(false);
   const [isEpisodeClicked, setIsEpisodeClicked] = useState(false);
 
-  const { width } = useDimension();
+  const { width, height } = useDimension();
 
   const addToImagesRefs = (el: HTMLDivElement | null, index: number) => {
     if (!el) return;
@@ -148,8 +148,8 @@ const EpisodesList = ({
 
   useEffect(() => {
     const checkMobile = () => {
-      if (width !== null) {
-        setIsMobileWidth(width <= 768 || width <= 500);
+      if (width && height !== null) {
+        setIsMobileWidth(width <= 768 || height <= 500);
       }
     };
 
@@ -160,7 +160,7 @@ const EpisodesList = ({
     return () => {
       window.removeEventListener("resize", checkMobile);
     };
-  }, [width]);
+  }, [width, height]);
 
   useEffect(() => {
     const scrollIntoView = () => {

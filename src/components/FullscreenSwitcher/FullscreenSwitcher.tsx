@@ -4,6 +4,7 @@ import {
   useFullscreenStatus,
 } from "@/hooks/useFullscreen";
 import styles from "./FullscreenSwitcher.module.scss";
+import { isMobile } from "react-device-detect";
 
 const FullscreenSwitcher = () => {
   const isFullScreen = useFullscreenStatus();
@@ -15,6 +16,8 @@ const FullscreenSwitcher = () => {
       enterFullscreen();
     }
   };
+
+  if (isMobile) return null;
   return (
     <div
       onClick={toggleFullScreen}

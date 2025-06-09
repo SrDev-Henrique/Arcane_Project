@@ -1,0 +1,11 @@
+@use "@/styles/variables" as *;
+
+.container {
+    position: absolute;
+    inset: 0;
+
+    &.isHidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+}

@@ -8,6 +8,7 @@ export function useScrollRestoration() {
   const pathname = usePathname();
 
   useEffect(() => {
+    if (pathname !== "/") return;
     const saved = sessionStorage.getItem(`scrollPos:${pathname}`);
 
     if (saved !== null) {

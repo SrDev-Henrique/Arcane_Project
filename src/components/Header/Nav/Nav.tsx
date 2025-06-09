@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
-import { isMobile } from "react-device-detect";
 import FullscreenSwitcher from "@/components/FullscreenSwitcher/FullscreenSwitcher";
 
 const Nav = ({
@@ -155,22 +154,20 @@ const Nav = ({
           <p>SRDEV HENRIQUE</p>
         </Link>
       </motion.div>
-      {!isMobile && (
-        <motion.div
-          variants={slideIn}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-          custom={{ delayInitial: 0.5, index: 1 }}
-          style={{
-            position: "absolute",
-            top: "25px",
-            left: "45px",
-          }}
-        >
-          <FullscreenSwitcher />
-        </motion.div>
-      )}
+      <motion.div
+        variants={slideIn}
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        custom={{ delayInitial: 0.5, index: 1 }}
+        style={{
+          position: "absolute",
+          top: "25px",
+          left: "45px",
+        }}
+      >
+        <FullscreenSwitcher />
+      </motion.div>
     </div>
   );
 };

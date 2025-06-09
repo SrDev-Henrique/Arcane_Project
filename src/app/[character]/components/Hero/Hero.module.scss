@@ -1,0 +1,197 @@
+@use "@/styles/variables" as *;
+
+.heroSection {
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.container {
+  width: 95dvw;
+  max-width: 1920px;
+  height: 95svh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: relative;
+
+  @media (min-width: $lg) {
+    width: 85dvw;
+  }
+}
+
+.imagesWrapper {
+  width: 75%;
+  max-width: 590px;
+  height: 65%;
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2.25rem;
+  margin-right: 1.25rem;
+  padding-top: 0.25rem;
+  position: relative;
+
+  @media (min-width: $xl) {
+    height: 75%;
+    margin-right: 0;
+  }
+}
+
+.imageBlock {
+  width: calc(33.3333% - 31px);
+  margin-left: 11px;
+  will-change: transform;
+  animation: diagonal 3s infinite alternate ease-in-out;
+  max-height: 640px;
+  flex-shrink: 0;
+}
+
+.firstImage {
+  animation-delay: 0s;
+  height: calc(60% - 20px);
+  margin-left: 15px;
+  align-self: center;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0.375rem;
+  max-height: 404px;
+}
+
+.middleImage {
+  animation-delay: 0.4s;
+  height: calc(97% - 22px);
+  margin-top: 11px;
+
+  @media (max-height: $sm) {
+    height: calc(100% - 30px);
+  }
+}
+
+.lastImage {
+  animation-delay: 0.6s;
+  height: calc(80% - 22px);
+  margin-top: 11px;
+  border-top-right-radius: 0.375rem;
+  max-height: 534px;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.quoteContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+  overflow: hidden;
+
+  @media (min-width: $xl) {
+    left: 2.5rem;
+  }
+
+  .quoteIcon {
+    font-size: clamp(1.7rem, 4.3vw, 2.3rem);
+  }
+
+  .quoteText {
+    font-size: clamp(0.675rem, 1.9vw, 1.12rem);
+    border-bottom: 1px solid;
+    font-family: $font-lora;
+    font-weight: 100;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.characterName {
+  position: absolute;
+  left: 0;
+  top: 43%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: fit-content;
+  color: inherit;
+
+  @media (min-width: 1280px) {
+    left: 5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .sizeDefault {
+    font-size: clamp(3.5rem, 5vw + 1rem, 5.45rem);
+  }
+
+  .firstNameWrapper {
+    overflow: hidden;
+
+    h1 {
+      font-size: clamp(3.5rem, 5vw + 1rem, 5.45rem);
+    }
+  }
+
+  .lastNameWrapper {
+    overflow: hidden;
+
+    h1 {
+      font-size: clamp(3.5rem, 5vw + 1rem, 5.45rem);
+      &.sizeHeimerdinger {
+        font-size: clamp(2.5rem, 6.3vw + 1rem, 5.45rem) !important;
+      }
+    }
+  }
+
+  .firstName {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .lastName {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .marginTalis {
+    margin-left: 1.5rem;
+  }
+}
+
+.descriptionWrapper {
+  position: absolute;
+  bottom: 4.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 500px;
+
+  @media (min-width: $xl) {
+    transform: translateX(-80%);
+  }
+}
+
+.descriptionText {
+  font-size: clamp(0.975rem, 1.5vw, 1.275rem);
+}
+
+@keyframes diagonal {
+  0% {
+    transform: translate(-10px, 10px) rotate(-1deg);
+  }
+  100% {
+    transform: translate(10px, -10px) rotate(0deg);
+  }
+}

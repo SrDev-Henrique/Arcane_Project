@@ -12,14 +12,14 @@ const CharsCard = ({
   alt,
   title,
   name,
-  centerLeft
+  centerLeft,
 }: {
   scale: MotionValue<number>;
   filterBrightness: MotionValue<string>;
   src: string;
   alt: string;
   title: string;
-    name: string;
+  name: string;
   centerLeft: boolean;
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -30,6 +30,8 @@ const CharsCard = ({
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["-30%", "0%"]);
+
+  const slug = name.toLowerCase();
 
   return (
     <div ref={containerRef} className={styles.container}>
@@ -51,14 +53,14 @@ const CharsCard = ({
             }}
           />
         </motion.div>
-        <motion.div  className={styles.textContainer}>
+        <motion.div className={styles.textContainer}>
           <div>
             <p>{title}</p>
           </div>
           <div>
             <h1>{name}</h1>
           </div>
-          <TransitionLink href={"/"}>
+          <TransitionLink color="#0a0a0a" href={`/${slug}`}>
             <div className={styles.button}>
               <p>Ver Detalhes</p>
             </div>

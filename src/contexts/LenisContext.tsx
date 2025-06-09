@@ -5,6 +5,8 @@ import { createContext, useContext, useRef, useEffect } from "react";
 import Lenis from "lenis";
 import { useMenu } from "./GlobalContext";
 
+import { isMobile } from "react-device-detect";
+
 type LenisContextType = {
   lenis: Lenis | null;
 };
@@ -20,6 +22,7 @@ export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
   const { isSeasonActive, isLoading } = useMenu();
 
   useEffect(() => {
+    if (isMobile) return;
     const lenis = new Lenis({
       duration: 1.5,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

@@ -111,6 +111,10 @@
 .fechar {
   @include button($black-light, fit-content, $white);
   font-weight: 600;
+  .firstText .textWrapper,
+  .secondText .textWrapper {
+    font-size: clamp(0.575rem, 1.75vw, 0.75rem);
+  }
 }
 
 .voltar {
