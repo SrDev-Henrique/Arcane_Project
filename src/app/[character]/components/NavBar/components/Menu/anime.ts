@@ -14,3 +14,17 @@ export const tabsContainerVariants = {
     },
   },
 };
+
+export const menuButtonVariants = {
+  hidden: {
+    scale: 0,
+  },
+  visible: {
+    scale: 1,
+    transition: {
+      delay: 1.5,
+      duration: 1,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+};

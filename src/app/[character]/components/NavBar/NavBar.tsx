@@ -7,7 +7,13 @@ import { RiHome9Fill } from "react-icons/ri";
 import { FaPause, FaPlay } from "react-icons/fa6";
 import { TbPlayerTrackNextFilled } from "react-icons/tb";
 import { motion } from "framer-motion";
-import { musicDiscVariants, songContainerVariants } from "./anime";
+import {
+  musicDiscVariants,
+  songContainerVariants,
+  navContainerVariants,
+  buttonsVariants,
+  menuButtonVariants,
+} from "./anime";
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -149,7 +155,12 @@ const NavBar = ({
 
   return (
     <div className={styles.container}>
-      <div className={styles.navContainer}>
+      <motion.div
+        variants={navContainerVariants}
+        initial="hidden"
+        animate="visible"
+        className={styles.navContainer}
+      >
         <div
           className={styles.tabsContainer}
           style={{
@@ -157,7 +168,8 @@ const NavBar = ({
           }}
         >
           {tabs.map((tab) => (
-            <div
+            <motion.div
+              variants={buttonsVariants}
               key={tab}
               className={`${styles.tabs} ${
                 activeTab === tab ? styles.active : ""
@@ -169,28 +181,33 @@ const NavBar = ({
               }}
             >
               <p>{tab}</p>
-            </div>
+            </motion.div>
           ))}
-          <TransitionLink href={"/"}>
-            <div className={styles.buttonContainer}>
-              <div
-                className={`${styles.button} ${
-                  theme === "zaun" ? styles.dark : ""
-                }`}
-              >
-                <RiHome9Fill />
-              </div>
-              <div
-                className={`${styles.button} ${
-                  theme === "zaun" ? styles.dark : ""
-                }`}
-              >
-                <RiHome9Fill />
-              </div>
-            </div>
-          </TransitionLink>
         </div>
-      </div>
+        <TransitionLink href={"/"}>
+          <motion.div
+            variants={menuButtonVariants}
+            initial="hidden"
+            animate="visible"
+            className={styles.buttonContainer}
+          >
+            <div
+              className={`${styles.button} ${
+                theme === "zaun" ? styles.dark : ""
+              }`}
+            >
+              <RiHome9Fill />
+            </div>
+            <div
+              className={`${styles.button} ${
+                theme === "zaun" ? styles.dark : ""
+              }`}
+            >
+              <RiHome9Fill />
+            </div>
+          </motion.div>
+        </TransitionLink>
+      </motion.div>
       <Menu
         tabs={tabs}
         color={color}

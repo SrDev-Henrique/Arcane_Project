@@ -3,7 +3,7 @@ import styles from "./Menu.module.scss";
 import { RiHome9Fill } from "react-icons/ri";
 
 import { motion } from "framer-motion";
-import { tabsContainerVariants } from "./anime";
+import { tabsContainerVariants, menuButtonVariants } from "./anime";
 import { useState } from "react";
 
 const Menu = ({
@@ -69,13 +69,18 @@ const Menu = ({
             </TransitionLink>
           </motion.div>
         </div>
-        <div
+        <motion.div
+          variants={menuButtonVariants}
+          initial="hidden"
+          animate="visible"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className={`${styles.openMenuButton} ${
             isMenuOpen ? styles.isOpen : ""
           }`}
           style={{
             backgroundColor: theme === "piltover" ? "#f4e7e1" : "#141414",
+            x: "-50%",
+            transform: "translateX(-50%)",
           }}
         >
           <div className={styles.linesContainer}>
@@ -98,7 +103,7 @@ const Menu = ({
               );
             })}
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
