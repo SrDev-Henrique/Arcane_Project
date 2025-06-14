@@ -5,11 +5,13 @@ import { useRef } from "react";
 
 const AnimatedLine = ({
   color,
+  delay,
   vertical,
   once,
   inView,
 }: {
   color: string;
+  delay?: number;
   vertical?: boolean;
   once?: boolean;
   inView?: React.RefObject<HTMLDivElement | null>;
@@ -22,6 +24,7 @@ const AnimatedLine = ({
   });
 
   const scaleY = vertical ? 0 : 1;
+  const delayAnimation = delay ? delay : 0;
 
   const lineVariants = {
     hidden: {
@@ -36,6 +39,7 @@ const AnimatedLine = ({
       scaleX: 1,
       scaleY: 1,
       transition: {
+        delay: delayAnimation,
         duration: 2,
         ease: [0.215, 1, 0.3, 1],
       },

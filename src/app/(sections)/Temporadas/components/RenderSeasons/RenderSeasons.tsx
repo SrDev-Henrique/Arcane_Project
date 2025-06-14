@@ -93,7 +93,7 @@ const RenderSeasons = ({ temporada }: { temporada: string }) => {
           <Button
             title="Página Inicial"
             variant="fechar"
-            style={{ pointerEvents: "auto" }}
+            style={{ pointerEvents: isHighlightActive ? "none" : "auto" }}
           />
         </TransitionLink>
       </motion.div>

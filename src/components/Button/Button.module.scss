@@ -28,7 +28,7 @@
   $background: $blue-50,
   $width: 128px,
   $color: $black-dark,
-  $border-radius: 2rem
+  $border-radius: 2rem,
 ) {
   @include flexCenter;
 
@@ -212,4 +212,25 @@
   font-weight: 600;
   font-size: 1.175rem;
   min-height: 43.6px;
+}
+
+.chars {
+  @include button(transparent, fit-content, $black-dark);
+
+  &.dark {
+    color: $white;
+  }
+  font-family: $font-cinzel;
+
+  .firstText {
+    .textWrapper {
+      @include textWrapper(600);
+    }
+  }
+
+  .secondText {
+    .textWrapper {
+      @include textWrapper(600);
+    }
+  }
 }

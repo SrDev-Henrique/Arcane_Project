@@ -1,7 +1,10 @@
 @use "@/styles/variables" as *;
 
 .heroSection {
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100svw;
   height: 100svh;
   display: flex;
   justify-content: center;
@@ -28,9 +31,9 @@
 }
 
 .imagesWrapper {
-  width: 75%;
+  width: 80%;
   max-width: 590px;
-  height: 65%;
+  height: 70%;
   display: flex;
   gap: 0.75rem;
   margin-top: 2.25rem;
@@ -39,14 +42,14 @@
   position: relative;
 
   @media (min-width: $xl) {
-    height: 75%;
+    height: 85%;
     margin-right: 0;
   }
 }
 
 .imageBlock {
   width: calc(33.3333% - 31px);
-  margin-left: 11px;
+  margin-left: 9px;
   will-change: transform;
   animation: diagonal 3s infinite alternate ease-in-out;
   max-height: 640px;
@@ -56,7 +59,7 @@
 .firstImage {
   animation-delay: 0s;
   height: calc(60% - 20px);
-  margin-left: 15px;
+  margin-left: 19px;
   align-self: center;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
@@ -84,7 +87,11 @@
 
 .imageOverlay {
   position: absolute;
-  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 99%;
+  height: 99%;
   background-size: cover;
   background-position: center;
 }

@@ -109,11 +109,13 @@ const NavBar = ({
     };
 
     const audio = audioRef.current;
-    const onEnded = () => {
+    const onEnded = async () => {
       if (totalSongs > 1) handleNextClick();
       if (totalSongs <= 1) {
         setIsPlaying(false);
         audio.currentTime = 0;
+        await sleep(400);
+        setIsPlaying(true);
       }
     };
     audio.addEventListener("ended", onEnded);

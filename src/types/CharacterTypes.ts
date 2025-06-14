@@ -3,10 +3,10 @@ export interface ContentItem {
   content: string;
 }
 
-export interface PersonalityBlock {
-  src?: string[];
-  title?: string;
-  content?: string;
+export interface AboutBlock {
+  src: string[];
+  title: string[];
+  content: string[];
 }
 
 export interface Journey {
@@ -84,9 +84,9 @@ export interface CharacterData {
   lastName: string;
   description: string;
   quote: string;
-  personalidade: PersonalityBlock[];
-  aparencia: PersonalityBlock[];
-  habilidades: PersonalityBlock[];
+  personalidade: AboutBlock;
+  aparencia: AboutBlock;
+  habilidades: AboutBlock;
   jornada: Journey;
   temporada1: Season1;
   temporada2: Season2;

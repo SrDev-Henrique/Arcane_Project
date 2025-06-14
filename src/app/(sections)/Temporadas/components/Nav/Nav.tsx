@@ -47,6 +47,9 @@ const Nav = ({
         variants={navVariants}
         initial="hidden"
         animate={isHighlightActive ? "hidden" : "visible"}
+        style={{
+          pointerEvents: isHighlightActive ? "none" : "auto",
+        }}
         className={styles.nav}
       >
         {navItems.map((tab) => (

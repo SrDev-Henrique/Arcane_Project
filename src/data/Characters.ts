@@ -4,85 +4,63 @@ export const characters = {
     color: "#35637C",
     secondaryColor: "#A4B3B5",
     icon: "/images/arcane_piltover/characters/characters-page/caitlyn/icon.webp",
-    heroImage:
-      "/images/arcane_piltover/characters/caitlyn.webp",
+    heroImage: "/images/arcane_piltover/characters/caitlyn.webp",
     name: "Caitlyn",
     lastName: "Kiramman",
     description:
       "Caitlyn Kiramman é uma personagem central em Arcane. Filha de Cassandra e Tobias Kiramman, ela integra a poderosa e influente Casa Kiramman, destacando-se por sua habilidade, determinação e inabalável senso de justiça.",
     quote: "Eu também sou uma desajustada, eu acho.",
-    personalidade: [
-      {
-        src: [
-          "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-2.webp",
-          "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-3.webp",
-          "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-4.webp",
-        ],
-      },
-      {
-        title: "Determinação e Rebeldia",
-        content:
-          "Desde a infância, Caitlyn demonstrou uma forte vontade de traçar seu próprio destino, mesmo que isso significasse desagradar os pais e romper com tradições.",
-      },
-      {
-        title: "Empatia e Justiça",
-        content:
-          "Embora crescida num ambiente protegido e aristocrático, ela aprendeu a se importar com os menos favorecidos e a lutar contra a desigualdade – o que a torna uma personagem tão apaixonante.",
-      },
-      {
-        title: "Impulsividade vs. Raciocínio",
-        content:
-          "Sua tendência de agir seguindo o coração, às vezes antes da cabeça, já a colocou em apuros, mas também revela sua autenticidade e humanidade.",
-      },
-    ],
-    aparencia: [
-      {
-        src: [
-          "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-5.webp",
-          "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-6.webp",
-          "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-7.webp",
-        ],
-      },
-      {
-        title: "Estatura e Físico",
-        content:
-          "Com 185 cm (incluindo salto) e um corpo esguio, ela exibe músculos tonificados que evidenciam anos de treinamento intenso.",
-      },
-      {
-        title: "Visual Marcante",
-        content:
-          "Caitlyn ostenta olhos azuis brilhantes, traços faciais definidos e um cabelo azul marinho que varia entre penteados – de solto com capa a preso em rabo de cavalo –, conforme a situação.",
-      },
-      {
-        title: "Uniformes Inesquecíveis",
-        content:
-          "Desde o icônico traje de executora da primeira temporada – com vestido azul-marinho, detalhes dourados e aquele chapéu sem abas – até as versões mais adaptadas e discretas para atuar em Zaun, cada look conta um capítulo diferente de sua evolução.",
-      },
-    ],
-    habilidades: [
-      {
-        src: [
-          "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-8.webp",
-          "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-9.webp",
-          "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-10.webp",
-        ],
-      },
-      {
-        title: "Tiro de Precisão",
-        content:
-          "Uma das maiores armas de Caitlyn é sua incrível habilidade de atiradora, comprovada desde os tempos de competição.",
-      },
-      {
-        title: "Artes Marciais Noxianas",
-        content:
-          "Treinada por Ambessa, ela domina técnicas que a tornam letal em combate corpo a corpo.",
-      },
-      {
-        title: "Investigação Aguçada",
-        content:
-          "Seu talento para desvendar mistérios e enxergar além das aparências a coloca à frente de casos que outros descartariam como meros boatos.",
-      },
-    ],
+    personalidade: {
+      src: [
+        "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-2.webp",
+        "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-3.webp",
+        "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-4.webp",
+      ],
+      title: [
+        "Determinação e Rebeldia",
+        "Empatia e Justiça",
+        "Impulsividade vs. Raciocínio",
+      ],
+      content: [
+        "Desde a infância, Caitlyn demonstrou uma forte vontade de traçar seu próprio destino, mesmo que isso significasse desagradar os pais e romper com tradições.",
+        "Embora crescida num ambiente protegido e aristocrático, ela aprendeu a se importar com os menos favorecidos e a lutar contra a desigualdade – o que a torna uma personagem tão apaixonante.",
+        "Sua tendência de agir seguindo o coração, às vezes antes da cabeça, já a colocou em apuros, mas também revela sua autenticidade e humanidade.",
+      ],
+    },
+    aparencia: {
+      src: [
+        "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-5.webp",
+        "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-6.webp",
+        "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-7.webp",
+      ],
+      title: [
+        "Estatura e Físico",
+        "Visual Marcante",
+        "Uniformes Inesquecíveis",
+      ],
+      content: [
+        "Com 185 cm (incluindo salto) e um corpo esguio, ela exibe músculos tonificados que evidenciam anos de treinamento intenso.",
+        "Caitlyn ostenta olhos azuis brilhantes, traços faciais definidos e um cabelo azul marinho que varia entre penteados – de solto com capa a preso em rabo de cavalo –, conforme a situação.",
+        "Desde o icônico traje de executora da primeira temporada – com vestido azul-marinho, detalhes dourados e aquele chapéu sem abas – até as versões mais adaptadas e discretas para atuar em Zaun, cada look conta um capítulo diferente de sua evolução.",
+      ],
+    },
+    habilidades: {
+      src: [
+        "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-8.webp",
+        "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-9.webp",
+        "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-10.webp",
+      ],
+      title: [
+        "Tiro de Precisão",
+        "Artes Marciais Noxianas",
+        "Investigação Aguçada",
+      ],
+      content: [
+        "Uma das maiores armas de Caitlyn é sua incrível habilidade de atiradora, comprovada desde os tempos de competição.",
+        "Treinada por Ambessa, ela domina técnicas que a tornam letal em combate corpo a corpo.",
+        "Seu talento para desvendar mistérios e enxergar além das aparências a coloca à frente de casos que outros descartariam como meros boatos.",
+      ],
+    },
     jornada: {
       title: "Jornada",
       parte1: [
@@ -249,96 +227,78 @@ export const characters = {
     color: "#B79E58",
     secondaryColor: "#D0C5A1",
     icon: "/images/arcane_piltover/characters/characters-page/mel/icon.webp",
-    heroImage: "/images/arcane_piltover/characters/mel.jpeg",
+    heroImage: "/images/arcane_piltover/characters/characters-page/mel/mel-1.webp",
     name: "Mel",
     lastName: "Medarda",
     description:
       "Uma líder enigmática que transita entre a política implacável de Piltover e os mistérios da magia, Mel Medarda é uma força transformadora que une passado e futuro em uma narrativa de poder, intrigas e redenção.",
     quote: "A guerra não é nosso primeiro e único recurso",
-    personalidade: [
-      {
-        src: [
-          "/images/arcane_piltover/characters/characters-page/mel/mel-2.webp",
-          "/images/arcane_piltover/characters/characters-page/mel/mel-3.webp",
-          "/images/arcane_piltover/characters/characters-page/mel/mel-4.webp",
-        ],
-      },
-      {
-        title: "Visionária e Ambiciosa:",
-        content:
-          "Sempre à frente do seu tempo, Mel busca transformar Piltover com ideias inovadoras e estratégias que rompem com o passado.",
-      },
-      {
-        title: "Mestre da Persuasão e Intriga:",
-        content:
-          "Com uma habilidade nata para manobrar os jogos políticos, ela equilibra a frieza da lógica com uma paixão intensa pelo progresso.",
-      },
-      {
-        title: "Resiliente e Reflexiva:",
-        content:
-          "Mesmo marcada pelos traumas e conflitos do passado, sua capacidade de se reinventar a torna uma líder inspiradora e determinada.",
-      },
-    ],
-    aparencia: [
-      {
-        src: [
-          "/images/arcane_piltover/characters/characters-page/mel/mel-5.webp",
-          "/images/arcane_piltover/characters/characters-page/mel/mel-6.webp",
-          "/images/arcane_piltover/characters/characters-page/mel/mel-7.webp",
-        ],
-      },
-      {
-        title: "Elegância e Sofisticação:",
-        content:
-          "De pele escura, com olhos que misturam tons de verde e ouro, e cabelos negros cacheados com detalhes dourados, sua presença impõe respeito.",
-      },
-      {
-        title: "Visual Impactante:",
-        content:
-          "Seja em trajes refinados de branco e ouro ou em sua versão mística como maga – com marcas douradas e um brilho especial –, sua aparência é sempre memorável.",
-      },
-      {
-        title: "Transformação Visual:",
-        content:
-          "Momentos de crise e o despertar de seus poderes revelam uma nova faceta: uma força que, mesmo mantendo a elegância, exibe a intensidade e a energia de uma verdadeira maga",
-      },
-    ],
-    habilidades: [
-      {
-        src: [
-          "/images/arcane_piltover/characters/characters-page/mel/mel-8.webp",
-          "/images/arcane_piltover/characters/characters-page/mel/mel-9.webp",
-          "/images/arcane_piltover/characters/characters-page/mel/mel-10.webp",
-        ],
-      },
-      {
-        title: "Magia de Luz e Empatia Mágica:",
-        content:
-          "Mel canaliza a magia da luz para criar ondas, raios e escudos protetores, além de captar e refletir as energias ao seu redor com uma sensibilidade única.",
-      },
-      {
-        title: "Liderança Estratégica:",
-        content:
-          "Sua mente afiada para a política e sua capacidade de manipular as engrenagens do poder fazem dela uma estrategista nata, capaz de transformar crises em oportunidades.",
-      },
-      {
-        title: "Despertar Mágico:",
-        content:
-          "Em momentos decisivos, o poder oculto de Mel se revela – com marcas douradas e uma energia vibrante que simbolizam sua profunda conexão com as forças místicas que regem seu destino.",
-      },
-    ],
+    personalidade: {
+      src: [
+        "/images/arcane_piltover/characters/characters-page/mel/mel-2.webp",
+        "/images/arcane_piltover/characters/characters-page/mel/mel-3.webp",
+        "/images/arcane_piltover/characters/characters-page/mel/mel-4.webp",
+      ],
+      title: [
+        "Visionária e Ambiciosa:",
+        "Mestre da Persuasão e Intriga:",
+        "Resiliente e Reflexiva:",
+      ],
+      content: [
+        "Sempre à frente do seu tempo, Mel busca transformar Piltover com ideias inovadoras e estratégias que rompem com o passado.",
+        "Com uma habilidade nata para manobrar os jogos políticos, ela equilibra a frieza da lógica com uma paixão intensa pelo progresso.",
+        "Mesmo marcada pelos traumas e conflitos do passado, sua capacidade de se reinventar a torna uma líder inspiradora e determinada.",
+      ],
+    },
+    aparencia: {
+      src: [
+        "/images/arcane_piltover/characters/characters-page/mel/mel-5.webp",
+        "/images/arcane_piltover/characters/characters-page/mel/mel-6.webp",
+        "/images/arcane_piltover/characters/characters-page/mel/mel-7.webp",
+      ],
+      title: [
+        "Elegância e Sofisticação:",
+        "Visual Impactante:",
+        "Transformação Visual:",
+      ],
+      content: [
+        "De pele escura, com olhos que misturam tons de verde e ouro, e cabelos negros cacheados com detalhes dourados, sua presença impõe respeito.",
+        "Seja em trajes refinados de branco e ouro ou em sua versão mística como maga – com marcas douradas e um brilho especial –, sua aparência é sempre memorável.",
+        "Momentos de crise e o despertar de seus poderes revelam uma nova faceta: uma força que, mesmo mantendo a elegância, exibe a intensidade e a energia de uma verdadeira maga",
+      ],
+    },
+
+    habilidades: {
+      src: [
+        "/images/arcane_piltover/characters/characters-page/mel/mel-8.webp",
+        "/images/arcane_piltover/characters/characters-page/mel/mel-9.webp",
+        "/images/arcane_piltover/characters/characters-page/mel/mel-10.webp",
+      ],
+      title: [
+        "Magia de Luz e Empatia Mágica:",
+        "Liderança Estratégica:",
+        "Despertar Mágico:",
+      ],
+      content: [
+        "Mel canaliza a magia da luz para criar ondas, raios e escudos protetores, além de captar e refletir as energias ao seu redor com uma sensibilidade única.",
+        "Sua mente afiada para a política e sua capacidade de manipular as engrenagens do poder fazem dela uma estrategista nata, capaz de transformar crises em oportunidades.",
+        "Em momentos decisivos, o poder oculto de Mel se revela – com marcas douradas e uma energia vibrante que simbolizam sua profunda conexão com as forças místicas que regem seu destino.",
+      ],
+    },
     jornada: {
       title: "Jornada",
       parte1: [
         {
-          image: "/images/arcane_piltover/characters/characters-page/mel/mel-11.webp",
+          image:
+            "/images/arcane_piltover/characters/characters-page/mel/mel-11.webp",
           content:
             "Nascida em <b>Noxus</b>, <b>Mel Medarda</b> é fruto de um caso entre a temida <b>Ambessa Medarda</b> e um misterioso mago. Criada em meio à agressividade e às lições duras de sua mãe, ela conviveu com um legado de <b>violência</b> – algo que contrastava fortemente com a influência <b>pacifista</b> de seu meio-irmão <b>Kino</b>.",
         },
       ],
       parte2: [
         {
-          image: "/images/arcane_piltover/characters/characters-page/mel/mel-12.webp",
+          image:
+            "/images/arcane_piltover/characters/characters-page/mel/mel-12.webp",
           content:
             "Em um episódio marcante, quando <b>Mel</b> sugeriu o <b>exílio de uma princesa estrangeira</b> ao invés de aceitar a execução brutal, ela desafiou os métodos impostos por <b>Ambessa</b>. Esse ato de rebeldia acabou selando seu destino: <b>banida para Piltover</b>, onde a adversidade se transformou na força motriz de sua ascensão, sempre com o apoio incondicional de sua assistente, <b>Elora</b>.",
         },
@@ -348,21 +308,24 @@ export const characters = {
       title: "Temporada 1",
       parte1: [
         {
-          image: "/images/arcane_piltover/characters/characters-page/mel/mel-13.webp",
+          image:
+            "/images/arcane_piltover/characters/characters-page/mel/mel-13.webp",
           content:
             "Ao chegar em <b>Piltover</b>, <b>Mel</b> não apenas carregava as cicatrizes do passado – ela as transformava em combustível para sua ambição. Em meio à desilusão e à rejeição familiar, a jovem começou a trilhar um novo caminho, onde o <b>conhecimento</b> e a <b>inovação</b> eram suas principais armas.",
         },
       ],
       parte2: [
         {
-          image: "/images/arcane_piltover/characters/characters-page/mel/mel-14.webp",
+          image:
+            "/images/arcane_piltover/characters/characters-page/mel/mel-14.webp",
           content:
             "Na primeira temporada, seu <b>olhar visionário</b> e sua <b>paixão por transformar Piltover</b> se destacam. Em meio a <b>reuniões intensas</b> e <b>apresentações ousadas</b>, Mel defende <b>experimentos que rompem com o tradicional</b>. O icônico '<b>Progress Day</b>' é um marco: um dia em que a cidade se enche de <b>novas ideias</b> e onde ela, com firmeza, declara que o <b>futuro pertence àqueles que ousam deixar o passado para trás</b>. Seu apoio a projetos de <b>Jayce</b> e <b>Viktor</b> demonstra que <b>inovação</b> e <b>ambição</b> podem, juntas, abrir caminhos para um <b>novo horizonte</b>.",
         },
       ],
       parte3: [
         {
-          image: "/images/arcane_piltover/characters/characters-page/mel/mel-15.webp",
+          image:
+            "/images/arcane_piltover/characters/characters-page/mel/mel-15.webp",
           content:
             "Apesar de sua <b>postura inovadora</b>, Mel é assombrada pelas <b>lembranças dolorosas do passado</b>. <b>Conflitos familiares</b>, <b>métodos brutais</b> impostos por Ambessa e o constante <b>embate interno</b> entre o que foi e o que ela deseja ser marcam seus dias. Essas lições, embora dolorosas, fortalecem sua <b>convicção</b> e moldam uma personalidade que sabe equilibrar <b>política</b> e <b>emoção</b>, abrindo espaço para <b>relações intensas</b> – inclusive com <b>Jayce</b>, cuja presença mistura <b>política</b> com uma <b>paixão inesperada</b>.",
         },
@@ -372,42 +335,48 @@ export const characters = {
       title: "Temporada 2",
       parte1: [
         {
-          image: "/images/arcane_piltover/characters/characters-page/mel/mel-16.webp",
+          image:
+            "/images/arcane_piltover/characters/characters-page/mel/mel-16.webp",
           content:
             "Na <b>segunda temporada</b>, os desafios se intensificam. <b>Piltover</b> se vê imersa num cenário de <b>caos</b>: <b>ataques devastadores</b> abalam o <b>Conselho</b>, e as <b>tensões com Zaun</b> se aprofundam a cada dia. Mel precisa lidar com <b>perdas dolorosas</b>, <b>embates políticos ferozes</b> e a <b>pressão constante</b> de definir os rumos de um <b>futuro incerto</b>, enquanto a cidade clama por <b>respostas</b> e <b>soluções inovadoras</b>.",
         },
       ],
       parte2: [
         {
-          image: "/images/arcane_piltover/characters/characters-page/mel/mel-17.webp",
+          image:
+            "/images/arcane_piltover/characters/characters-page/mel/mel-17.webp",
           content:
             "Em meio ao <b>tumulto</b>, algo <b>surpreendente</b> acontece: Mel desperta um <b>poder oculto</b>. Após momentos <b>extremos</b> – inclusive sua <b>captura pelos Black Rose</b> – seus dons como <b>maga</b> emergem de forma <b>avassaladora</b>.",
         },
       ],
       parte3: [
         {
-          image: "/images/arcane_piltover/characters/characters-page/mel/mel-18.webp",
+          image:
+            "/images/arcane_piltover/characters/characters-page/mel/mel-18.webp",
           content:
             "Seus <b>olhos se iluminam</b>, e <b>marcas douradas</b> se espalham pelo seu corpo, simbolizando uma <b>fusão inédita</b> entre <b>luz e energia</b>. Esse <b>despertar</b> redefine sua <b>identidade</b>, tornando-a ainda mais <b>formidável</b> e <b>central</b> na luta para <b>restaurar a ordem</b> e <b>transformar o futuro</b> de Piltover.",
         },
       ],
       parte4: [
         {
-          image: "/images/arcane_piltover/characters/characters-page/mel/mel-19.webp",
+          image:
+            "/images/arcane_piltover/characters/characters-page/mel/mel-19.webp",
           content:
             "Em meio aos <b>intensos confrontos políticos</b> e às <b>batalhas</b> que misturam o <b>físico e o mágico</b>, Mel se vê obrigada a enfrentar os <b>fantasmas de seu passado</b> – principalmente a <b>influência implacável</b> de sua mãe, <b>Ambessa</b>.",
         },
       ],
       parte5: [
         {
-          image: "/images/arcane_piltover/characters/characters-page/mel/mel-20.webp",
+          image:
+            "/images/arcane_piltover/characters/characters-page/mel/mel-20.webp",
           content:
             "Cada embate a aproxima da <b>reconciliação com sua própria essência</b>, permitindo que ela entenda que a <b>verdadeira inovação</b> nasce do <b>equilíbrio entre razão e emoção</b>.",
         },
       ],
       parte6: [
         {
-          image: "/images/arcane_piltover/characters/characters-page/mel/mel-21.webp",
+          image:
+            "/images/arcane_piltover/characters/characters-page/mel/mel-21.webp",
           content:
             "Ao assumir de vez seu papel de <b>líder</b>, Mel abraça seu destino e se prepara para retornar a <b>Noxus</b>, desta vez como a chefe da <b>Casa Medarda</b>, com uma nova visão para o futuro.",
         },
@@ -437,84 +406,62 @@ export const characters = {
     color: "#8C5A3C",
     secondaryColor: "#B4B0A2",
     icon: "/images/arcane_piltover/characters/characters-page/jayce/icon.webp",
-    heroImage: "/images/arcane_piltover/characters/characters-page/jayce/jayce-1.webp",
+    heroImage:
+      "/images/arcane_piltover/characters/characters-page/jayce/jayce-1.webp",
     name: "Jayce",
     lastName: "Talis",
     description:
       "Jayce Talis é um dos pilares de Arcane, um líder ambicioso e resiliente que equilibra ciência e magia. Sua jornada, marcada por perdas e descobertas, o transforma de um jovem sonhador em um visionário dividido entre o futuro e seu passado.",
     quote: "Há beleza nas imperfeições. Elas fizeram você ser quem é.",
-    personalidade: [
-      {
-        src: [
-          "/images/arcane_piltover/characters/characters-page/jayce/jayce-2.webp",
-          "/images/arcane_piltover/characters/characters-page/jayce/jayce-3.webp",
-          "/images/arcane_piltover/characters/characters-page/jayce/jayce-4.webp",
-        ],
-      },
-      {
-        title: "Ambicioso e Visionário:",
-        content:
-          "Jayce é movido pelo sonho de unir a magia com a ciência para criar um mundo melhor. Sua paixão pela Hextech reflete um desejo de transcender os limites tradicionais e abraçar o novo.",
-      },
-      {
-        title: "Comprometido e Emocional:",
-        content:
-          "Embora inicialmente ingênuo, suas experiências o forjaram num líder que encara os dilemas com sinceridade – desde a responsabilidade pelo bem-estar dos outros até o peso de suas escolhas pessoais.",
-      },
-      {
-        title: "Resiliente e Reflexivo:",
-        content:
-          "Através de perdas dolorosas e conflitos internos, ele aprende a valorizar cada imperfeição como parte do processo de crescimento, sempre buscando a redenção mesmo diante de grandes desafios.",
-      },
-    ],
-    aparencia: [
-      {
-        src: [
-          "/images/arcane_piltover/characters/characters-page/jayce/jayce-5.webp",
-          "/images/arcane_piltover/characters/characters-page/jayce/jayce-6.webp",
-          "/images/arcane_piltover/characters/characters-page/jayce/jayce-7.webp",
-        ],
-      },
-      {
-        title: "O Jovem Inventor:",
-        content:
-          "Jayce exibe uma constituição robusta com pele bronzeada, cabelo castanho escuro cortado de forma moderna e um visual que mistura o clássico da Casa Talis com toques de modernidade – como a jaqueta branca e dourada que carrega o brasão familiar.",
-      },
-      {
-        title: "Marcas da Luta:",
-        content:
-          "Os traços se tornam mais rústicos e desgastados; seu cabelo cresce desordenadamente, uma barba começa a se formar, e as marcas do tempo e das batalhas ficam evidentes em cada cicatriz e olhar. Seu visual reflete a intensidade dos conflitos e a luta interna que o transforma.",
-      },
-      {
-        title: "Forma Astral:",
-        content:
-          "Em momentos de conexão profunda com o Hexcore, Jayce assume uma aparência etérea: seu corpo se tinge de cores que variam entre branco, azul, rosa e roxo, enquanto detalhes iridescentes se manifestam, simbolizando a fusão entre o humano e o místico.",
-      },
-    ],
-    habilidades: [
-      {
-        src: [
-          "/images/arcane_piltover/characters/characters-page/jayce/jayce-8.webp",
-          "/images/arcane_piltover/characters/characters-page/jayce/jayce-9.webp",
-          "/images/arcane_piltover/characters/characters-page/jayce/jayce-10.webp",
-        ],
-      },
-      {
-        title: "Engenhosidade e Invenção:",
-        content:
-          "Dotado de uma mente criativa, Jayce desenvolve invenções revolucionárias como o Martelo de Mercúrio, as Manoplas Atlas e os Hexgates, demonstrando que a inovação pode transformar a realidade.",
-      },
-      {
-        title: "Durabilidade e Força:",
-        content:
-          "Sua capacidade de resistir a ferimentos extremos e continuar lutando – tanto física quanto emocionalmente – é um dos pilares de sua jornada, evidenciando uma força que vai além do físico.",
-      },
-      {
-        title: "Integração do Arcano e da Ciência:",
-        content:
-          "Jayce é o exemplo vivo de que a magia e a tecnologia podem coexistir. Ao explorar o Hexcore e as energias místicas, ele desafia as convenções e abre caminho para uma nova era onde o conhecimento e a intuição caminham juntos.",
-      },
-    ],
+    personalidade: {
+      src: [
+        "/images/arcane_piltover/characters/characters-page/jayce/jayce-2.webp",
+        "/images/arcane_piltover/characters/characters-page/jayce/jayce-3.webp",
+        "/images/arcane_piltover/characters/characters-page/jayce/jayce-4.webp",
+      ],
+      title: [
+        "Ambicioso e Visionário:",
+        "Comprometido e Emocional:",
+        "Resiliente e Reflexivo:",
+      ],
+      content: [
+        "Jayce é movido pelo sonho de unir a magia com a ciência para criar um mundo melhor. Sua paixão pela Hextech reflete um desejo de transcender os limites tradicionais e abraçar o novo.",
+        "Embora inicialmente ingênuo, suas experiências o forjaram num líder que encara os dilemas com sinceridade – desde a responsabilidade pelo bem-estar dos outros até o peso de suas escolhas pessoais.",
+        "Através de perdas dolorosas e conflitos internos, ele aprende a valorizar cada imperfeição como parte do processo de crescimento, sempre buscando a redenção mesmo diante de grandes desafios.",
+      ],
+    },
+
+    aparencia: {
+      src: [
+        "/images/arcane_piltover/characters/characters-page/jayce/jayce-5.webp",
+        "/images/arcane_piltover/characters/characters-page/jayce/jayce-6.webp",
+        "/images/arcane_piltover/characters/characters-page/jayce/jayce-7.webp",
+      ],
+      title: ["O Jovem Inventor:", "Marcas da Luta:", "Forma Astral:"],
+      content: [
+        "Jayce exibe uma constituição robusta com pele bronzeada, cabelo castanho escuro cortado de forma moderna e um visual que mistura o clássico da Casa Talis com toques de modernidade – como a jaqueta branca e dourada que carrega o brasão familiar.",
+        "Os traços se tornam mais rústicos e desgastados; seu cabelo cresce desordenadamente, uma barba começa a se formar, e as marcas do tempo e das batalhas ficam evidentes em cada cicatriz e olhar. Seu visual reflete a intensidade dos conflitos e a luta interna que o transforma.",
+        "Em momentos de conexão profunda com o Hexcore, Jayce assume uma aparência etérea: seu corpo se tinge de cores que variam entre branco, azul, rosa e roxo, enquanto detalhes iridescentes se manifestam, simbolizando a fusão entre o humano e o místico.",
+      ],
+    },
+
+    habilidades: {
+      src: [
+        "/images/arcane_piltover/characters/characters-page/jayce/jayce-8.webp",
+        "/images/arcane_piltover/characters/characters-page/jayce/jayce-9.webp",
+        "/images/arcane_piltover/characters/characters-page/jayce/jayce-10.webp",
+      ],
+      title: [
+        "Engenhosidade e Invenção:",
+        "Durabilidade e Força:",
+        "Integração do Arcano e da Ciência:",
+      ],
+      content: [
+        "Dotado de uma mente criativa, Jayce desenvolve invenções revolucionárias como o Martelo de Mercúrio, as Manoplas Atlas e os Hexgates, demonstrando que a inovação pode transformar a realidade.",
+        "Sua capacidade de resistir a ferimentos extremos e continuar lutando – tanto física quanto emocionalmente – é um dos pilares de sua jornada, evidenciando uma força que vai além do físico.",
+        "Jayce é o exemplo vivo de que a magia e a tecnologia podem coexistir. Ao explorar o Hexcore e as energias místicas, ele desafia as convenções e abre caminho para uma nova era onde o conhecimento e a intuição caminham juntos.",
+      ],
+    },
     jornada: {
       title: "Jornada",
       parte1: [
@@ -673,78 +620,59 @@ export const characters = {
     description:
       "Viktor é um inventor brilhante de Zaun que, por meio da Hextech, busca a 'Gloriosa Evolução'. Sua trajetória, marcada por transformações radicais, revela o eterno dilema entre progresso científico e perda da humanidade.",
     quote: "Não há prêmio para perfeição. Apenas um fim à busca.",
-    personalidade: [
-      {
-        src: [
-          "/images/arcane_piltover/characters/characters-page/viktor/viktor-2.webp",
-          "/images/arcane_piltover/characters/characters-page/viktor/viktor-3.webp",
-          "/images/arcane_piltover/characters/characters-page/viktor/viktor-4.webp",
-        ],
-      },
-      {
-        title: "Idealista e Obcecado:",
-        content:
-          "Viktor é movido por uma visão grandiosa de um mundo melhor, mas essa ambição muitas vezes o cega para os riscos dos seus experimentos. Sua dedicação à ciência é intensa e, por vezes, obsessiva.",
-      },
-      {
-        title: "Pacifista com um Fervor Transformador:",
-        content:
-          "Apesar de sua origem humilde e dos sofrimentos vividos, Viktor sempre buscou transformar a realidade sem recorrer à violência – até que a pressão e as perdas o empurraram para métodos extremos.",
-      },
-      {
-        title: "Solitário e Determinado:",
-        content:
-          "Sempre à margem, ele se refugiou em seu laboratório e em suas pesquisas, confiando mais em sua genialidade do que na companhia dos outros, o que o fez trilhar um caminho de isolamento e introspecção.",
-      },
-    ],
-    aparencia: [
-      {
-        src: [
-          "/images/arcane_piltover/characters/characters-page/viktor/viktor-5.webp",
-          "/images/arcane_piltover/characters/characters-page/viktor/viktor-6.webp",
-          "/images/arcane_piltover/characters/characters-page/viktor/viktor-7.webp",
-        ],
-      },
-      {
-        title: "Humano Abatido:",
-        content:
-          "Nos seus primeiros anos, Viktor era um jovem de pele pálida, olhos âmbar e cabelos castanhos, marcado pela doença que o debilitava e pela aparência frágil que refletia sua vida nas fissuras de Zaun.",
-      },
-      {
-        title: "Transição para o Biomecânico:",
-        content:
-          "Conforme se submeteu aos experimentos hextec, partes de seu corpo foram substituídas por metal escuro com detalhes dourados, representando a fusão entre o orgânico e o tecnológico, simbolizando sua transformação e o preço da evolução.",
-      },
-      {
-        title: "Forma Final:",
-        content:
-          "Em seu ápice, Viktor assume uma aparência quase irreconhecível: uma figura alta e esquelética, com uma máscara de metal que divide seu rosto, olhos amarelos brilhantes e um manto esfarrapado – a personificação de um ser que ultrapassou os limites humanos.",
-      },
-    ],
-    habilidades: [
-      {
-        src: [
-          "/images/arcane_piltover/characters/characters-page/viktor/viktor-8.webp",
-          "/images/arcane_piltover/characters/characters-page/viktor/viktor-9.webp",
-          "/images/arcane_piltover/characters/characters-page/viktor/viktor-10.webp",
-        ],
-      },
-      {
-        title: "Gênio Inventivo:",
-        content:
-          "Com uma mente brilhante e criativa, Viktor é capaz de conceber e aperfeiçoar tecnologias revolucionárias – desde a estabilização dos cristais hextec até a criação do Hexcore, que representa a síntese de seu conhecimento e ambição.",
-      },
-      {
-        title: "Transmutação Hextec:",
-        content:
-          "Através do Hexcore, ele consegue transmutar matéria orgânica em metal biomecânico, curando doenças, removendo imperfeições e, em última instância, remodelando a própria natureza do corpo humano.",
-      },
-      {
-        title: "Hivemind e Manipulação Psíquica:",
-        content:
-          "Viktor também desenvolveu a capacidade de formar conexões psíquicas, absorvendo e manipulando as memórias e emoções de seus seguidores, um poder que o permitia controlar e direcionar a massa – embora a um custo ético e moral imenso.",
-      },
-    ],
+    personalidade: {
+      src: [
+        "/images/arcane_piltover/characters/characters-page/viktor/viktor-2.webp",
+        "/images/arcane_piltover/characters/characters-page/viktor/viktor-3.webp",
+        "/images/arcane_piltover/characters/characters-page/viktor/viktor-4.webp",
+      ],
+      title: [
+        "Idealista e Obcecado:",
+        "Pacifista com um Fervor Transformador:",
+        "Solitário e Determinado:",
+      ],
+      content: [
+        "Viktor é movido por uma visão grandiosa de um mundo melhor, mas essa ambição muitas vezes o cega para os riscos dos seus experimentos. Sua dedicação à ciência é intensa e, por vezes, obsessiva.",
+        "Apesar de sua origem humilde e dos sofrimentos vividos, Viktor sempre buscou transformar a realidade sem recorrer à violência – até que a pressão e as perdas o empurraram para métodos extremos.",
+        "Sempre à margem, ele se refugiou em seu laboratório e em suas pesquisas, confiando mais em sua genialidade do que na companhia dos outros, o que o fez trilhar um caminho de isolamento e introspecção.",
+      ],
+    },
+
+    aparencia: {
+      src: [
+        "/images/arcane_piltover/characters/characters-page/viktor/viktor-5.webp",
+        "/images/arcane_piltover/characters/characters-page/viktor/viktor-6.webp",
+        "/images/arcane_piltover/characters/characters-page/viktor/viktor-7.webp",
+      ],
+      title: [
+        "Humano Abatido:",
+        "Transição para o Biomecânico:",
+        "Forma Final:",
+      ],
+      content: [
+        "Nos seus primeiros anos, Viktor era um jovem de pele pálida, olhos âmbar e cabelos castanhos, marcado pela doença que o debilitava e pela aparência frágil que refletia sua vida nas fissuras de Zaun.",
+        "Conforme se submeteu aos experimentos hextec, partes de seu corpo foram substituídas por metal escuro com detalhes dourados, representando a fusão entre o orgânico e o tecnológico, simbolizando sua transformação e o preço da evolução.",
+        "Em seu ápice, Viktor assume uma aparência quase irreconhecível: uma figura alta e esquelética, com uma máscara de metal que divide seu rosto, olhos amarelos brilhantes e um manto esfarrapado – a personificação de um ser que ultrapassou os limites humanos.",
+      ],
+    },
+
+    habilidades: {
+      src: [
+        "/images/arcane_piltover/characters/characters-page/viktor/viktor-8.webp",
+        "/images/arcane_piltover/characters/characters-page/viktor/viktor-9.webp",
+        "/images/arcane_piltover/characters/characters-page/viktor/viktor-10.webp",
+      ],
+      title: [
+        "Gênio Inventivo:",
+        "Transmutação Hextec:",
+        "Hivemind e Manipulação Psíquica:",
+      ],
+      content: [
+        "Com uma mente brilhante e criativa, Viktor é capaz de conceber e aperfeiçoar tecnologias revolucionárias – desde a estabilização dos cristais hextec até a criação do Hexcore, que representa a síntese de seu conhecimento e ambição.",
+        "Através do Hexcore, ele consegue transmutar matéria orgânica em metal biomecânico, curando doenças, removendo imperfeições e, em última instância, remodelando a própria natureza do corpo humano.",
+        "Viktor também desenvolveu a capacidade de formar conexões psíquicas, absorvendo e manipulando as memórias e emoções de seus seguidores, um poder que o permitia controlar e direcionar a massa – embora a um custo ético e moral imenso.",
+      ],
+    },
     jornada: {
       title: "Jornada",
       parte1: [
@@ -919,78 +847,59 @@ export const characters = {
     description:
       "Cecil B. Heimerdinger é o venerável mentor e inventor de Piltover em Arcane, cuja sabedoria e visão equilibram tradição e inovação, guiando jovens talentos enquanto preserva a cautela diante dos desafios do futuro.",
     quote: "Desde que te conheci, eu realmente vivi.",
-    personalidade: [
-      {
-        src: [
-          "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-2.webp",
-          "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-3.webp",
-          "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-4.webp",
-        ],
-      },
-      {
-        title: "O Visionário Cauteloso:",
-        content:
-          "Heimerdinger é conhecido por sua profunda cautela diante do poder destrutivo da magia. Sempre atento aos riscos das novas tecnologias, ele acredita que o progresso deve ser alcançado de forma ética e gradual, protegendo vidas inocentes das consequências de inovações precipitadas.",
-      },
-      {
-        title: "O Mentor Inspirador:",
-        content:
-          "Como reitor da Academia Piltover, Heimerdinger dedicou sua imortalidade a cultivar as mentes brilhantes da cidade. Ele se orgulha de ver seus alunos superarem seus próprios limites, acreditando que sua maior conquista é o sucesso daqueles que passou a orientar.",
-      },
-      {
-        title: "O Espírito Inovador e Excêntrico:",
-        content:
-          "Apesar de sua longa e séria trajetória, Heimerdinger mantém um fascínio quase infantil por novas ideias. Sua excentricidade se manifesta tanto na maneira como projeta invenções revolucionárias quanto em seus momentos de descontração, quando adota trajes inusitados e se entrega à música.",
-      },
-    ],
-    aparencia: [
-      {
-        src: [
-          "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-5.webp",
-          "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-6.webp",
-          "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-7.webp",
-        ],
-      },
-      {
-        title: "O Pequeno Yordle de Bandle:",
-        content:
-          "Originário de Bandle City, Heimerdinger exibe as marcas típicas dos yordles: uma estatura pequena, orelhas pontudas, e um rosto expressivo com olhos azuis vivos, que refletem a sua natureza curiosa e vibrante.",
-      },
-      {
-        title: "O Estilo Acadêmico Tradicional:",
-        content:
-          "Em Piltover, ele costuma ser visto vestindo um jaleco azul-acinzentado adornado com detalhes dourados, acompanhado de cinto e luvas escuras. Seus óculos de proteção redondos e seu bigode branco conferem um ar clássico e intelectual, simbolizando seu papel de mentor e inovador.",
-      },
-      {
-        title: "A Reinvenção no Universo Paralelo:",
-        content:
-          "Após sua experiência interdimensional, Heimerdinger adotou um visual levemente diferente: um casaco mais brilhante, que reflete o espírito de renovação, e o hábito peculiar de carregar um banjo mecânico – um toque que une sua paixão pela ciência com a redescoberta das alegrias simples da vida.",
-      },
-    ],
-    habilidades: [
-      {
-        src: [
-          "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-12.webp",
-          "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-9.webp",
-          "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-10.webp",
-        ],
-      },
-      {
-        title: "Professor Excepcional:",
-        content:
-          "Heimerdinger é amplamente reconhecido por sua habilidade de inspirar e orientar gerações de inventores. Sua expertise não se limita à teoria; ele tem um talento singular para transformar ideias complexas em conhecimentos práticos, contribuindo para o desenvolvimento de algumas das mentes mais brilhantes de Piltover.",
-      },
-      {
-        title: "Inventor de Invenções Inovadoras:",
-        content:
-          "Com uma carreira que abrange mais de duzentos anos, Heimerdinger concebeu e aperfeiçoou uma vasta gama de dispositivos mecânicos e hextec. De torres de bolhas a hoverbikes voadoras, sua criatividade inata o posiciona como um dos maiores inventores da história, sempre com um olhar atento para o potencial revolucionário da tecnologia.",
-      },
-      {
-        title: "Habilidades Yordle e Mágicas:",
-        content:
-          "Além de seu conhecimento científico, Heimerdinger possui as habilidades naturais dos yordles, como a magia inerente de sua espécie, que lhe permite manipular pequenos dispositivos com destreza e realizar encantos simples. Sua imortalidade e conexão com o Reino Espiritual conferem-lhe uma perspectiva única sobre o tempo e o poder do arcano.",
-      },
-    ],
+    personalidade: {
+      src: [
+        "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-2.webp",
+        "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-3.webp",
+        "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-4.webp",
+      ],
+      title: [
+        "O Visionário Cauteloso:",
+        "O Mentor Inspirador:",
+        "O Espírito Inovador e Excêntrico:",
+      ],
+      content: [
+        "Heimerdinger é conhecido por sua profunda cautela diante do poder destrutivo da magia. Sempre atento aos riscos das novas tecnologias, ele acredita que o progresso deve ser alcançado de forma ética e gradual, protegendo vidas inocentes das consequências de inovações precipitadas.",
+        "Como reitor da Academia Piltover, Heimerdinger dedicou sua imortalidade a cultivar as mentes brilhantes da cidade. Ele se orgulha de ver seus alunos superarem seus próprios limites, acreditando que sua maior conquista é o sucesso daqueles que passou a orientar.",
+        "Apesar de sua longa e séria trajetória, Heimerdinger mantém um fascínio quase infantil por novas ideias. Sua excentricidade se manifesta tanto na maneira como projeta invenções revolucionárias quanto em seus momentos de descontração, quando adota trajes inusitados e se entrega à música.",
+      ],
+    },
+
+    aparencia: {
+      src: [
+        "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-5.webp",
+        "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-6.webp",
+        "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-7.webp",
+      ],
+      title: [
+        "O Pequeno Yordle de Bandle:",
+        "O Estilo Acadêmico Tradicional:",
+        "A Reinvenção no Universo Paralelo:",
+      ],
+      content: [
+        "Originário de Bandle City, Heimerdinger exibe as marcas típicas dos yordles: uma estatura pequena, orelhas pontudas, e um rosto expressivo com olhos azuis vivos, que refletem a sua natureza curiosa e vibrante.",
+        "Em Piltover, ele costuma ser visto vestindo um jaleco azul-acinzentado adornado com detalhes dourados, acompanhado de cinto e luvas escuras. Seus óculos de proteção redondos e seu bigode branco conferem um ar clássico e intelectual, simbolizando seu papel de mentor e inovador.",
+        "Após sua experiência interdimensional, Heimerdinger adotou um visual levemente diferente: um casaco mais brilhante, que reflete o espírito de renovação, e o hábito peculiar de carregar um banjo mecânico – um toque que une sua paixão pela ciência com a redescoberta das alegrias simples da vida.",
+      ],
+    },
+
+    habilidades: {
+      src: [
+        "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-12.webp",
+        "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-9.webp",
+        "/images/arcane_piltover/characters/characters-page/heimerdinger/heimerdinger-10.webp",
+      ],
+      title: [
+        "Professor Excepcional:",
+        "Inventor de Invenções Inovadoras:",
+        "Habilidades Yordle e Mágicas:",
+      ],
+      content: [
+        "Heimerdinger é amplamente reconhecido por sua habilidade de inspirar e orientar gerações de inventores. Sua expertise não se limita à teoria; ele tem um talento singular para transformar ideias complexas em conhecimentos práticos, contribuindo para o desenvolvimento de algumas das mentes mais brilhantes de Piltover.",
+        "Com uma carreira que abrange mais de duzentos anos, Heimerdinger concebeu e aperfeiçoou uma vasta gama de dispositivos mecânicos e hextec. De torres de bolhas a hoverbikes voadoras, sua criatividade inata o posiciona como um dos maiores inventores da história, sempre com um olhar atento para o potencial revolucionário da tecnologia.",
+        "Além de seu conhecimento científico, Heimerdinger possui as habilidades naturais dos yordles, como a magia inerente de sua espécie, que lhe permite manipular pequenos dispositivos com destreza e realizar encantos simples. Sua imortalidade e conexão com o Reino Espiritual conferem-lhe uma perspectiva única sobre o tempo e o poder do arcano.",
+      ],
+    },
     jornada: {
       title: "Jornada",
       parte1: [
@@ -1120,85 +1029,61 @@ export const characters = {
     color: "#511D26",
     secondaryColor: "#B22222",
     icon: "/images/arcane_zaun/zaun_characters/silco/character-page/icon.webp",
-    heroImage:
-      "/images/arcane_zaun/zaun_characters/silco-card.webp",
+    heroImage: "/images/arcane_zaun/zaun_characters/silco-card.webp",
     name: "Silco",
     lastName: "",
     description:
       "Silco é o estrategista impiedoso de Zaun, cuja visão obscura transcende os limites da moralidade. Sua ambição se mescla com uma astuta manipulação, moldando o caos em um império sombrio que desafia convenções.",
     quote: "Há um monstro dentro de todos nós.",
-    personalidade: [
-      {
-        src: [
-          "/images/arcane_zaun/zaun_characters/silco/character-page/silco-2.webp",
-          "/images/arcane_zaun/zaun_characters/silco/character-page/silco-3.webp",
-          "/images/arcane_zaun/zaun_characters/silco/character-page/silco-4.webp",
-        ],
-      },
-      {
-        title: "Visionário Obsessivo:",
-        content:
-          "Silco é um idealista implacável. Seu sonho de uma Zaun livre e soberana o guia a qualquer custo. Ele enxerga os meios mais brutais como necessários quando se trata da liberdade de seu povo.",
-      },
-      {
-        title: "Manipulador Magistral:",
-        content:
-          "Ele usa palavras como armas e estratégias como escudos. Silco corrompe Marcus, negocia com barões químicos e manipula emocionalmente Jinx, tudo em nome de sua visão. É paciente, frio e altamente estratégico.",
-      },
-      {
-        title: "Paterno e Contraditório:",
-        content:
-          "Apesar da crueldade, Silco demonstra profunda afeição por Jinx. Ele a protege mesmo quando todos a temem. Essa dualidade entre brutalidade e carinho revela um homem quebrado, tentando recriar, à sua maneira, uma família.",
-      },
-    ],
-    aparencia: [
-      {
-        src: [
-          "/images/arcane_zaun/zaun_characters/silco/character-page/silco-5.webp",
-          "/images/arcane_zaun/zaun_characters/silco/character-page/silco-6.webp",
-          "/images/arcane_zaun/zaun_characters/silco/character-page/silco-7.webp",
-        ],
-      },
-      {
-        title: "Cicatriz da Traição:",
-        content:
-          "Seu rosto carrega a marca do passado: uma cicatriz grotesca no lado esquerdo, resultante da tentativa de afogamento por Vander. O olho atingido brilha de forma anormal por conta do shimmer.",
-      },
-      {
-        title: "Elegância Sombriamente Imponente:",
-        content:
-          "Silco veste-se com roupas finas, geralmente escuras, que contrastam com o ambiente decadente de Zaun. Seu visual transmite autoridade e controle, destacando-se em meio à sujeira que o cerca.",
-      },
-      {
-        title: "Olhar Penetrante:",
-        content:
-          "Seus olhos, especialmente o danificado, são expressivos. Transmitem julgamento, ameaça ou afeto com igual intensidade. Quando ele fala, seus olhos fixam-se nos interlocutores, dominando-os sem precisar gritar.",
-      },
-    ],
-    habilidades: [
-      {
-        src: [
-          "/images/arcane_zaun/zaun_characters/silco/character-page/silco-8.webp",
-          "/images/arcane_zaun/zaun_characters/silco/character-page/silco-9.webp",
-          "/images/arcane_zaun/zaun_characters/silco/character-page/silco-10.webp",
-        ],
-      },
-      {
-        title: "Mestre da Persuasão:",
-        content:
-          "Silco domina a arte da oratória. Ele convence, coage e manipula com naturalidade. Suas palavras fazem aliados hesitarem e inimigos duvidarem de si mesmos.",
-      },
-      {
-        title: "Líder de Zaun:",
-        content:
-          "Ele não lidera com força física, mas com inteligência, influência e medo. Comanda uma rede criminosa poderosa, sustenta barões químicos e lida com as forças de Piltover nos bastidores.",
-      },
-      {
-        title: "Vínculo Psicológico:",
-        content:
-          "Com Jinx, Silco desenvolve uma relação que transcende a lógica. Ele sabe como contê-la, acalmá-la ou incendiá-la. Sua habilidade de entender a mente quebrada dela é sua arma mais poderosa — e sua maior fraqueza.",
-      },
-    ],
+    personalidade: {
+      src: [
+        "/images/arcane_zaun/zaun_characters/silco/character-page/silco-2.webp",
+        "/images/arcane_zaun/zaun_characters/silco/character-page/silco-3.webp",
+        "/images/arcane_zaun/zaun_characters/silco/character-page/silco-4.webp",
+      ],
+      title: [
+        "Visionário Obsessivo:",
+        "Manipulador Magistral:",
+        "Paterno e Contraditório:",
+      ],
+      content: [
+        "Silco é um idealista implacável. Seu sonho de uma Zaun livre e soberana o guia a qualquer custo. Ele enxerga os meios mais brutais como necessários quando se trata da liberdade de seu povo.",
+        "Ele usa palavras como armas e estratégias como escudos. Silco corrompe Marcus, negocia com barões químicos e manipula emocionalmente Jinx, tudo em nome de sua visão. É paciente, frio e altamente estratégico.",
+        "Apesar da crueldade, Silco demonstra profunda afeição por Jinx. Ele a protege mesmo quando todos a temem. Essa dualidade entre brutalidade e carinho revela um homem quebrado, tentando recriar, à sua maneira, uma família.",
+      ],
+    },
+
+    aparencia: {
+      src: [
+        "/images/arcane_zaun/zaun_characters/silco/character-page/silco-5.webp",
+        "/images/arcane_zaun/zaun_characters/silco/character-page/silco-6.webp",
+        "/images/arcane_zaun/zaun_characters/silco/character-page/silco-7.webp",
+      ],
+      title: [
+        "Cicatriz da Traição:",
+        "Elegância Sombriamente Imponente:",
+        "Olhar Penetrante:",
+      ],
+      content: [
+        "Seu rosto carrega a marca do passado: uma cicatriz grotesca no lado esquerdo, resultante da tentativa de afogamento por Vander. O olho atingido brilha de forma anormal por conta do shimmer.",
+        "Silco veste-se com roupas finas, geralmente escuras, que contrastam com o ambiente decadente de Zaun. Seu visual transmite autoridade e controle, destacando-se em meio à sujeira que o cerca.",
+        "Seus olhos, especialmente o danificado, são expressivos. Transmitem julgamento, ameaça ou afeto com igual intensidade. Quando ele fala, seus olhos fixam-se nos interlocutores, dominando-os sem precisar gritar.",
+      ],
+    },
+
+    habilidades: {
+      src: [
+        "/images/arcane_zaun/zaun_characters/silco/character-page/silco-8.webp",
+        "/images/arcane_zaun/zaun_characters/silco/character-page/silco-9.webp",
+        "/images/arcane_zaun/zaun_characters/silco/character-page/silco-10.webp",
+      ],
+      title: ["Mestre da Persuasão:", "Líder de Zaun:", "Vínculo Psicológico:"],
+      content: [
+        "Silco domina a arte da oratória. Ele convence, coage e manipula com naturalidade. Suas palavras fazem aliados hesitarem e inimigos duvidarem de si mesmos.",
+        "Ele não lidera com força física, mas com inteligência, influência e medo. Comanda uma rede criminosa poderosa, sustenta barões químicos e lida com as forças de Piltover nos bastidores.",
+        "Com Jinx, Silco desenvolve uma relação que transcende a lógica. Ele sabe como contê-la, acalmá-la ou incendiá-la. Sua habilidade de entender a mente quebrada dela é sua arma mais poderosa — e sua maior fraqueza.",
+      ],
+    },
     jornada: {
       title: "Jornada",
       parte1: [
@@ -1354,85 +1239,61 @@ export const characters = {
     color: "#A05A2C",
     secondaryColor: "#D2691E",
     icon: "/images/arcane_zaun/zaun_characters/vander/character-page/icon.webp",
-    heroImage:
-      "/images/arcane_zaun/zaun_characters/vander-card.webp",
+    heroImage: "/images/arcane_zaun/zaun_characters/vander-card.webp",
     name: "Vander",
     lastName: "",
     description:
       "Vander é o patriarca resiliente de Zaun, um líder que carrega nas cicatrizes de sua história a luta incessante por justiça e proteção. Sua presença marcante reflete o sacrifício e a esperança de um povo em constante rebeldia.",
     quote: "Não importa se você cair. Proteja a família.",
-    personalidade: [
-      {
-        src: [
-          "/images/arcane_zaun/zaun_characters/vander/character-page/vander-2.webp",
-          "/images/arcane_zaun/zaun_characters/vander/character-page/vander-3.webp",
-          "/images/arcane_zaun/zaun_characters/vander/character-page/vander-4.webp",
-        ],
-      },
-      {
-        title: "O Protetor Determinado:",
-        content:
-          "Vander, em seus dias como humano, foi marcado pela bravura e dedicação em proteger os desamparados de Zaun. Mesmo após enfrentar tragédias e perdas devastadoras, seu instinto paterno o impulsionava a cuidar dos seus filhos adotivos e de toda a comunidade.",
-      },
-      {
-        title: "O Homem Que Buscava a Paz:",
-        content:
-          "Após o fracasso da revolta e as terríveis consequências da luta contra Piltover, Vander transformou-se em um pacifista relutante. Seus esforços para manter a paz, por meio de acordos com os Enforcers, refletiam seu desejo de preservar vidas – ainda que, na prática, essa escolha o levasse a confrontos inevitáveis.",
-      },
-      {
-        title: "A Dualidade do Sacrifício:",
-        content:
-          "Mesmo quando forçado a empregar violência para proteger Vi, Vander demonstrou um profundo conflito interno. Sua disposição para sacrificar a própria vida em prol dos outros revela a complexidade de um homem que, embora marcado pela dor, sempre colocou a comunidade acima de si mesmo.",
-      },
-    ],
-    aparencia: [
-      {
-        src: [
-          "/images/arcane_zaun/zaun_characters/vander/character-page/vander-5.webp",
-          "/images/arcane_zaun/zaun_characters/vander/character-page/vander-6.webp",
-          "/images/arcane_zaun/zaun_characters/vander/character-page/vander-7.webp",
-        ],
-      },
-      {
-        title: "O Homem Forte dos Subterrâneos:",
-        content:
-          "Antes da transformação, Vander era um homem grande e musculoso de meia-idade, com olhos cinzentos intensos, cabelos escuros e uma barba grisalha bem aparada. Seu vestuário, composto por calças azuis, botas de couro e uma jaqueta marrom, transmitia a autoridade e o vigor de um líder nato.",
-      },
-      {
-        title: "A Marca da Batalha:",
-        content:
-          "Vander ostentava uma ombreira de couro no braço direito, que ocultava a cicatriz adquirida durante o violento confronto com Silco – um símbolo permanente das lutas que travou pelo bem de Zaun.",
-      },
-      {
-        title: "A Metamorfose em Bestialidade:",
-        content:
-          "Na sua forma final como Warwick, ele apresenta um corpo anormalmente musculoso, coberto por pelo cinza escuro, com elementos metálicos e traços lupinos – o rosto transformado, com orelhas pontudas, nariz e focinho, e olhos que misturam a selvageria e a dor de uma existência além da humanidade.",
-      },
-    ],
-    habilidades: [
-      {
-        src: [
-          "/images/arcane_zaun/zaun_characters/vander/character-page/vander-8.webp",
-          "/images/arcane_zaun/zaun_characters/vander/character-page/vander-9.webp",
-          "/images/arcane_zaun/zaun_characters/vander/character-page/vander-10.webp",
-        ],
-      },
-      {
-        title: "Força e Combate:",
-        content:
-          "Vander sempre foi excepcionalmente forte e habilidoso no combate corpo a corpo. Sua destreza permitia dominar lutas mesmo contra adversários melhorados pelo shimmer, e ele foi fundamental na formação de Vi como lutadora.",
-      },
-      {
-        title: "Tolerância à Dor:",
-        content:
-          "Sua notável resistência física permitia suportar numerosos ataques sem ceder, o que o tornava um combatente formidável mesmo em meio a ferimentos graves.",
-      },
-      {
-        title: "Liderança e Ensino:",
-        content:
-          "Como dono do The Last Drop e líder dos Subterrâneos, Vander exercia uma autoridade paternal, guiando e ensinando seus protegidos – uma lição de vida que ressoaria com Vi e Powder muito depois de sua suposta morte.",
-      },
-    ],
+    personalidade: {
+      src: [
+        "/images/arcane_zaun/zaun_characters/vander/character-page/vander-2.webp",
+        "/images/arcane_zaun/zaun_characters/vander/character-page/vander-3.webp",
+        "/images/arcane_zaun/zaun_characters/vander/character-page/vander-4.webp",
+      ],
+      title: [
+        "O Protetor Determinado:",
+        "O Homem Que Buscava a Paz:",
+        "A Dualidade do Sacrifício:",
+      ],
+      content: [
+        "Vander, em seus dias como humano, foi marcado pela bravura e dedicação em proteger os desamparados de Zaun. Mesmo após enfrentar tragédias e perdas devastadoras, seu instinto paterno o impulsionava a cuidar dos seus filhos adotivos e de toda a comunidade.",
+        "Após o fracasso da revolta e as terríveis consequências da luta contra Piltover, Vander transformou-se em um pacifista relutante. Seus esforços para manter a paz, por meio de acordos com os Enforcers, refletiam seu desejo de preservar vidas – ainda que, na prática, essa escolha o levasse a confrontos inevitáveis.",
+        "Mesmo quando forçado a empregar violência para proteger Vi, Vander demonstrou um profundo conflito interno. Sua disposição para sacrificar a própria vida em prol dos outros revela a complexidade de um homem que, embora marcado pela dor, sempre colocou a comunidade acima de si mesmo.",
+      ],
+    },
+
+    aparencia: {
+      src: [
+        "/images/arcane_zaun/zaun_characters/vander/character-page/vander-5.webp",
+        "/images/arcane_zaun/zaun_characters/vander/character-page/vander-6.webp",
+        "/images/arcane_zaun/zaun_characters/vander/character-page/vander-7.webp",
+      ],
+      title: [
+        "O Homem Forte dos Subterrâneos:",
+        "A Marca da Batalha:",
+        "A Metamorfose em Bestialidade:",
+      ],
+      content: [
+        "Antes da transformação, Vander era um homem grande e musculoso de meia-idade, com olhos cinzentos intensos, cabelos escuros e uma barba grisalha bem aparada. Seu vestuário, composto por calças azuis, botas de couro e uma jaqueta marrom, transmitia a autoridade e o vigor de um líder nato.",
+        "Vander ostentava uma ombreira de couro no braço direito, que ocultava a cicatriz adquirida durante o violento confronto com Silco – um símbolo permanente das lutas que travou pelo bem de Zaun.",
+        "Na sua forma final como Warwick, ele apresenta um corpo anormalmente musculoso, coberto por pelo cinza escuro, com elementos metálicos e traços lupinos – o rosto transformado, com orelhas pontudas, nariz e focinho, e olhos que misturam a selvageria e a dor de uma existência além da humanidade.",
+      ],
+    },
+
+    habilidades: {
+      src: [
+        "/images/arcane_zaun/zaun_characters/vander/character-page/vander-8.webp",
+        "/images/arcane_zaun/zaun_characters/vander/character-page/vander-9.webp",
+        "/images/arcane_zaun/zaun_characters/vander/character-page/vander-10.webp",
+      ],
+      title: ["Força e Combate:", "Tolerância à Dor:", "Liderança e Ensino:"],
+      content: [
+        "Vander sempre foi excepcionalmente forte e habilidoso no combate corpo a corpo. Sua destreza permitia dominar lutas mesmo contra adversários melhorados pelo shimmer, e ele foi fundamental na formação de Vi como lutadora.",
+        "Sua notável resistência física permitia suportar numerosos ataques sem ceder, o que o tornava um combatente formidável mesmo em meio a ferimentos graves.",
+        "Como dono do The Last Drop e líder dos Subterrâneos, Vander exercia uma autoridade paternal, guiando e ensinando seus protegidos – uma lição de vida que ressoaria com Vi e Powder muito depois de sua suposta morte.",
+      ],
+    },
     jornada: {
       title: "Jornada",
       parte1: [
@@ -1606,85 +1467,65 @@ export const characters = {
     color: "#C62B4E",
     secondaryColor: "#B12C3D",
     icon: "/images/arcane_zaun/zaun_characters/vi/character-page/icon.webp",
-    heroImage:
-      "/images/arcane_zaun/zaun_characters/vi-card.webp",
+    heroImage: "/images/arcane_zaun/zaun_characters/vi-card.webp",
     name: "Violet",
     lastName: "",
     description:
       "Vi é a guerreira de alma indomável, cuja força bruta e coragem transformam cada soco em um grito por liberdade. Entre batalhas e redenção, ela reescreve sua trajetória, unindo justiça e um passado repleto de cicatrizes.",
     quote: "O que te faz diferente te faz forte.",
-    personalidade: [
-      {
-        src: [
-          "/images/arcane_zaun/zaun_characters/vi/character-page/vi-2.webp",
-          "/images/arcane_zaun/zaun_characters/vi/character-page/vi-3.webp",
-          "/images/arcane_zaun/zaun_characters/vi/character-page/vi-4.webp",
-        ],
-      },
-      {
-        title: "A Guerreira de Coração Ardente:",
-        content:
-          "Destemida e impulsiva, Vi transforma a fúria forjada pelas cicatrizes de um passado de perdas e injustiça em uma liderança nata nos Subterrâneos.",
-      },
-      {
-        title: "A Protetora Intransigente:",
-        content:
-          "Apesar do temperamento explosivo, ela nutre uma profunda compaixão - especialmente por sua irmã, e a culpa de ter abandonado Powder alimenta sua incansável busca por redenção e justiça contra a opressão de Piltover.",
-      },
-      {
-        title: "A Mulher que Aprende com a Dor:",
-        content:
-          "De adolescente cabeça quente a líder pragmática, as lições vividas na prisão e na relação com Caitlyn despertaram nela a vulnerabilidade e a convicção de que confiança e perdão são essenciais para a reconstrução de si mesma e do seu mundo.",
-      },
-    ],
-    aparencia: [
-      {
-        src: [
-          "/images/arcane_zaun/zaun_characters/vi/character-page/vi-5.webp",
-          "/images/arcane_zaun/zaun_characters/vi/character-page/vi-6.webp",
-          "/images/arcane_zaun/zaun_characters/vi/character-page/vi-7.webp",
-        ],
-      },
-      {
-        title: "Marcas do Passado e da Luta:",
-        content:
-          "Pele clara, olhos azuis intensos e músculos forjados na batalha. Tatuagens que lembram um exoesqueleto mecânico e o “6” romano reforçam sua identidade e trajetória.",
-      },
-      {
-        title: "Estilo e Versatilidade:",
-        content:
-          "Seu guarda-roupa transita do casual dos Subterrâneos aos uniformes dos Enforcers, refletindo tanto o dia a dia duro quanto a constante evolução de sua identidade.",
-      },
-      {
-        title: "A Expressão de uma Guerreira:",
-        content:
-          "Com cortes de cabelo assimétricos, piercings e cicatrizes, Vi irradia força e resiliência, revelando em seus traços a intensidade dos combates e a marca de um passado inesquecível.",
-      },
-    ],
-    habilidades: [
-      {
-        src: [
-          "/images/arcane_zaun/zaun_characters/vi/character-page/vi-8.webp",
-          "/images/arcane_zaun/zaun_characters/vi/character-page/vi-9.webp",
-          "/images/arcane_zaun/zaun_characters/vi/character-page/vi-10.webp",
-        ],
-      },
-      {
-        title: "Brawler Implacável:",
-        content:
-          "Treinada por Vander, Vi domina o combate corpo a corpo, utilizando seu boxe e movimentos de esquiva para contra-atacar até mesmo inimigos aprimorados pelo shimmer.",
-      },
-      {
-        title: "Força e Tecnologia em Sinergia:",
-        content:
-          "Adaptando as Manoplas Atlas – originalmente para mineradores – Vi as transformou em poderosas luvas de boxe, ampliando sua força, criando escudos e impulsionando-se com a tecnologia hextec.",
-      },
-      {
-        title: "Agilidade Urbana:",
-        content:
-          "Além de ser uma combatente formidável, sua aptidão em parkour e arrombamento, aliada à sua determinação, inspira os Subterrâneos e a torna indispensável em missões de infiltração e resgate.",
-      },
-    ],
+    personalidade: {
+      src: [
+        "/images/arcane_zaun/zaun_characters/vi/character-page/vi-2.webp",
+        "/images/arcane_zaun/zaun_characters/vi/character-page/vi-3.webp",
+        "/images/arcane_zaun/zaun_characters/vi/character-page/vi-4.webp",
+      ],
+      title: [
+        "A Guerreira de Coração Ardente:",
+        "A Protetora Intransigente:",
+        "A Mulher que Aprende com a Dor:",
+      ],
+      content: [
+        "Destemida e impulsiva, Vi transforma a fúria forjada pelas cicatrizes de um passado de perdas e injustiça em uma liderança nata nos Subterrâneos.",
+        "Apesar do temperamento explosivo, ela nutre uma profunda compaixão - especialmente por sua irmã, e a culpa de ter abandonado Powder alimenta sua incansável busca por redenção e justiça contra a opressão de Piltover.",
+        "De adolescente cabeça quente a líder pragmática, as lições vividas na prisão e na relação com Caitlyn despertaram nela a vulnerabilidade e a convicção de que confiança e perdão são essenciais para a reconstrução de si mesma e do seu mundo.",
+      ],
+    },
+
+    aparencia: {
+      src: [
+        "/images/arcane_zaun/zaun_characters/vi/character-page/vi-5.webp",
+        "/images/arcane_zaun/zaun_characters/vi/character-page/vi-6.webp",
+        "/images/arcane_zaun/zaun_characters/vi/character-page/vi-7.webp",
+      ],
+      title: [
+        "Marcas do Passado e da Luta:",
+        "Estilo e Versatilidade:",
+        "A Expressão de uma Guerreira:",
+      ],
+      content: [
+        "Pele clara, olhos azuis intensos e músculos forjados na batalha. Tatuagens que lembram um exoesqueleto mecânico e o “6” romano reforçam sua identidade e trajetória.",
+        "Seu guarda-roupa transita do casual dos Subterrâneos aos uniformes dos Enforcers, refletindo tanto o dia a dia duro quanto a constante evolução de sua identidade.",
+        "Com cortes de cabelo assimétricos, piercings e cicatrizes, Vi irradia força e resiliência, revelando em seus traços a intensidade dos combates e a marca de um passado inesquecível.",
+      ],
+    },
+
+    habilidades: {
+      src: [
+        "/images/arcane_zaun/zaun_characters/vi/character-page/vi-8.webp",
+        "/images/arcane_zaun/zaun_characters/vi/character-page/vi-9.webp",
+        "/images/arcane_zaun/zaun_characters/vi/character-page/vi-10.webp",
+      ],
+      title: [
+        "Brawler Implacável:",
+        "Força e Tecnologia em Sinergia:",
+        "Agilidade Urbana:",
+      ],
+      content: [
+        "Treinada por Vander, Vi domina o combate corpo a corpo, utilizando seu boxe e movimentos de esquiva para contra-atacar até mesmo inimigos aprimorados pelo shimmer.",
+        "Adaptando as Manoplas Atlas – originalmente para mineradores – Vi as transformou em poderosas luvas de boxe, ampliando sua força, criando escudos e impulsionando-se com a tecnologia hextec.",
+        "Além de ser uma combatente formidável, sua aptidão em parkour e arrombamento, aliada à sua determinação, inspira os Subterrâneos e a torna indispensável em missões de infiltração e resgate.",
+      ],
+    },
     jornada: {
       title: "Jornada",
       parte1: [
@@ -1922,85 +1763,65 @@ export const characters = {
     color: "#417AA5",
     secondaryColor: "#4671AC",
     icon: "/images/arcane_zaun/zaun_characters/jinx/character-page/icon.webp",
-    heroImage:
-      "/images/arcane_zaun/zaun_characters/jinx-card.webp",
+    heroImage: "/images/arcane_zaun/zaun_characters/jinx-card.webp",
     name: "Jinx",
     lastName: "",
     description:
       "Jinx é uma jovem intensamente caótica, marcada pelo abandono e pela dor. Sua imprevisibilidade e explosiva energia contrastam com momentos de profunda vulnerabilidade, refletindo a luta interna entre o desespero e o anseio por redenção em Arcane.",
     quote: "Eu sou o monstro que você criou.",
-    personalidade: [
-      {
-        src: [
-          "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-2.webp",
-          "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-3.webp",
-          "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-4.webp",
-        ],
-      },
-      {
-        title: "Fragmentada e Emocional:",
-        content:
-          "Jinx oscila entre a doçura esquecida de Powder e a intensa fúria de sua nova identidade. Sua alma está dilacerada pelas perdas, e cada ação violenta é tanto uma resposta ao trauma quanto uma tentativa de preencher um vazio interno.",
-      },
-      {
-        title: "Manipuladora e Inconstante:",
-        content:
-          "Embora utilize um comportamento alegre e até bobo para disfarçar sua profunda instabilidade, Jinx é capaz de manipular as pessoas ao seu redor com sua imprevisibilidade. Essa contradição – entre encanto e terror – torna-a uma figura tão fascinante quanto perigosa.",
-      },
-      {
-        title: "Genial e Criativa:",
-        content:
-          "Desde jovem, seu talento nato para a engenharia, especialmente na criação de explosivos, a destaca. Jinx aperfeiçoou suas invenções ao longo dos anos, transformando simples bombas em armas químicas sofisticadas, demonstrando que, por trás da insanidade, há um cérebro brilhante e inventivo.",
-      },
-    ],
-    aparencia: [
-      {
-        src: [
-          "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-5.webp",
-          "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-6.webp",
-          "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-7.webp",
-        ],
-      },
-      {
-        title: "Marcas do Passado:",
-        content:
-          "Jinx apresenta uma pele pálida que contrasta com os intensos traços das cicatrizes de sua infância. Seus olhos, que variam entre tons de azul a um hipnótico rosa-violeta (devido ao Shimmer), contam a história de um passado repleto de dor e perda.",
-      },
-      {
-        title: "Estilo Rebeldemente Único:",
-        content:
-          "Seus longos cabelos azuis, dispostos em tranças adornadas por bullet casings e desenhos feitos por ela mesma, conferem-lhe um ar inconfundível de rebeldia. O vestuário de Jinx, composto por peças rasgadas, armadilhas improvisadas e acessórios peculiares, ressalta sua individualidade e sua conexão com o mundo caótico de Zaun.",
-      },
-      {
-        title: "Transformações Marcantes:",
-        content:
-          "A evolução de Powder para Jinx é visível não só em sua personalidade, mas também em sua aparência. Enquanto as roupas simples e infantis deram lugar a trajes que mesclam funcionalidade com agressividade, detalhes como tatuagens e marcas de explosões reforçam a narrativa de uma transformação dolorosa e definitiva.",
-      },
-    ],
-    habilidades: [
-      {
-        src: [
-          "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-8.webp",
-          "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-9.webp",
-          "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-10.webp",
-        ],
-      },
-      {
-        title: "Maestria com Explosivos:",
-        content:
-          "Jinx é excepcionalmente talentosa na criação e manuseio de explosivos. Sua expertise vai desde bombas improvisadas até armas chemtech avançadas – cada dispositivo é uma extensão de sua emoção crua e incontrolável, fazendo de cada explosão uma demonstração de genialidade destrutiva.",
-      },
-      {
-        title: "Precisão Letal com Armas:",
-        content:
-          "Seja com pistolas ou armamentos de alta potência, Jinx demonstra uma precisão que supera a de seus adversários. Essa habilidade de atirar com extrema eficácia transforma-a em uma combatente formidável, capaz de dominar até mesmo os inimigos mais experientes.",
-      },
-      {
-        title: "Acelerada por Shimmer:",
-        content:
-          "A exposição ao Shimmer aprimorou seus atributos físicos, concedendo-lhe uma velocidade e força super-humanas que a tornam quase intocável em combate. Essa combinação de reflexos acelerados e resiliência física permite que ela se desloque com destreza letal, surpreendendo seus oponentes em cada movimento.",
-      },
-    ],
+    personalidade: {
+      src: [
+        "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-2.webp",
+        "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-3.webp",
+        "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-4.webp",
+      ],
+      title: [
+        "Fragmentada e Emocional:",
+        "Manipuladora e Inconstante:",
+        "Genial e Criativa:",
+      ],
+      content: [
+        "Jinx oscila entre a doçura esquecida de Powder e a intensa fúria de sua nova identidade. Sua alma está dilacerada pelas perdas, e cada ação violenta é tanto uma resposta ao trauma quanto uma tentativa de preencher um vazio interno.",
+        "Embora utilize um comportamento alegre e até bobo para disfarçar sua profunda instabilidade, Jinx é capaz de manipular as pessoas ao seu redor com sua imprevisibilidade. Essa contradição – entre encanto e terror – torna-a uma figura tão fascinante quanto perigosa.",
+        "Desde jovem, seu talento nato para a engenharia, especialmente na criação de explosivos, a destaca. Jinx aperfeiçoou suas invenções ao longo dos anos, transformando simples bombas em armas químicas sofisticadas, demonstrando que, por trás da insanidade, há um cérebro brilhante e inventivo.",
+      ],
+    },
+
+    aparencia: {
+      src: [
+        "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-5.webp",
+        "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-6.webp",
+        "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-7.webp",
+      ],
+      title: [
+        "Marcas do Passado:",
+        "Estilo Rebeldemente Único:",
+        "Transformações Marcantes:",
+      ],
+      content: [
+        "Jinx apresenta uma pele pálida que contrasta com os intensos traços das cicatrizes de sua infância. Seus olhos, que variam entre tons de azul a um hipnótico rosa-violeta (devido ao Shimmer), contam a história de um passado repleto de dor e perda.",
+        "Seus longos cabelos azuis, dispostos em tranças adornadas por bullet casings e desenhos feitos por ela mesma, conferem-lhe um ar inconfundível de rebeldia. O vestuário de Jinx, composto por peças rasgadas, armadilhas improvisadas e acessórios peculiares, ressalta sua individualidade e sua conexão com o mundo caótico de Zaun.",
+        "A evolução de Powder para Jinx é visível não só em sua personalidade, mas também em sua aparência. Enquanto as roupas simples e infantis deram lugar a trajes que mesclam funcionalidade com agressividade, detalhes como tatuagens e marcas de explosões reforçam a narrativa de uma transformação dolorosa e definitiva.",
+      ],
+    },
+
+    habilidades: {
+      src: [
+        "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-8.webp",
+        "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-9.webp",
+        "/images/arcane_zaun/zaun_characters/jinx/character-page/jinx-10.webp",
+      ],
+      title: [
+        "Maestria com Explosivos:",
+        "Precisão Letal com Armas:",
+        "Acelerada por Shimmer:",
+      ],
+      content: [
+        "Jinx é excepcionalmente talentosa na criação e manuseio de explosivos. Sua expertise vai desde bombas improvisadas até armas chemtech avançadas – cada dispositivo é uma extensão de sua emoção crua e incontrolável, fazendo de cada explosão uma demonstração de genialidade destrutiva.",
+        "Seja com pistolas ou armamentos de alta potência, Jinx demonstra uma precisão que supera a de seus adversários. Essa habilidade de atirar com extrema eficácia transforma-a em uma combatente formidável, capaz de dominar até mesmo os inimigos mais experientes.",
+        "A exposição ao Shimmer aprimorou seus atributos físicos, concedendo-lhe uma velocidade e força super-humanas que a tornam quase intocável em combate. Essa combinação de reflexos acelerados e resiliência física permite que ela se desloque com destreza letal, surpreendendo seus oponentes em cada movimento.",
+      ],
+    },
     jornada: {
       title: "Jornada",
       parte1: [
@@ -2371,78 +2192,59 @@ export const characters = {
     description:
       "Ekko é o prodígio resiliente de Zaun, forjado na pobreza e nos segredos da loja de Benzo. Transformado pelo tempo e pelas tragédias, ele lidera os Firelights, invertendo o destino com engenho e paixão, tecendo esperança e redenção em cada segundo.",
     quote: "As vezes saltar significa deixar algumas coisas para tràs",
-    personalidade: [
-      {
-        src: [
-          "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-2.webp",
-          "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-3.webp",
-          "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-4.webp",
-        ],
-      },
-      {
-        title: "Determinado e Protetor:",
-        content:
-          "Movido pelo desejo de transformar Zaun e proteger os seus, Ekko luta contra injustiças mesmo após perdas profundas, garantindo que a esperança nunca se perca.",
-      },
-      {
-        title: "Inventivo e Resiliente:",
-        content:
-          "Desde cedo, Ekko demonstrou um talento natural para engenharia e mecânica, criando dispositivos como o Z-Drive que transformam obstáculos em oportunidades.",
-      },
-      {
-        title: "Líder de Coração Sensível:",
-        content:
-          "Apesar das adversidades e conflitos, ele valoriza as memórias dos que perdeu e se empenha em construir um futuro para os mais vulneráveis.",
-      },
-    ],
-    aparencia: [
-      {
-        src: [
-          "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-5.webp",
-          "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-6.webp",
-          "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-7.webp",
-        ],
-      },
-      {
-        title: "Visual de Jovem Guerreador:",
-        content:
-          "Ekko exibe pele escura, olhos castanho-avelã intensos e cabelos brancos em dreads, refletindo a dureza de sua infância e a luta diária em Zaun.",
-      },
-      {
-        title: "Estilo Urbano e Funcional:",
-        content:
-          "Seu visual, composto por cachecol laranja, arnês marrom, regata branca, calças cargo e botas robustas, alia estilo urbano com a funcionalidade necessária para as ruas implacáveis de Zaun.",
-      },
-      {
-        title: "Marca da Jornada:",
-        content:
-          "Uma pintura de guerra em forma de ampulheta no rosto simboliza a passagem do tempo e suas batalhas, contando a história da sua incessante busca pelo controle do tempo.",
-      },
-    ],
-    habilidades: [
-      {
-        src: [
-          "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-8.webp",
-          "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-9.webp",
-          "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-10.webp",
-        ],
-      },
-      {
-        title: "Domínio do Tempo – Chronobreak:",
-        content:
-          "Utilizando o Z-Drive, Ekko pode retroceder o tempo em até quatro segundos, corrigindo erros e escapando de situações críticas com maestria.",
-      },
-      {
-        title: "Manobras Incríveis com Aeroplanador:",
-        content:
-          "Sua habilidade no aeroplanador demonstra reflexos sobrenaturais e mobilidade, essenciais para se esquivar de ataques e surpreender os inimigos.",
-      },
-      {
-        title: "Gênio Inventivo e Criativo:",
-        content:
-          "Sem formação formal, ele transforma sua experiência em invenções que vão desde explosivos artesanais até engenhocas que sabotam os planos de Silco, destacando-o como um mestre em tecnologia e sobrevivência.",
-      },
-    ],
+    personalidade: {
+      src: [
+        "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-2.webp",
+        "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-3.webp",
+        "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-4.webp",
+      ],
+      title: [
+        "Determinado e Protetor:",
+        "Inventivo e Resiliente:",
+        "Líder de Coração Sensível:",
+      ],
+      content: [
+        "Movido pelo desejo de transformar Zaun e proteger os seus, Ekko luta contra injustiças mesmo após perdas profundas, garantindo que a esperança nunca se perca.",
+        "Desde cedo, Ekko demonstrou um talento natural para engenharia e mecânica, criando dispositivos como o Z-Drive que transformam obstáculos em oportunidades.",
+        "Apesar das adversidades e conflitos, ele valoriza as memórias dos que perdeu e se empenha em construir um futuro para os mais vulneráveis.",
+      ],
+    },
+
+    aparencia: {
+      src: [
+        "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-5.webp",
+        "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-6.webp",
+        "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-7.webp",
+      ],
+      title: [
+        "Visual de Jovem Guerreador:",
+        "Estilo Urbano e Funcional:",
+        "Marca da Jornada:",
+      ],
+      content: [
+        "Ekko exibe pele escura, olhos castanho-avelã intensos e cabelos brancos em dreads, refletindo a dureza de sua infância e a luta diária em Zaun.",
+        "Seu visual, composto por cachecol laranja, arnês marrom, regata branca, calças cargo e botas robustas, alia estilo urbano com a funcionalidade necessária para as ruas implacáveis de Zaun.",
+        "Uma pintura de guerra em forma de ampulheta no rosto simboliza a passagem do tempo e suas batalhas, contando a história da sua incessante busca pelo controle do tempo.",
+      ],
+    },
+
+    habilidades: {
+      src: [
+        "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-8.webp",
+        "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-9.webp",
+        "/images/arcane_zaun/zaun_characters/ekko/character-page/ekko-10.webp",
+      ],
+      title: [
+        "Domínio do Tempo – Chronobreak:",
+        "Manobras Incríveis com Aeroplanador:",
+        "Gênio Inventivo e Criativo:",
+      ],
+      content: [
+        "Utilizando o Z-Drive, Ekko pode retroceder o tempo em até quatro segundos, corrigindo erros e escapando de situações críticas com maestria.",
+        "Sua habilidade no aeroplanador demonstra reflexos sobrenaturais e mobilidade, essenciais para se esquivar de ataques e surpreender os inimigos.",
+        "Sem formação formal, ele transforma sua experiência em invenções que vão desde explosivos artesanais até engenhocas que sabotam os planos de Silco, destacando-o como um mestre em tecnologia e sobrevivência.",
+      ],
+    },
     jornada: {
       title: "Jornada",
       parte1: [

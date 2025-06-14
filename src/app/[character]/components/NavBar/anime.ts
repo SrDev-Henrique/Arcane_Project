@@ -21,11 +21,13 @@ export const musicDiscVariants = {
 export const songContainerVariants = {
   hidden: {
     maskImage: "linear-gradient(to right, white 0%, transparent 50%)",
+    WebkitMaskImage: "linear-gradient(to right, white 0%, transparent 50%)",
     opacity: 0,
   },
   visible: {
     willChange: "mask-image",
     maskImage: "linear-gradient(to right, white 100%, transparent 100%)",
+    WebkitMaskImage: "linear-gradient(to right, white 100%, transparent 100%)",
     opacity: 1,
     transition: {
       opacity: {

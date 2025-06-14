@@ -112,8 +112,7 @@
       cursor: pointer;
       position: absolute;
       bottom: 0.25rem;
-      left: 50%;
-      transform: translateX(-50%);
+      right: 0.25rem;
       width: 40px;
       height: 40px;
       background-color: $cream;
@@ -169,7 +168,7 @@
             width: 15px;
           }
           .thirdLine {
-            transform: translate(-54%, -35%) rotate(-45deg);
+            transform: translate(-50%, -50%) rotate(-45deg);
             width: 15px;
           }
           .lastLine {

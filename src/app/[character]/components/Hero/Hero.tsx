@@ -53,7 +53,7 @@ const Hero = ({
         <motion.div
           style={{
             backgroundColor: theme === "piltover" ? "#f4e7e1" : "#0a0a0a",
-            isolation: theme === "piltover" ? "isolate" : "auto",
+            isolation: theme === "piltover" ? "auto" : "auto",
             mixBlendMode: theme === "piltover" ? "darken" : "normal",
           }}
           className={styles.imagesWrapper}

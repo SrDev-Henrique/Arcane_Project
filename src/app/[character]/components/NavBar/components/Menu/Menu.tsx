@@ -4,7 +4,7 @@ import { RiHome9Fill } from "react-icons/ri";
 
 import { motion } from "framer-motion";
 import { tabsContainerVariants, menuButtonVariants } from "./anime";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Menu = ({
   tabs,
@@ -21,8 +21,27 @@ const Menu = ({
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        isMenuOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(!isMenuOpen);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
   return (
-    <div className={styles.container}>
+    <div ref={menuRef} className={styles.container}>
       <div className={styles.content}>
         <div className={styles.navContainer}>
           <motion.div

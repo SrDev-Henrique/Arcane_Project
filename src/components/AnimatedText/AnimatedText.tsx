@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 export const AnimatedText = ({
   text,
   stagger,
+  delay,
   el: Wrapper = "p",
   scale,
   skew,
@@ -15,9 +16,11 @@ export const AnimatedText = ({
   opacity,
   duration,
   once,
+  ease,
 }: {
   text: string | string[];
   stagger?: number;
+  delay?: number;
   el?: keyof JSX.IntrinsicElements;
   scale?: number;
   skew?: number;
@@ -28,6 +31,7 @@ export const AnimatedText = ({
   opacity?: number;
   duration?: number;
   once?: boolean;
+  ease?: number[];
 }) => {
   const textRef = useRef<HTMLSpanElement | null>(null);
 
@@ -37,6 +41,7 @@ export const AnimatedText = ({
   const isInView = useInView(textRef, { amount: 0.5, once: onceAnimation });
 
   const staggerChildren = stagger || 0.005;
+  const delayChildren = delay || 0;
   const scaleAnimation = scale || 1;
   const skewAnimation = skew || 0;
   const blurAnimation = blur || 0;
@@ -45,6 +50,7 @@ export const AnimatedText = ({
   const yToAnimation = yTo || 0;
   const opacityAnimation = opacity || 0;
   const durationAnimation = duration || 1;
+  const easeAnimation = ease || "easeInOut";
 
   const charsAnimations = {
     hidden: {
@@ -64,7 +70,7 @@ export const AnimatedText = ({
       filter: "blur(0px)",
       transition: {
         duration: durationAnimation,
-        ease: "easeInOut",
+        ease: easeAnimation,
       },
     },
   };
@@ -80,6 +86,7 @@ export const AnimatedText = ({
           visible: {
             transition: {
               staggerChildren,
+              delayChildren,
             },
           },
           hidden: {},

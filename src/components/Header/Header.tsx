@@ -20,7 +20,7 @@ const Button = dynamic(() => import("./Button/Button"), {
 const menu = {
   open: {
     width: "clamp(315px, 90vw, 480px)",
-    height: "clamp(420px, 70vh, 650px)",
+    height: "clamp(420px, 75vh, 650px)",
     top: "-25px",
     right: "-25px",
     transition: { duration: 0.75, type: "tween", ease: [0.76, 0, 0.24, 1] },

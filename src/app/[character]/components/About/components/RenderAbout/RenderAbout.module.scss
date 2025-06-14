@@ -1,0 +1,176 @@
+@use "@/styles/variables" as *;
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  @include flexCenter;
+  position: relative;
+  width: 100svw;
+  height: 100svh;
+}
+
+.content {
+  @include flexCenter;
+  position: relative;
+  width: 90%;
+  height: 95%;
+
+  &.dark {
+    .nextTrace {
+      color: $white;
+      button {
+        color: $white;
+        border-bottom: 1px solid $white;
+      }
+    }
+  }
+
+  .nextTrace {
+    position: absolute;
+    bottom: 5rem;
+    right: 5.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+    width: clamp(64px, 15%, 156px);
+    color: $black-dark;
+    button {
+      border: none;
+      background-color: transparent;
+      font-size: clamp(0.975rem, 0.1rem + 1.75vw, 1.15rem);
+      font-family: $font-cinzel;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid #0a0a0a90;
+      cursor: pointer;
+      color: $black-dark;
+    }
+  }
+}
+
+.aboutContent {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: 100%;
+  max-width: 1380px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: hidden;
+
+  &.dark {
+    .textDiv {
+      .titleContainer {
+        h1 {
+          color: $neutral-light;
+        }
+      }
+      .contentContainer {
+        p {
+          color: $arcane-white;
+        }
+      }
+    }
+  }
+
+  .textDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    @media (max-height: $sm) {
+      justify-content: center;
+
+      h1 {
+        font-size: clamp(0.875rem, 0.1rem + 1.75vw, 1.15rem);
+      }
+    }
+
+    @media (min-height: $sm) {
+      .titleContainer {
+        padding-top: 1rem;
+      }
+    }
+
+    .titleContainer {
+      white-space: nowrap;
+
+      h1 {
+        font-size: clamp(1.1rem, 1.75vw, 1.7rem);
+        font-family: $font-cinzel;
+        font-weight: 600;
+        color: $black-dark;
+      }
+    }
+
+    .contentContainer {
+      width: min(84%, 600px);
+
+      p {
+        font-family: $font-lora;
+        font-size: clamp(0.675rem, 0.1rem + 1.75vw, 1.15rem);
+        color: $black-light;
+      }
+    }
+  }
+
+  .imageDiv {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 1rem;
+
+    .imageContainer {
+      width: clamp(150px, 30vw, 360px);
+      aspect-ratio: 280/380;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      margin-right: 1rem;
+    }
+
+    @media (max-height: $sm) and (max-width: $md) {
+      padding-bottom: 0;
+      align-items: center;
+      .imageContainer {
+        max-width: 120px;
+      }
+    }
+    @media (max-height: $sm) {
+      .imageContainer {
+        width: clamp(150px, 30vw, 200px);
+      }
+    }
+  }
+
+  @media (max-height: $sm) {
+    flex-direction: row;
+    padding-block: 5rem;
+  }
+
+  @media (min-width: $md) {
+    flex-direction: row;
+    padding-block: 5rem;
+
+    .textDiv {
+      justify-content: center;
+    }
+
+    .imageDiv {
+      align-items: center !important;
+    }
+  }
+}

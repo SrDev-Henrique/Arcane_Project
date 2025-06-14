@@ -7,12 +7,14 @@ const Button = ({
   leftIcon,
   variant = "default",
   style,
+  dark,
   onClick,
 }: {
   title: string;
   rightIcon?: React.ReactNode;
   leftIcon?: React.ReactNode;
   variant?:
+    | "chars"
     | "default"
     | "hero"
     | "voltar"
@@ -20,13 +22,18 @@ const Button = ({
     | "fechar"
     | "anterior"
     | "ghost";
+  dark?: boolean;
   style?: React.CSSProperties;
   onClick?: () => void;
 }) => {
   return (
     <button
       style={style}
-      className={classNames(styles.baseButton, styles[variant])}
+      className={classNames(
+        styles.baseButton,
+        styles[variant],
+        dark ? styles.dark : ""
+      )}
       onClick={onClick}
     >
       <div className={styles.firstText}>
