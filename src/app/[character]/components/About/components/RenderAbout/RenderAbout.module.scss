@@ -51,6 +51,12 @@
       cursor: pointer;
       color: $black-dark;
     }
+    @media (max-height: $sm) {
+      font-size: 0.675rem;
+      button {
+        font-size: 0.675rem;
+      }
+    }
   }
 }
 
@@ -69,14 +75,16 @@
 
   &.dark {
     .textDiv {
-      .titleContainer {
-        h1 {
-          color: $neutral-light;
+      .textContainer {
+        .titleContainer {
+          h1 {
+            color: $neutral-light;
+          }
         }
-      }
-      .contentContainer {
-        p {
-          color: $arcane-white;
+        .contentContainer {
+          p {
+            color: $arcane-white;
+          }
         }
       }
     }
@@ -88,40 +96,60 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
 
     @media (max-height: $sm) {
       justify-content: center;
 
-      h1 {
-        font-size: clamp(0.875rem, 0.1rem + 1.75vw, 1.15rem);
+      .textContainer {
+        gap: 0.25rem !important;
+        .titleContainer {
+          h1 {
+            font-size: clamp(0.875rem, 0.1rem + 1.75vw, 1.15rem);
+          }
+        }
+        .contentContainer {
+          margin-bottom: 2rem;
+          p {
+            font-size: 0.575rem !important;
+          }
+        }
       }
     }
 
     @media (min-height: $sm) {
+      .textContainer {
+        .titleContainer {
+          padding-top: 1rem;
+        }
+      }
+    }
+
+    .textContainer {
+      width: fit-content;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      align-self: center;
       .titleContainer {
-        padding-top: 1rem;
+        text-align: center;
+        h1 {
+          font-size: clamp(1.1rem, 1.75vw, 1.7rem);
+          font-family: $font-cinzel;
+          font-weight: 600;
+          color: $black-dark;
+        }
       }
-    }
 
-    .titleContainer {
-      white-space: nowrap;
+      .contentContainer {
+        width: min(84%, 600px);
 
-      h1 {
-        font-size: clamp(1.1rem, 1.75vw, 1.7rem);
-        font-family: $font-cinzel;
-        font-weight: 600;
-        color: $black-dark;
-      }
-    }
-
-    .contentContainer {
-      width: min(84%, 600px);
-
-      p {
-        font-family: $font-lora;
-        font-size: clamp(0.675rem, 0.1rem + 1.75vw, 1.15rem);
-        color: $black-light;
+        p {
+          font-family: $font-lora;
+          font-size: clamp(0.675rem, 0.1rem + 1.75vw, 1.15rem);
+          color: $black-light;
+        }
       }
     }
   }
@@ -142,7 +170,7 @@
       margin-right: 1rem;
     }
 
-    @media (max-height: $sm) and (max-width: $md) {
+    @media (max-height: $sm) and (max-width: 920px) {
       padding-bottom: 0;
       align-items: center;
       .imageContainer {
@@ -161,7 +189,7 @@
     padding-block: 5rem;
   }
 
-  @media (min-width: $md) {
+  @media (min-width: $sm) {
     flex-direction: row;
     padding-block: 5rem;
 

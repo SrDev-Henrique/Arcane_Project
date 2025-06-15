@@ -132,6 +132,10 @@
   width: fit-content;
   color: inherit;
 
+  @media(max-height: $sm) {
+    top: 30%;
+  }
+
   @media (min-width: 1280px) {
     left: 5rem;
     top: 50%;
@@ -147,6 +151,12 @@
     h1 {
       font-size: clamp(3.5rem, 5vw + 1rem, 5.45rem);
     }
+
+    @media(max-height: $sm) {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
   }
 
   .lastNameWrapper {
@@ -156,6 +166,12 @@
       font-size: clamp(3.5rem, 5vw + 1rem, 5.45rem);
       &.sizeHeimerdinger {
         font-size: clamp(2.5rem, 6.3vw + 1rem, 5.45rem) !important;
+      }
+    }
+
+    @media(max-height: $sm) { 
+      h1 {
+        font-size: 2.5rem;
       }
     }
   }

@@ -29,9 +29,9 @@ export const characters = {
     },
     aparencia: {
       src: [
-        "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-5.webp",
-        "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-6.webp",
         "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-7.webp",
+        "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-6.webp",
+        "/images/arcane_piltover/characters/characters-page/caitlyn/caitlyn-5.webp",
       ],
       title: [
         "Estatura e Físico",
@@ -433,8 +433,8 @@ export const characters = {
 
     aparencia: {
       src: [
-        "/images/arcane_piltover/characters/characters-page/jayce/jayce-5.webp",
         "/images/arcane_piltover/characters/characters-page/jayce/jayce-6.webp",
+        "/images/arcane_piltover/characters/characters-page/jayce/jayce-5.webp",
         "/images/arcane_piltover/characters/characters-page/jayce/jayce-7.webp",
       ],
       title: ["O Jovem Inventor:", "Marcas da Luta:", "Forma Astral:"],

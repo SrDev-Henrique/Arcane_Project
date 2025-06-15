@@ -13,9 +13,9 @@ import {
   tracesContainerVariants,
 } from "./anime";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import RenderAbout from "./components/RenderAbout/RenderAbout";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
+import { useEffect, useState } from "react";
 
 interface contentItem {
   src: string[];
@@ -52,9 +52,7 @@ const About = ({
   const handleTraceClick = (trace: string) => {
     setActiveTrace(trace);
     setIsTraceActive(true);
-    setTimeout(() => {
-      setDelay(true);
-    }, 1000);
+    setDelay(true);
   };
 
   const handleBackClick = () => {
@@ -62,8 +60,10 @@ const About = ({
     setActiveTrace("");
     setIsTraceActive(false);
     setIsTransitioning(true);
+    setDelay(false);
     setTimeout(() => {
       setIsTransitioning(false);
+      setCurrentIndex(0);
     }, 1800);
   };
 
@@ -84,6 +84,14 @@ const About = ({
       }, 1100);
     }
   };
+
+  useEffect(() => {
+    if (activeTab !== tab) {
+      setActiveTrace("");
+      setIsTraceActive(false);
+      setDelay(false);
+    }
+  }, [activeTab]);
 
   return (
     <div
@@ -207,6 +215,7 @@ const About = ({
               animate={
                 isTraceActive && activeTrace === trace ? "visible" : "hidden"
               }
+              custom={delay}
               className={styles.aboutContainer}
               style={{
                 pointerEvents:
@@ -248,6 +257,7 @@ const About = ({
                 item={itemsList[index]}
                 trace={tracesList[(index + 1) % 3]}
                 setActiveTrace={setActiveTrace}
+                isTraceActive={isTraceActive}
                 setIsTransitioning={setIsTransitioning}
                 theme={theme}
                 currentIndex={currentIndex}

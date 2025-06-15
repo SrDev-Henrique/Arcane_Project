@@ -50,6 +50,7 @@ const NavBar = ({
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const [currentSong, setCurrentSong] = useState(0);
+  const [isChangingSong, setIsChangingSong] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -67,20 +68,20 @@ const NavBar = ({
   };
 
   const handleNextClick = async () => {
-    if (playlist.length <= 1 || isFirstLoad || isTransitioning) return;
+    if (playlist.length <= 1 || isFirstLoad || isChangingSong) return;
     if (isPlaying) {
       setIsPlaying(false);
-      setIsTransitioning(true);
+      setIsChangingSong(true);
       await sleep(400);
       setCurrentSong(upcomingSongIndex);
-      setIsTransitioning(false);
+      setIsChangingSong(false);
       await sleep(400);
       setIsPlaying(true);
     } else {
-      setIsTransitioning(true);
+      setIsChangingSong(true);
       await sleep(400);
       setCurrentSong(upcomingSongIndex);
-      setIsTransitioning(false);
+      setIsChangingSong(false);
     }
   };
 
@@ -100,10 +101,10 @@ const NavBar = ({
 
     const handleNextClick = async () => {
       setIsPlaying(false);
-      setIsTransitioning(true);
+      setIsChangingSong(true);
       await sleep(400);
       setCurrentSong(upcomingSongIndex);
-      setIsTransitioning(false);
+      setIsChangingSong(false);
       await sleep(400);
       setIsPlaying(true);
     };
@@ -176,7 +177,14 @@ const NavBar = ({
               className={`${styles.tabs} ${
                 activeTab === tab ? styles.active : ""
               } ${theme === "zaun" ? styles.dark : ""}`}
-              onClick={() => setActiveTab(tab)}
+              onClick={() => {
+                if (isTransitioning) return;
+                setActiveTab(tab);
+                setIsTransitioning(true);
+                setTimeout(() => {
+                  setIsTransitioning(false);
+                }, 1000);
+              }}
               style={{
                 backgroundColor:
                   activeTab === tab ? `${color}50` : `${color}20`,
@@ -255,7 +263,7 @@ const NavBar = ({
           <div className={styles.songControls}>
             <div
               onClick={() => {
-                if (isFirstLoad || isTransitioning) return;
+                if (isFirstLoad || isChangingSong) return;
                 setIsPlaying(!isPlaying);
               }}
               className={styles.playPause}
@@ -289,7 +297,7 @@ const NavBar = ({
           <motion.div
             variants={musicDiscVariants}
             initial="hidden"
-            animate={isTransitioning ? "hidden" : "visible"}
+            animate={isChangingSong ? "hidden" : "visible"}
             custom={isFirstLoad}
             style={{
               transform: isPlaying ? "" : "rotate(0deg)",

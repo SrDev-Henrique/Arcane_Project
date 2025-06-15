@@ -1,5 +1,5 @@
 export const traceVariants1 = {
-  initial: {
+  initial: (delay: boolean) => ({
     opacity: 1,
     top: "50%",
     left: "50%",
@@ -10,12 +10,12 @@ export const traceVariants1 = {
       duration: 1,
       ease: [0.76, 0, 0.24, 1],
       opacity: {
-        delay: 0.8,
+        delay: delay ? 0.8 : 1.6,
         duration: 0.6,
         ease: [0.76, 0, 0.24, 1],
       },
     },
-  },
+  }),
   hidden: (delay: boolean) => ({
     opacity: 0,
     top: "50%",
@@ -39,7 +39,7 @@ export const traceVariants1 = {
     top: "0%",
     left: "50%",
     transform: "translateY(calc(0% - 0rem)) translateX(-50%)",
-    width: "min(100%, 935px)",
+    width: "min(90%, 935px)",
     transition: {
       delay: 0.8,
       duration: 1,
@@ -54,7 +54,7 @@ export const traceVariants1 = {
 };
 
 export const traceVariants2 = {
-  initial: {
+  initial: (delay: boolean) => ({
     opacity: 1,
     top: "50%",
     left: "50%",
@@ -65,12 +65,12 @@ export const traceVariants2 = {
       duration: 1,
       ease: [0.76, 0, 0.24, 1],
       opacity: {
-        delay: 0.8,
+        delay: delay ? 0.8 : 1.6,
         duration: 0.6,
         ease: [0.76, 0, 0.24, 1],
       },
     },
-  },
+  }),
   hidden: (delay: boolean) => ({
     opacity: 0,
     top: "50%",
@@ -94,7 +94,7 @@ export const traceVariants2 = {
     top: "0%",
     left: "50%",
     transform: "translate(-50%, 0%)",
-    width: "min(100%, 935px)",
+    width: "min(90%, 935px)",
     transition: {
       delay: 0.8,
       duration: 1,
@@ -109,7 +109,7 @@ export const traceVariants2 = {
 };
 
 export const traceVariants3 = {
-  initial: {
+  initial: (delay: boolean) => ({
     opacity: 1,
     top: "50%",
     left: "50%",
@@ -120,12 +120,12 @@ export const traceVariants3 = {
       duration: 1,
       ease: [0.76, 0, 0.24, 1],
       opacity: {
-        delay: 0.8,
+        delay: delay ? 0.8 : 1.6,
         duration: 0.6,
         ease: [0.76, 0, 0.24, 1],
       },
     },
-  },
+  }),
   hidden: (delay: boolean) => ({
     opacity: 0,
     top: "50%",
@@ -149,7 +149,7 @@ export const traceVariants3 = {
     top: "0%",
     left: "50%",
     transform: "translateY(calc(0% + 0rem)) translateX(-50%)",
-    width: "min(100%, 935px)",
+    width: "min(90%, 935px)",
     transition: {
       delay: 0.8,
       duration: 1,
@@ -218,13 +218,14 @@ export const textVariants = {
 };
 
 export const containerVariants = {
-  hidden: {
+  hidden: (delay: boolean) => ({
     opacity: 0,
     transition: {
+      delay: delay ? 0 : 1,
       duration: 0.6,
       ease: [0.76, 0, 0.24, 1],
     },
-  },
+  }),
   visible: {
     opacity: 1,
     transition: {
