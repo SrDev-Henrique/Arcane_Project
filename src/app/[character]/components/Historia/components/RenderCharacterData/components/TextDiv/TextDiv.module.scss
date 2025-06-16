@@ -1,0 +1,16 @@
+@use "@/styles/variables" as *;
+
+.charContent {
+  width: min(87vw, 600px);
+  padding-bottom: 3rem;
+  p {
+    color: $black-dark;
+    font-family: $font-lora;
+    font-size: clamp(0.875rem, 0.1rem + 1.75vw, 1rem);
+  }
+  &.dark {
+    p {
+      color: $white;
+    }
+  }
+}

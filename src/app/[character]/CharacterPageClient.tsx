@@ -62,7 +62,14 @@ export default function CharacterPageClient({ characterKey, data }: Props) {
         habilidades={data.habilidades}
         name={data.name}
       />
-      <Historia activeTab={activeTab} />
+      <Historia
+        activeTab={activeTab}
+        jornada={data.jornada}
+        theme={data.theme}
+        firstSeason={data.temporada1}
+        secondSeason={data.temporada2}
+        conclusion={data.conclusion}
+      />
     </main>
   );
 }

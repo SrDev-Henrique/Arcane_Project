@@ -1,5 +1,11 @@
 export interface ContentItem {
-  image: string;
+  image?: string;
+  content: string;
+}
+
+export interface JourneyItem {
+  image?: string;
+  quote?: string;
   content: string;
 }
 
@@ -9,63 +15,8 @@ export interface AboutBlock {
   content: string[];
 }
 
-export interface Journey {
-  title: string;
-  parte1?: ContentItem[];
-  parte2?: ContentItem[];
-  parte3?: ContentItem[];
-  parte4?: ContentItem[];
-}
-
-export interface Season1 {
-  title: string;
-  parte1?: ContentItem[];
-  parte2?: ContentItem[];
-  parte3?: ContentItem[];
-  parte4?: ContentItem[];
-  parte5?: ContentItem[];
-  parte6?: ContentItem[];
-  parte7?: ContentItem[];
-  parte8?: ContentItem[];
-  parte9?: ContentItem[];
-  parte10?: ContentItem[];
-  parte11?: ContentItem[];
-  parte12?: ContentItem[];
-  parte13?: ContentItem[];
-  parte14?: ContentItem[];
-  parte15?: ContentItem[];
-  parte16?: ContentItem[];
-}
-
-export interface Season2 {
-  title: string;
-  parte1?: ContentItem[];
-  parte2?: ContentItem[];
-  parte3?: ContentItem[];
-  parte4?: ContentItem[];
-  parte5?: ContentItem[];
-  parte6?: ContentItem[];
-  parte7?: ContentItem[];
-  parte8?: ContentItem[];
-  parte9?: ContentItem[];
-  parte10?: ContentItem[];
-  parte11?: ContentItem[];
-  parte12?: ContentItem[];
-  parte13?: ContentItem[];
-  parte14?: ContentItem[];
-  parte15?: ContentItem[];
-  parte16?: ContentItem[];
-  parte17?: ContentItem[];
-  parte18?: ContentItem[];
-  parte19?: ContentItem[];
-  parte20?: ContentItem[];
-}
-
-export interface Conclusion {
-  title: string;
-  parte1?: { content: string }[];
-  parte2?: { content: string }[];
-  parte3?: { content: string }[];
+export interface ConclusionItem {
+  content: string;
 }
 
 export interface PlaylistItem {
@@ -87,9 +38,9 @@ export interface CharacterData {
   personalidade: AboutBlock;
   aparencia: AboutBlock;
   habilidades: AboutBlock;
-  jornada: Journey;
-  temporada1: Season1;
-  temporada2: Season2;
-  conclusion: Conclusion;
+  jornada: JourneyItem[];
+  temporada1: ContentItem[];
+  temporada2: ContentItem[];
+  conclusion: ConclusionItem[];
   playlist: PlaylistItem[];
 }

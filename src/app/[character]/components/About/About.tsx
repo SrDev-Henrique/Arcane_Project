@@ -90,6 +90,7 @@ const About = ({
       setActiveTrace("");
       setIsTraceActive(false);
       setDelay(false);
+      setCurrentIndex(0);
     }
   }, [activeTab]);
 

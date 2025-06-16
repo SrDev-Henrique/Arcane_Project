@@ -1,17 +1,61 @@
 @use "@/styles/variables" as *;
 
 .container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100svw;
-    height: 100svh;
-    overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100svw;
+  height: 100svh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-top: 5rem;
 
-    &.isHidden {
-        opacity: 0;
-        pointer-events: none;
-        height: 100svh;
-        overflow: hidden;
+  &.isHidden {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  &.dark {
+    &::-webkit-scrollbar {
+      width: 5px;
+      background: $neutral-dark;
     }
+
+    &::-webkit-scrollbar-thumb {
+      width: 7px;
+      background: $neutral-light;
+      border-radius: 12px;
+    }
+  }
+}
+
+.backToTop {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 5rem;
+  right: clamp(1rem, 5vw, 5rem);
+  width: 40px;
+  height: 40px;
+  background-color: $black-dark;
+  border-radius: 50%;
+  color: $cream-dark;
+  cursor: pointer;
+  z-index: 10;
+
+  &.dark {
+    background-color: $neutral-light;
+    color: $black-dark;
+  }
+  @media (min-width: $lg) {
+    bottom: 1rem;
+    right: clamp(1rem, 10vw, 15rem);
+  }
 }
