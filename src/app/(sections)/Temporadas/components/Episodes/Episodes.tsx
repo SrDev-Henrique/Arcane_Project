@@ -107,7 +107,7 @@ const Episodes = ({
                 ? prevEpisodeVariants
                 : upcomingIndex === index + 1
                 ? nextEpisodeVariants
-                : {}
+                : prevEpisodeVariants
             }
             initial="hidden"
             animate={
