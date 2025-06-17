@@ -9,6 +9,15 @@ import Lenis from "lenis";
 import { JourneyItem } from "@/types/CharacterTypes";
 import { FaChevronUp } from "react-icons/fa6";
 import classNames from "classnames";
+import { sectionRefs } from "@/utils/sectionRefs";
+
+import { motion } from "framer-motion";
+import {
+  containerVariants,
+  navOptionsContainerVariants,
+  navOptionsVariants,
+} from "./anime";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 const Historia = ({
   activeTab,
@@ -27,9 +36,14 @@ const Historia = ({
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const lenisRef = useRef<Lenis | null>(null);
+
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [expand, setExpand] = useState(false);
 
   const tab = "história";
+
+  const navOptions = ["Jornada", "Temporada 1", "Temporada 2", "Conclusão"];
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -70,6 +84,16 @@ const Historia = ({
     };
   }, []);
 
+  const handleOptionClick = (option: string) => {
+    const section = sectionRefs.current[`${option}`];
+
+    const { top } = section.getBoundingClientRect();
+
+    if (section && lenisRef.current) {
+      lenisRef.current.scrollTo(top, { duration: 1.6 });
+    }
+  };
+
   return (
     <div
       ref={containerRef}
@@ -94,6 +118,61 @@ const Historia = ({
       >
         <FaChevronUp />
       </div>
+      <motion.div
+        variants={containerVariants}
+        initial="initial"
+        animate={expand ? "expanded" : "initial"}
+        className={styles.navContainer}
+      >
+        <div
+          onClick={() => {
+            setIsNavOpen(!isNavOpen);
+            setExpand(true);
+            setTimeout(() => {
+              setExpand(false);
+            }, 300);
+          }}
+          className={styles.navContent}
+        >
+          <div className={styles.navText}>
+            <p>Seções</p>
+            <IoMdArrowDropdown
+              style={{
+                transform: isNavOpen ? "rotate(180deg)" : "rotate(0deg)",
+                transition: "transform 0.4s ease-in-out",
+              }}
+            />
+          </div>
+          <motion.div
+            variants={navOptionsContainerVariants}
+            initial="hidden"
+            animate={isNavOpen ? "visible" : "hidden"}
+            className={styles.navOptions}
+            style={{
+              pointerEvents: isNavOpen ? "auto" : "none",
+            }}
+          >
+            {navOptions.map((option, index) => (
+              <motion.div
+                variants={navOptionsVariants}
+                initial="hidden"
+                animate={isNavOpen ? "visible" : "hidden"}
+                custom={index}
+                key={index}
+              >
+                <p
+                  onClick={() => {
+                    handleOptionClick(option);
+                    setIsNavOpen(false);
+                  }}
+                >
+                  {option}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.div>
       <Journey jornada={jornada} theme={theme} />
       <FirstSeason firstSeason={firstSeason} theme={theme} />
       <SecondSeason secondSeason={secondSeason} theme={theme} />

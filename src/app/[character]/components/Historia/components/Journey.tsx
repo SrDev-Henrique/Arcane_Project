@@ -1,5 +1,6 @@
 import { JourneyItem } from "@/types/CharacterTypes";
 import RenderCharacterData from "./RenderCharacterData/RenderCharacterData";
+import { sectionRefs } from "@/utils/sectionRefs";
 
 const page = ({
   jornada,
@@ -9,11 +10,16 @@ const page = ({
   theme: string;
 }) => {
   return (
-    <div style={{
-      marginTop: "20vh",
-    }}>
+    <section
+      ref={(el) => {
+        if (el) sectionRefs.current["Jornada"] = el as HTMLElement;
+      }}
+      style={{
+        marginTop: "20vh",
+      }}
+    >
       <RenderCharacterData subject={jornada} theme={theme} title="Jornada" />
-    </div>
+    </section>
   );
 };
 

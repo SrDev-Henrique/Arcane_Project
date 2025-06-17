@@ -1,5 +1,6 @@
 import { JourneyItem } from "@/types/CharacterTypes";
 import RenderCharacterData from "./RenderCharacterData/RenderCharacterData";
+import { sectionRefs } from "@/utils/sectionRefs";
 
 const FirstSeason = ({
   firstSeason,
@@ -9,13 +10,17 @@ const FirstSeason = ({
   theme: string;
 }) => {
   return (
-    <div>
+    <section
+      ref={(el) => {
+        if (el) sectionRefs.current["Temporada 1"] = el as HTMLElement;
+      }}
+    >
       <RenderCharacterData
         subject={firstSeason}
         theme={theme}
         title="Temporada 1"
       />
-    </div>
+    </section>
   );
 };
 

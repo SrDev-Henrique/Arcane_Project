@@ -19,7 +19,7 @@ const ImageDiv = ({
   theme: string;
 }) => {
   const imageRef = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(imageRef, { amount: 0.6, once: true });
+  const isInView = useInView(imageRef, { amount: 0.4, once: true });
   return (
     <div
       ref={imageRef}

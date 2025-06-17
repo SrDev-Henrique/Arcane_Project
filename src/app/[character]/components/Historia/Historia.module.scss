@@ -1,5 +1,11 @@
 @use "@/styles/variables" as *;
 
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -32,14 +38,26 @@
       background: $neutral-light;
       border-radius: 12px;
     }
+    .navContainer {
+      background-color: $neutral-light;
+      .navContent {
+        .navText {
+          color: $black-dark;
+        }
+      }
+    }
+    .navOptions {
+      background-color: $neutral-light;
+      p {
+        color: $black-dark;
+      }
+    }
   }
 }
 
 .backToTop {
+  @include flexCenter;
   position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   bottom: 5rem;
   right: clamp(1rem, 5vw, 5rem);
   width: 40px;
@@ -57,5 +75,58 @@
   @media (min-width: $lg) {
     bottom: 1rem;
     right: clamp(1rem, 10vw, 15rem);
+  }
+}
+
+.navContainer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  z-index: 12;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $black-dark;
+  border-radius: 1rem;
+  &:hover {
+    will-change: width, height;
+  }
+
+  .navContent {
+    @include flexCenter;
+    position: relative;
+    width: 126px;
+    height: 38px;
+    padding-block: 0.75rem;
+    cursor: pointer;
+
+    .navText {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: $cream;
+    }
+  }
+
+  .navOptions {
+    position: absolute;
+    inset-inline: 0;
+    top: calc(38px + 0.5rem);
+    height: 105px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: $black-dark;
+    border-radius: 1rem;
+    padding-block: 0.55rem;
+    transform-origin: center top;
+
+    p {
+      width: 126px;
+      color: $cream;
+      cursor: pointer;
+      text-align: center;
+    }
   }
 }

@@ -7,7 +7,7 @@ import classNames from "classnames";
 const TextDiv = ({ content, theme }: { content: string; theme: string }) => {
   const textRef = useRef<HTMLDivElement | null>(null);
 
-  const isInView = useInView(textRef, { amount: 0.5, once: true });
+  const isInView = useInView(textRef, { amount: 0.3, once: true });
   return (
     <motion.div
       variants={textVariants}

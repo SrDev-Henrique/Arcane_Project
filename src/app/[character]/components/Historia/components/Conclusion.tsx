@@ -1,5 +1,6 @@
 import { JourneyItem } from "@/types/CharacterTypes";
 import RenderCharacterData from "./RenderCharacterData/RenderCharacterData";
+import { sectionRefs } from "@/utils/sectionRefs";
 
 const Conclusion = ({
   conclusion,
@@ -9,13 +10,18 @@ const Conclusion = ({
   theme: string;
 }) => {
   return (
-    <div>
+    <section
+      ref={(el) => {
+        if (el)
+          sectionRefs.current["Conclusão"] = el as HTMLElement;
+      }}
+    >
       <RenderCharacterData
         subject={conclusion}
         theme={theme}
         title="Conclusão"
       />
-    </div>
+    </section>
   );
 };
 
