@@ -1,0 +1,59 @@
+@use "@/styles/variables" as *;
+
+@mixin text {
+  font-family: $font-lora;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 20vw;
+  letter-spacing: 0.05em;
+  color: $black-dark;
+}
+
+.container {
+  height: 450vh;
+  width: 100svw;
+  max-width: 100svw;
+
+  .stickyDiv {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100svw;
+    overflow: hidden;
+
+    .images {
+      position: relative;
+      width: 100svw;
+      height: 100vh;
+      overflow: hidden;
+
+      .imageContainer {
+        position: absolute;
+        inset: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+    .texts {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid black;
+
+      .firstText {
+        @include text;
+      }
+      .secondText {
+        @include text;
+      }
+    }
+  }
+}

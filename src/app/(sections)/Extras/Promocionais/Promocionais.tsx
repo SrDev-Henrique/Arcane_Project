@@ -1,6 +1,6 @@
 "use client";
 
-import RenderExtra from "@/components/RenderExtra/RenderExtra";
+import RenderExtra from "@/app/(sections)/Extras/RenderExtra/RenderExtra";
 import styles from "./Promocionais.module.scss";
 import { sectionRefs } from "@/utils/sectionRefs";
 
@@ -20,7 +20,12 @@ const Promocionais = () => {
       }}
       className={styles.container}
     >
-     <RenderExtra subject="Promocionais" extraTitles={promosTitle} sources={sources} netflix />
+      <RenderExtra
+        subject="Promocionais"
+        extraTitles={promosTitle}
+        sources={sources}
+        netflix
+      />
     </section>
   );
 };

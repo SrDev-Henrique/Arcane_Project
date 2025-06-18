@@ -37,6 +37,12 @@
   @media (min-width: $lg) {
     width: 26%;
   }
+
+  @media(min-width: $xxl) {
+    .text {
+      font-size: clamp(0.575em, 0.5vw + 0.5em, 1.1em);
+    }
+  }
 }
 
 .title {

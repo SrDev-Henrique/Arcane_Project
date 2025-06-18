@@ -2,7 +2,7 @@
 
 import { sectionRefs } from "@/utils/sectionRefs";
 import styles from "./Musicas.module.scss";
-import RenderExtra from "@/components/RenderExtra/RenderExtra";
+import RenderExtra from "@/app/(sections)/Extras/RenderExtra/RenderExtra";
 
 const musicasTitle = [
   "Arcane | Enemy - Imagine Dragons, JID",
