@@ -2,7 +2,7 @@
 
 import styles from "./Hero.module.scss";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TiLocationArrow } from "react-icons/ti";
 import { isMobile } from "react-device-detect";
 
@@ -10,10 +10,10 @@ import Button from "@/components/Button/Button";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { heroVideos } from "./anime";
-// import { useMenu } from "@/contexts/GlobalContext";
+import { useMenu } from "@/contexts/GlobalContext";
 
 const Hero = () => {
-  // const { isLoading, setIsLoading } = useMenu();
+  const { isLoading, setIsLoading } = useMenu();
 
   const [currentIndex, setCurrentIndex] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -60,26 +60,26 @@ const Hero = () => {
     }
   };
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 6000);
-  // }, [setIsLoading]);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 6000);
+  }, [setIsLoading]);
 
-  // useEffect(() => {
-  //   if (isLoading) {
-  //     document.body.classList.add("overflow-hidden");
-  //   } else {
-  //     document.body.classList.remove("overflow-hidden");
-  //   }
-  //   return () => {
-  //     document.body.classList.remove("overflow-hidden");
-  //   };
-  // }, [isLoading]);
+  useEffect(() => {
+    if (isLoading) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [isLoading]);
 
   return (
     <div style={{ backgroundColor: "#FFEBB7" }}>
-      {/* {isLoading && (
+       {isLoading && (
         <div className={styles.loading}>
           <div className={styles.dots}>
             <div className={styles.threeBody__dot}></div>
@@ -90,7 +90,7 @@ const Hero = () => {
             <div className={styles.progressInner}></div>
           </div>
         </div>
-      )} */}
+      )} 
       <motion.div style={{ clipPath }} className={styles.hero}>
         <div ref={targetRef} className={styles.videoContainer}>
           {isMobile ? (
