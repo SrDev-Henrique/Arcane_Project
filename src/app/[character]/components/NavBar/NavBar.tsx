@@ -58,6 +58,8 @@ const NavBar = ({
   const totalSongs = playlist.length;
   const upcomingSongIndex = (currentSong + 1) % totalSongs;
 
+  const isGif = playlist.some((item) => item.imgSrc.endsWith(".gif"));
+
   const addToNameRefs = (el: HTMLDivElement | null, index: number) => {
     if (!el) return;
     songNameRef.current[index] = el;
@@ -316,6 +318,7 @@ const NavBar = ({
                     alt={`${song.songName} cover`}
                     fill
                     sizes="(max-width: 50px)"
+                    unoptimized={isGif}
                   />
                 </div>
               ))}

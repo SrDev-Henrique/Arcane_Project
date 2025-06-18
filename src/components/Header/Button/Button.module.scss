@@ -21,6 +21,7 @@
       height: 100%;
       background-color: $black-intense;
       color: $white;
+      -webkit-tap-highlight-color: transparent;
       p {
         margin: 0px;
       }

@@ -3,7 +3,7 @@
 .container {
   position: sticky;
   top: 2.5vh;
-  height: 95svh;
+  height: 95vh;
   width: 98svw;
   border-radius: 2.5rem;
   overflow: hidden;
@@ -39,7 +39,7 @@
 
     @media (max-height: $sm) and (max-width: 1023px) {
       min-width: 60vw;
-      min-height: 80svh !important;
+      min-height: 80vh !important;
       gap: 0.5rem;
 
       .charImage {

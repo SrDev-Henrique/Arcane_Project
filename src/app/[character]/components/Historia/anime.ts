@@ -1,27 +1,3 @@
-export const containerVariants = {
-  hidden: {
-    opacity: 0,
-  },
-  initial: {
-    opacity: 1,
-    width: "126px",
-    height: "38px",
-    transition: {
-      duration: 0.5,
-      type: "spring",
-    },
-  },
-  expanded: {
-    opaity: 1,
-    width: "136px",
-    height: "48px",
-    transition: {
-      duration: 0.5,
-      type: "spring",
-    },
-  },
-};
-
 export const navOptionsContainerVariants = {
   hidden: {
     height: "105px",

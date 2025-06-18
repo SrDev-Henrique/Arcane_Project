@@ -13,7 +13,6 @@ import { sectionRefs } from "@/utils/sectionRefs";
 
 import { motion } from "framer-motion";
 import {
-  containerVariants,
   navOptionsContainerVariants,
   navOptionsVariants,
 } from "./anime";
@@ -39,7 +38,6 @@ const Historia = ({
 
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const [expand, setExpand] = useState(false);
 
   const tab = "história";
 
@@ -119,18 +117,14 @@ const Historia = ({
         <FaChevronUp />
       </div>
       <motion.div
-        variants={containerVariants}
-        initial="initial"
-        animate={expand ? "expanded" : "initial"}
+        initial={{ width: "126px", height: "38px" }}
+        whileTap={{ width: "136px", height: "48px" }}
+        transition={{ type: "spring", stiffness: 800, damping: 20, duration: 0.6 }}
         className={styles.navContainer}
       >
         <div
           onClick={() => {
             setIsNavOpen(!isNavOpen);
-            setExpand(true);
-            setTimeout(() => {
-              setExpand(false);
-            }, 300);
           }}
           className={styles.navContent}
         >

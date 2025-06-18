@@ -1,0 +1,171 @@
+@use "@/styles/variables" as *;
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin imageContainer {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  filter: brightness(0.8);
+}
+
+@mixin detailsText($color: $red-netflix) {
+  text-transform: uppercase;
+  font-family: $font-zentry;
+  font-weight: 900;
+  font-size: clamp(3rem, 5vw + 0.5rem, 5rem);
+  line-height: 1;
+  color: $color;
+  padding-left: 1rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: fit-content;
+  min-height: 100vh;
+
+  .titleContainer {
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    color: $white;
+    font-size: clamp(2rem, 10vw, 7rem);
+    font-family: $font-cinzel;
+    text-transform: uppercase;
+    overflow: hidden;
+    margin-block: 10rem;
+  }
+}
+
+.promoContainer {
+  display: flex;
+  width: 100svw;
+  height: fit-content;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 3.5vw;
+  gap: 10vw;
+
+  .promo {
+    width: 90svw;
+    height: fit-content;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .promoCard {
+    position: relative;
+    width: 90svw;
+    height: 55svw;
+    cursor: pointer;
+    overflow: hidden;
+    .imageContainer {
+      @include imageContainer;
+    }
+
+    .details {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-block: 1rem;
+      z-index: 2;
+
+      .netflix {
+        @include detailsText;
+      }
+      .riot {
+        @include detailsText($beige-dark);
+      }
+
+      .watch {
+        align-self: center;
+        font-family: $font-lora;
+        font-size: clamp(0.675rem, 2vw + 0.5rem, 0.875rem);
+        text-transform: uppercase;
+        padding: 0.75rem;
+        background-color: $black-light;
+        border-radius: 2rem;
+        color: $red-opache;
+        opacity: 0;
+      }
+    }
+  }
+  .promoTitle {
+    width: fit-content;
+    border-radius: 0.75rem;
+    transform-origin: top center;
+
+    p {
+      font-size: clamp(0.675rem, 2vw + 0.5rem, 1.25rem);
+      color: $neutral-light;
+    }
+  }
+
+  @media (min-width: 900px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5vw;
+    padding-inline: 7.5svw;
+
+    .promo {
+      width: 40svw;
+
+      .promoCard {
+        width: 40svw;
+        height: 25svw;
+      }
+    }
+  }
+}
+
+.secondImageContainer {
+  @include imageContainer;
+  z-index: 3;
+  will-change: mask-image;
+}
+
+.iframeContainer {
+  @include flexCenter;
+  width: 100svw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  background-color: #0a0a0a90;
+
+  .iframe {
+    width: 90svw;
+    height: 80vh;
+  }
+
+  .closeButton {
+    @include flexCenter;
+    gap: 0.25rem;
+    position: absolute;
+    top: 2.5vh;
+    color: $black-dark;
+    background-color: $neutral-light;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    font-size: clamp(0.675rem, 2vw + 0.5rem, 1.25rem);
+    cursor: pointer;
+
+    p {
+        font-size: clamp(0.675rem, 2vw + 0.5rem, 1.1rem);
+    }
+  }
+}

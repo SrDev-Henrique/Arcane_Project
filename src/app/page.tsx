@@ -4,6 +4,7 @@ import About from "./(sections)/About/About";
 import Piltover from "./(sections)/Piltover/Piltover";
 import Temporadas from "./(sections)/Temporadas/Temporadas";
 import Zaun from "./(sections)/Zaun/Zaun";
+import Extras from "./(sections)/Extras/Extras";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Piltover />
       <Zaun />
       <Temporadas />
+      <Extras />
     </div>
   );
 }

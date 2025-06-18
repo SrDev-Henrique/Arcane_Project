@@ -7,7 +7,7 @@
 }
 
 .container {
-  height: 100%;
+  height: fit-content;
   width: 100svw;
   background-color: $beige-fadedBrown;
   padding-top: 23rem;
@@ -18,7 +18,7 @@
     @include flex-center;
     flex-direction: column;
     gap: 4rem;
-    height: 100%;
+    height: fit-content;
     width: 100%;
     background-color: $cream-dark;
     border-top-left-radius: 2rem;

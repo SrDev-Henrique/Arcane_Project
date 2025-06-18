@@ -99,6 +99,7 @@
     height: 38px;
     padding-block: 0.75rem;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 
     .navText {
       display: flex;

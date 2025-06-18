@@ -39,6 +39,8 @@ const ImageDiv = ({
           alt={`${title} imagem-${index}`}
           width={736}
           height={736}
+          placeholder="blur"
+          blurDataURL={src}
         />
       </motion.div>
       {quote && (

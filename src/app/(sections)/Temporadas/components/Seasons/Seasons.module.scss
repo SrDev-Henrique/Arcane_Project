@@ -32,6 +32,7 @@
       height: fit-content;
       width: fit-content;
       font-size: clamp(2rem, 4vw, 6rem);
+      font-family: $font-cinzel;
       text-transform: uppercase;
       justify-self: start;
     }
@@ -55,7 +56,6 @@
       width: clamp(107.725px, 18vw, 227.587px);
       height: clamp(140.587px, 18vw, 252.7px);
       border-radius: 0.35rem;
-      // overflow: hidden;
       position: absolute;
 
       &:nth-child(1) {
