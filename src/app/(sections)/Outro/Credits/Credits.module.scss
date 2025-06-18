@@ -1,0 +1,159 @@
+@use "@/styles/variables" as *;
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin label {
+  font-family: $font-lora;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@mixin button {
+  border: none;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  gap: 0.25rem;
+  cursor: pointer;
+
+  @media (min-width: $sm) {
+    padding: 0.75rem;
+    border-radius: 1rem;
+    gap: 0.5rem;
+  }
+}
+
+.container {
+  height: fit-content;
+  min-height: 100vh;
+  width: 100svw;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .topText {
+    position: absolute;
+    top: 0;
+    inset-inline: 0;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    text-align: center;
+    padding-top: 0.75rem;
+
+    p {
+      color: $black-dark;
+      text-transform: uppercase;
+      &:nth-child(1) {
+        font-size: clamp(0.5rem, 3vw, 0.675rem);
+        font-weight: bold;
+        font-family: $font-general;
+      }
+      &:nth-child(2) {
+        font-size: clamp(1rem, 3vw, 1.5rem);
+        font-family: $font-lora;
+        font-weight: bold;
+      }
+    }
+    @media (max-height: $sm) {
+      p {
+        &:nth-child(2) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .me {
+    @include flexCenter;
+    width: 100svw;
+    height: 100vh;
+    flex-direction: column;
+    h1 {
+      text-transform: uppercase;
+      font-family: $font-lora;
+      font-size: clamp(3rem, 10vw, 8rem);
+      color: $black-dark;
+      cursor: default;
+    }
+    @media (max-height: $sm) {
+      h1 {
+        font-size: 3.2rem;
+      }
+    }
+  }
+}
+
+.links {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: clamp(1rem, 5vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  max-width: 1080px;
+
+  @media (max-height: $sm) {
+    width: 70%;
+  }
+
+  @media (min-width: $sm) {
+    width: 90%;
+  }
+
+  .link {
+    position: relative;
+    width: fit-content;
+    border-radius: 0.5rem;
+    text-decoration: none;
+
+    .firstButton {
+      @include flexCenter;
+      @include button;
+      width: fit-content;
+
+      .icon {
+        font-size: 1.5rem;
+        line-height: 0;
+      }
+      .label {
+        @include label;
+        color: $black-dark;
+      }
+    }
+
+    .secondButton {
+      @include flexCenter;
+      @include button;
+      position: absolute;
+      inset: 0;
+      clip-path: ellipse(0% 100% at 0% 50%);
+      transition: clip-path 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+      will-change: clip-path;
+
+      .icon {
+        font-size: 1.5rem;
+        line-height: 0;
+      }
+      .label {
+        @include label;
+      }
+    }
+
+    &:hover {
+      .secondButton {
+        clip-path: ellipse(100% 100% at 50% 50%);
+      }
+    }
+  }
+}
