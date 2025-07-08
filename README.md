@@ -1,37 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arcane: Universo Interativo
 
-## Getting Started
+## Descrição
 
-First, run the development server:
+Um website imersivo e responsivo que apresenta o universo da série animada **Arcane** (Riot Games/Netflix), explorando suas regiões, personagens, temporadas, trilhas sonoras e conteúdos promocionais. Desenvolvido para fãs, curiosos e profissionais de entretenimento, o projeto entrega uma experiência visual marcante, navegação fluida e informações ricas sobre o mundo de Runeterra, Piltover e Zaun.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+O site valoriza a estética, a interatividade e a performance, sendo ideal para portfólios, apresentação a recrutadores ou demonstração de habilidades em frontend moderno.
+
+## Tecnologias Utilizadas
+
+- **Next.js 15** (App Router)
+- **React 19**
+- **TypeScript**
+- **SCSS (Sass Modules)**
+- **Framer Motion** (animações)
+- **Lenis** (scroll suave)
+- **React Icons**
+- **React Device Detect**
+- **Lodash.debounce**
+- **ESLint**
+
+## Principais Funcionalidades
+
+- **Design 100% responsivo** e mobile-first
+- **Animações de entrada, transição e texto** com Framer Motion
+- **Navegação fluida** com menu animado e rolagem suave (Lenis)
+- **Componentização avançada** (seções, cards, botões, títulos animados)
+- **Apresentação detalhada de personagens** (história, habilidades, playlists)
+- **Exploração de temporadas e episódios** com imagens e links para Netflix
+- **Conteúdos extras:** trailers, trilhas sonoras, destaques e materiais promocionais
+- **Modo tela cheia** (FullscreenSwitcher)
+- **Carregamento animado** e feedback visual
+- **Acessibilidade** (uso de ARIA, navegação por teclado)
+
+## Como Rodar Localmente
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/SrDev-Henrique/Arcane_Project
+   cd arcane_project
+   ```
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
+3. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   ```
+4. **Acesse:**
+   [http://localhost:3000](http://localhost:3000)
+
+## Estrutura de Pastas (resumida)
+
+```
+arcane_project/
+├── public/
+│   ├── images/           # Imagens de personagens, regiões, temporadas, etc.
+│   ├── audio/            # Trilhas sonoras e áudios de personagens
+│   └── fonts/            # Fontes customizadas
+├── src/
+│   ├── app/              # Páginas e seções principais (Hero, About, Piltover, Zaun, Temporadas, Extras, Outro)
+│   ├── components/       # Componentes reutilizáveis (Header, Button, AnimatedText, FullscreenSwitcher...)
+│   ├── contexts/         # Contextos globais (menu, scroll, etc.)
+│   ├── hooks/            # Hooks customizados (ex: useFullscreen)
+│   ├── data/             # Dados estruturados (personagens, temporadas)
+│   ├── styles/           # Variáveis e temas SCSS
+│   └── utils/            # Utilitários e helpers
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Diferenciais Técnicos
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Organização modular:** separação clara por seções, componentes e dados
+- **Hooks customizados:** manipulação de fullscreen, viewport, scroll lock
+- **Context API:** gerenciamento global de menu, loading, áudio e temporadas
+- **Design system próprio:** SCSS modular, variáveis de cor, tipografia e breakpoints
+- **Animações avançadas:** transições de vídeo, textos animados, loaders customizados
+- **Acessibilidade e UX:** navegação por teclado, feedback visual, responsividade real
+- **Integração com plataformas externas:** links diretos para Netflix, YouTube e playlists
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contato / Autor
 
-## Learn More
+Desenvolvido por **SrDev Henrique**
 
-To learn more about Next.js, take a look at the following resources:
+- [GitHub](https://github.com/SrDev-Henrique)
+- [Instagram](https://www.instagram.com/hick.slv/)
+- [E-mail](mailto:halbuquerque2850@gmail.com?subject=Gostaria%20de%20montar%20um%20orçamento%20para%20um%20projeto)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# Arcane_Project
+> Projeto para fins de portfólio, estudo e demonstração de habilidades em frontend moderno. Não oficial, sem fins comerciais.
