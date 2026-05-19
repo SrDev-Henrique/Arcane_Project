@@ -10,7 +10,7 @@ const words = ["sr dev", "henrique"];
 
 const links = [
   {
-    href: "https://github.com/SrDev-Henrique",
+    href: "https://henriquealbuquerque.dev",
     backgroundColor: "#0a0a0a",
     textColor: "#F0F0F0",
     color: "#c1c1ba",

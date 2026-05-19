@@ -148,7 +148,7 @@ const Nav = ({
         </div>
         <Link
           className={styles.footerLink}
-          href={"https://github.com/SrDev-Henrique"}
+          href={"https://henriquealbuquerque.dev"}
           target="_blank"
         >
           <p>SRDEV HENRIQUE</p>
